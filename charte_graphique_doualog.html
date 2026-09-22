@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manuel d'identité visuelle — Doualog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+  /* ══════════════════════════════════════════════════════════════
+     TOKENS — clair (racine)
+     ══════════════════════════════════════════════════════════════ */
+  :root{
+    color-scheme: light;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+
+    /* Identité */
+    --navy:        #0C2C5E;   /* bleu marine — extrait du logotype */
+    --navy-ink:    #070D18;   /* encre — chrome du Control Tower */
+    --gold:        #B96C15;   /* or douane — texte/traits, contraste AA sur clair */
+    --gold-fill:   #D6821A;   /* or douane — aplats, boutons */
+    --gold-soft:   #F3E2C6;
+
+    /* Surfaces (document) */
+    --canvas:      #F7F5F0;
+    --surface:     #FFFFFF;
+    --surface-2:   #F1EEE7;
+    --border:      #D9D2C2;
+
+    /* Surfaces (specimens produit — fixes, ne suivent pas le thème) */
+    --prod-ink:    #070D18;
+    --prod-slate:  #131A26;
+    --prod-slate-2:#1B2432;
+    --prod-line:   rgba(255,255,255,.10);
+    --prod-text:   #EDEEF2;
+    --prod-text-2: rgba(237,238,242,.56);
+
+    /* Texte document */
+    --ink-900:     #14110D;
+    --ink-600:     #5B564A;
+    --ink-300:     #B9B0A0;
+
+    /* Statuts métier */
+    --st-bleu:     #2F63AE;
+    --st-violet:   #6A4FD1;
+    --st-magenta:  #A8447F;
+    --st-vert:     #2E8347;
+    --st-rouille:  #B04B1B;
+    --st-rouge:    #B23327;
+
+    /* Ombre portée — dure, décalée (jamais de flou) */
+    --shadow-col:  var(--ink-900);
+
+    --radius: 6px;
+    --radius-sm: 4px;
+    --radius-pill: 999px;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme: dark;
+      --canvas:      #0B0E13;
+      --surface:     #12161D;
+      --surface-2:   #171C25;
+      --border:      #2A3038;
+
+      --ink-900:     #F1EEE6;
+      --ink-600:     #A79F90;
+      --ink-300:     #333A44;
+
+      --navy:        #7FA1D6;
+      --gold:        #EAAE5D;
+      --gold-fill:   #E3A24A;
+      --gold-soft:   #2C2013;
+
+      --st-bleu:     #6FA0E0;
+      --st-violet:   #A98CF0;
+      --st-magenta:  #DD86C2;
+      --st-vert:     #62C17E;
+      --st-rouille:  #E38652;
+      --st-rouge:    #E2685C;
+
+      --shadow-col:  #000000;
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --canvas:      #0B0E13;
+    --surface:     #12161D;
+    --surface-2:   #171C25;
+    --border:      #2A3038;
+
+    --ink-900:     #F1EEE6;
+    --ink-600:     #A79F90;
+    --ink-300:     #333A44;
+
+    --navy:        #7FA1D6;
+    --gold:        #EAAE5D;
+    --gold-fill:   #E3A24A;
+    --gold-soft:   #2C2013;
+
+    --st-bleu:     #6FA0E0;
+    --st-violet:   #A98CF0;
+    --st-magenta:  #DD86C2;
+    --st-vert:     #62C17E;
+    --st-rouille:  #E38652;
+    --st-rouge:    #E2685C;
+
+    --shadow-col:  #000000;
+  }
+
+  /* ══════════════════════════════════════════════════════════════
+     RESET & BASE
+     ══════════════════════════════════════════════════════════════ */
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  img{ max-width:100%; display:block; }
+  [hidden]{ display:none!important; }
+
+  body{
+    background: var(--canvas);
+    color: var(--ink-900);
+    font-family: 'Sora', ui-sans-serif, system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding-inline: max(16px, env(safe-area-inset-left, 0px));
+  }
+
+  a{ color: var(--gold); }
+  :focus-visible{ outline: 2px solid var(--gold-fill); outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.01ms!important; transition-duration:.01ms!important; }
+  }
+
+  .doc{ max-width: 980px; margin: 0 auto; padding-block: 28px 96px; }
+
+  h1,h2,h3,h4{ font-family:'Sora', ui-sans-serif, sans-serif; text-wrap:balance; margin:0; }
+
+  .num{ font-variant-numeric: tabular-nums; }
+
+  /* ══════════════════════════════════════════════════════════════
+     BARRE DE CONTRÔLE DOCUMENT (en-tête façon document réglementaire)
+     ══════════════════════════════════════════════════════════════ */
+  .doc-control{
+    display:flex; justify-content:space-between; align-items:baseline;
+    gap:12px; flex-wrap:wrap;
+    padding-block:10px;
+    border-bottom:1px solid var(--border);
+    font-family:'Sora', ui-sans-serif, sans-serif;
+    font-size:11px; letter-spacing:.04em;
+    color: var(--ink-600);
+    text-transform:uppercase;
+  }
+  .doc-control strong{ color:var(--ink-900); font-weight:600; }
+
+  /* ══════════════════════════════════════════════════════════════
+     COUVERTURE
+     ══════════════════════════════════════════════════════════════ */
+  .cover{
+    margin-top:32px;
+    background: var(--navy-ink);
+    color:#fff;
+    padding: 56px clamp(20px,5vw,64px) 44px;
+    position:relative;
+  }
+  .cover-top{
+    display:flex; align-items:center; gap:18px; margin-bottom:44px;
+  }
+  .cover-logo{ width:150px; background:#fff; padding:14px 16px; }
+  .cover-logo img{ width:100%; height:auto; }
+  .cover-brandline{ font-family:'Sora',sans-serif; font-size:11px; letter-spacing:.14em; color:var(--gold-fill); text-transform:uppercase; }
+
+  .cover h1{
+    font-size: clamp(2.1rem, 5.4vw, 3.4rem);
+    font-weight:700; line-height:1.05; color:#fff; margin-bottom:10px;
+    max-width: 16ch;
+  }
+  .cover-sub{ color:rgba(255,255,255,.62); font-size:15px; max-width:52ch; margin-bottom:36px; }
+
+  .cover-meta{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    border-top:1px solid rgba(255,255,255,.16);
+    padding-top:18px;
+  }
+  .cover-meta div{ padding-right:16px; border-right:1px solid rgba(255,255,255,.16); }
+  .cover-meta div:last-child{ border-right:none; }
+  .cover-meta .k{ font-family:'Sora',sans-serif; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.44); margin-bottom:4px; }
+  .cover-meta .v{ font-size:14px; font-weight:600; color:#fff; }
+
+  /* ══════════════════════════════════════════════════════════════
+     SOMMAIRE
+     ══════════════════════════════════════════════════════════════ */
+  .toc{ margin: 40px 0 0; padding:0; list-style:none; }
+  .toc li{ display:flex; align-items:baseline; gap:10px; padding:9px 0; border-bottom:1px solid var(--border); }
+  .toc .n{ font-family:'Sora',sans-serif; font-size:12px; color:var(--gold); width:2ch; flex-shrink:0; }
+  .toc .t{ font-size:14px; font-weight:600; white-space:nowrap; }
+  .toc .fill{ flex:1; border-bottom:1px dotted var(--ink-300); transform:translateY(-4px); }
+  .toc .p{ font-family:'Sora',sans-serif; font-size:11px; color:var(--ink-600); }
+
+  /* ══════════════════════════════════════════════════════════════
+     ARTICLES
+     ══════════════════════════════════════════════════════════════ */
+  .article{ padding-top:76px; }
+  .article-head{ margin-bottom:30px; border-bottom:2px solid var(--ink-900); padding-bottom:16px; }
+  .article-head h2{ font-size: clamp(1.5rem,3.2vw,2rem); font-weight:700; }
+  .article-intro{ max-width:66ch; color:var(--ink-600); font-size:14.5px; margin-bottom:32px; }
+
+  .lead{ font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-600); margin-bottom:12px; }
+
+  /* ══════════════════════════════════════════════════════════════
+     GRIDS
+     ══════════════════════════════════════════════════════════════ */
+  .grid{ display:grid; gap:2px; background:var(--border); border:1px solid var(--border); }
+  .g4{ grid-template-columns:repeat(4,1fr); }
+  .g3{ grid-template-columns:repeat(3,1fr); }
+  .g2{ grid-template-columns:repeat(2,1fr); }
+  @media (max-width:680px){ .g4{grid-template-columns:repeat(2,1fr);} .g3{grid-template-columns:repeat(2,1fr);} .g2{grid-template-columns:1fr;} }
+
+  .block-group{ margin-bottom:36px; }
+  .block-group:last-child{ margin-bottom:0; }
+
+  /* ══════════════════════════════════════════════════════════════
+     ARTICLE 01 — LOGOTYPE
+     ══════════════════════════════════════════════════════════════ */
+  .logo-specimen{ background:var(--surface); padding:clamp(32px,6vw,64px); display:flex; align-items:center; justify-content:center; }
+  .logo-specimen img{ width:190px; }
+  .logo-specimen.on-navy{ background:var(--navy-ink); }
+  .logo-specimen.on-paper{ background:var(--surface-2); }
+  .specimen-cap{ font-family:'Sora',sans-serif; font-size:10.5px; letter-spacing:.06em; color:var(--ink-600); padding:9px 12px; background:var(--surface); border-top:1px solid var(--border); }
+
+  .clearspace-wrap{ background:var(--surface); padding:44px; display:flex; align-items:center; justify-content:center; }
+  .clearspace-box{ border:1px dashed var(--ink-300); padding:34px; position:relative; }
+  .clearspace-box img{ width:150px; }
+  .clearspace-box::before,.clearspace-box::after{
+    content:''; position:absolute; border:1px solid var(--gold); width:10px; height:10px;
+  }
+  .clearspace-box::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
+  .clearspace-box::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; }
+
+  .dont-tile{ background:var(--surface); padding:26px; display:flex; align-items:center; justify-content:center; position:relative; min-height:140px; }
+  .dont-tile img{ width:120px; }
+  .dont-mark{ position:absolute; top:8px; right:8px; width:20px; height:20px; border:1.5px solid var(--st-rouge); border-radius:50%; }
+  .dont-mark::before,.dont-mark::after{ content:''; position:absolute; top:50%; left:50%; width:14px; height:1.5px; background:var(--st-rouge); }
+  .dont-mark::before{ transform:translate(-50%,-50%) rotate(45deg); }
+  .dont-mark::after{ transform:translate(-50%,-50%) rotate(-45deg); }
+  .dont-stretch img{ transform:scaleX(1.7); }
+  .dont-recolor img{ filter:hue-rotate(140deg) saturate(2.2); }
+  .dont-rotate img{ transform:rotate(-16deg) scale(1.05); }
+  .dont-contrast{ background:var(--gold-fill); }
+  .dont-contrast img{ filter:brightness(1.05); }
+  .dont-tile .specimen-cap{ position:absolute; left:0; right:0; bottom:0; background:transparent; border-top:none; text-align:center; }
+
+  .note-box{ background:var(--gold-soft); border-left:3px solid var(--gold); padding:14px 18px; font-size:13px; color:var(--ink-900); max-width:70ch; }
+
+  /* ══════════════════════════════════════════════════════════════
+     ARTICLE 02 — COULEUR — SWATCHES
+     ══════════════════════════════════════════════════════════════ */
+  .swatch{ background:var(--surface); display:flex; flex-direction:column; }
+  .swatch-color{ height:92px; }
+  .swatch-info{ padding:12px 14px; flex:1; }
+  .swatch-name{ font-size:13px; font-weight:700; }
+  .swatch-hex{ font-family:'Sora',sans-serif; font-size:11.5px; color:var(--ink-600); margin-top:2px; }
+  .swatch-use{ font-size:11.5px; color:var(--ink-600); margin-top:8px; line-height:1.5; }
+
+  /* ══════════════════════════════════════════════════════════════
+     ARTICLE 03 — TYPOGRAPHIE
+     ══════════════════════════════════════════════════════════════ */
+  .type-role{ background:var(--surface); padding:22px 24px; }
+  .type-role .role-label{ font-family:'Sora',sans-serif; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+  .type-role .role-name{ font-size:19px; font-weight:700; margin-bottom:4px; }
+  .type-role .role-spec{ font-family:'Sora',sans-serif; font-size:11px; color:var(--ink-600); margin-bottom:18px; }
+  .role-display{ font-family:'Sora'; }
+  .role-text{ font-family:'Sora'; }
+  .role-mono{ font-family:'Sora'; }
+  .role-sample-big{ font-size:26px; line-height:1.15; }
+  .role-sample-med{ font-size:15px; line-height:1.6; }
+
+  .scale-table{ width:100%; border-collapse:collapse; margin-top:2px; }
+  .scale-table td,.scale-table th{ padding:12px 14px; border-bottom:1px solid var(--border); text-align:left; vertical-align:baseline; }
+  .scale-table th{ font-family:'Sora',sans-serif; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-600); font-weight:500; background:var(--surface-2); }
+  .scale-spec{ font-family:'Sora',sans-serif; font-size:11px; color:var(--ink-600); white-space:nowrap; }
+  .scale-sample.d1{ font-family:'Sora'; font-weight:700; font-size:30px; }
+  .scale-sample.d2{ font-family:'Sora'; font-weight:700; font-size:22px; }
+  .scale-sample.d3{ font-family:'Sora'; font-weight:600; font-size:17px; }
+  .scale-sample.b1{ font-family:'Sora'; font-size:15px; }
+  .scale-sample.b2{ font-family:'Sora'; font-size:13px; color:var(--ink-600); }
+  .scale-sample.lb{ font-family:'Sora'; font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+  .scale-sample.mn{ font-family:'Sora'; font-weight:500; font-size:13px; font-variant-numeric:tabular-nums; }
+
+  /* ══════════════════════════════════════════════════════════════
+     ARTICLE 04 — COMPOSANTS
+     ══════════════════════════════════════════════════════════════ */
+  .panel{ background:var(--surface); padding:26px; }
+  .panel-label{ font-family:'Sora',sans-serif; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-600); margin-bottom:16px; }
+
+  .btn{
+    font-family:'Sora'; font-size:13px; font-weight:600;
+    border-radius:var(--radius);
+    padding:10px 18px; border:1.5px solid var(--ink-900); background:transparent; color:var(--ink-900);
+    cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{ background:var(--gold-fill); border-color:var(--gold-fill); color:#1A1204; }
+  .btn-danger{ border-color:var(--st-rouge); color:var(--st-rouge); }
+  .btn-sm{ padding:6px 13px; font-size:12px; }
+
+  .field{ display:flex; flex-direction:column; gap:6px; }
+  .field label{ font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-600); }
+  .field input, .field select{
+    font-family:'Sora',sans-serif; font-size:13px; padding:10px 12px;
+    border:1.5px solid var(--border); border-radius:var(--radius); background:var(--surface); color:var(--ink-900);
+  }
+  .field input:focus, .field select:focus{ outline:none; border-color:var(--gold-fill); box-shadow:0 0 0 3px var(--gold-soft); }
+  .field .err input{ border-color:var(--st-rouge); }
+  .field .err-msg{ font-size:11px; color:var(--st-rouge); }
+
+  .tag{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:'Sora',sans-serif; font-size:11.5px; font-weight:600;
+    padding:4px 11px; border-radius:var(--radius-pill); color:var(--tag-c);
+    background:color-mix(in srgb, var(--tag-c) 15%, var(--surface));
+  }
+  .tag::before{ content:''; width:6px; height:6px; border-radius:50%; background:currentColor; flex-shrink:0; }
+  .tag-bleu{ --tag-c:var(--st-bleu); }
+  .tag-violet{ --tag-c:var(--st-violet); }
+  .tag-magenta{ --tag-c:var(--st-magenta); }
+  .tag-vert{ --tag-c:var(--st-vert); }
+  .tag-rouille{ --tag-c:var(--st-rouille); }
+  .tag-rouge{ --tag-c:var(--st-rouge); }
+  .tag-neutre{ --tag-c:var(--ink-600); }
+
+  .kpi-dark-row{ display:flex; flex-wrap:wrap; gap:10px; background:var(--prod-ink); padding:14px 16px; }
+  .kpi-tile{ display:flex; align-items:center; gap:10px; background:var(--prod-slate); border:1px solid var(--prod-line); border-radius:8px; padding:10px 14px; flex:1; min-width:132px; }
+  .kpi-chip{ width:32px; height:32px; border-radius:7px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .kpi-chip svg{ width:16px; height:16px; }
+  .kpi-num{ font-family:'Sora'; font-weight:700; font-size:20px; line-height:1; color:#fff; font-variant-numeric:tabular-nums; }
+  .kpi-lbl{ font-size:9.5px; color:var(--prod-text-2); text-transform:uppercase; letter-spacing:.04em; margin-top:3px; }
+
+  .stepper{ display:flex; overflow-x:auto; overflow-y:visible; padding:4px 18px 46px; gap:0; }
+  .step{ display:flex; align-items:flex-start; flex-shrink:0; }
+  .step-node{ position:relative; flex-shrink:0; }
+  .tick{ width:24px; height:24px; border-radius:50%; border:2px solid var(--ink-300); background:var(--surface); flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+  .tick.done{ background:var(--st-vert); border-color:var(--st-vert); }
+  .tick.done::after{ content:'\2713'; color:#fff; font-size:12px; font-weight:700; line-height:1; }
+  .tick.special{ background:var(--st-violet); border-color:var(--st-violet); }
+  .tick.special::after{ content:'\2713'; color:#fff; font-size:12px; font-weight:700; line-height:1; }
+  .tick.active{ background:var(--gold-fill); border-color:var(--gold-fill); box-shadow:0 0 0 4px color-mix(in srgb, var(--gold-fill) 24%, transparent); }
+  .tick.active::after{ content:'!'; color:#1A1204; font-size:13px; font-weight:700; line-height:1; }
+  .step-lbl{ position:absolute; top:32px; left:50%; transform:translateX(-50%); width:54px; font-size:9.5px; text-align:center; line-height:1.3; color:var(--ink-600); }
+  .step-lbl.on{ color:var(--ink-900); font-weight:600; }
+  .step-line{ height:2px; width:34px; background:var(--ink-300); flex-shrink:0; margin-top:11px; }
+  .step-line.done{ background:var(--st-vert); }
+  .step-line.grad-dv{ background:linear-gradient(90deg, var(--st-vert), var(--st-violet)); }
+  .step-line.grad-va{ background:linear-gradient(90deg, var(--st-violet), var(--gold-fill)); }
+
+  /* ══════════════════════════════════════════════════════════════
+     ARTICLE 05 — ICONOGRAPHIE
+     ══════════════════════════════════════════════════════════════ */
+  .icon-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:2px; background:var(--border); border:1px solid var(--border); }
+  .icon-tile{ background:var(--surface); padding:24px 8px; display:flex; flex-direction:column; align-items:center; gap:11px; }
+  .icon-tile svg{ width:25px; height:25px; color:var(--ink-900); flex-shrink:0; }
+  .icon-tile span{ font-size:10.5px; color:var(--ink-600); text-align:center; line-height:1.3; }
+  @media (max-width:680px){ .icon-grid{ grid-template-columns:repeat(3,1fr); } }
+
+  .overflow-x{ overflow-x:auto; }
+
+  /* ══════════════════════════════════════════════════════════════
+     ARTICLE 06 — GRILLE & FINITIONS
+     ══════════════════════════════════════════════════════════════ */
+  .space-row{ display:flex; align-items:center; gap:14px; padding:10px 0; border-bottom:1px solid var(--border); }
+  .space-row:last-child{ border-bottom:none; }
+  .space-bar{ height:16px; background:var(--gold-fill); flex-shrink:0; }
+  .space-code{ font-family:'Sora',sans-serif; font-size:11.5px; background:var(--surface-2); padding:2px 7px; }
+  .space-desc{ font-size:12.5px; color:var(--ink-600); }
+
+  .hard-demo{ display:flex; gap:28px; align-items:center; flex-wrap:wrap; }
+  .hard-box{ width:120px; height:80px; background:var(--surface-2); border:1px solid var(--ink-900); }
+  .hard-caption{ font-size:11.5px; color:var(--ink-600); max-width:22ch; }
+
+  /* ══════════════════════════════════════════════════════════════
+     PIED — VISA
+     ══════════════════════════════════════════════════════════════ */
+  .visa{
+    margin-top:96px; padding-top:32px; border-top:2px solid var(--ink-900);
+    display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;
+  }
+  .visa-info{ font-size:11.5px; color:var(--ink-600); line-height:1.8; }
+  .visa-info b{ color:var(--ink-900); }
+  .stamp{
+    width:150px; height:150px; border:2px solid var(--st-rouge); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    transform:rotate(-9deg); flex-shrink:0; position:relative;
+  }
+  .stamp::before{ content:''; position:absolute; inset:8px; border:1px solid var(--st-rouge); border-radius:50%; }
+  .stamp-tx{ font-family:'Sora',sans-serif; font-size:10px; font-weight:600; letter-spacing:.06em; color:var(--st-rouge); text-transform:uppercase; line-height:1.5; }
+
+  /* ══════════════════════════════════════════════════════════════
+     RESPONSIVE
+     ══════════════════════════════════════════════════════════════ */
+  @media (max-width:680px){
+    .cover-meta{ grid-template-columns:repeat(2,1fr); row-gap:16px; }
+    .cover-meta div:nth-child(2n){ border-right:none; }
+    .toc .t{ white-space:normal; }
+  }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <div class="doc-control">
+    <span>Réf. <strong>MIV&#8209;DLG&#8209;2026&#8209;A</strong> · Manuel d'identité visuelle</span>
+    <span>Direction produit · Doualog</span>
+  </div>
+
+  <!-- ══ COUVERTURE ══ -->
+  <header class="cover">
+    <div class="cover-top">
+      <div class="cover-logo"><img src="logo.png" alt="Logotype Doualog"></div>
+      <div class="cover-brandline">Douane &amp; Logistique</div>
+    </div>
+    <h1>Manuel d'identité visuelle</h1>
+    <p class="cover-sub">Règles d'usage de la marque Doualog pour la plateforme Control Tower, les documents d'exploitation et les supports internes.</p>
+    <div class="cover-meta">
+      <div><div class="k">Version</div><div class="v num">1.0</div></div>
+      <div><div class="k">Édition</div><div class="v">Septembre 2026</div></div>
+      <div><div class="k">Périmètre</div><div class="v">Plateforme SaaS</div></div>
+      <div><div class="k">Statut</div><div class="v">Référence active</div></div>
+    </div>
+  </header>
+
+  <!-- ══ SOMMAIRE ══ -->
+  <ul class="toc">
+    <li><span class="n">01</span><span class="t">Le logotype</span><span class="fill"></span><span class="p">Usage &amp; protection</span></li>
+    <li><span class="n">02</span><span class="t">Couleur</span><span class="fill"></span><span class="p">Identité &amp; statuts métier</span></li>
+    <li><span class="n">03</span><span class="t">Typographie</span><span class="fill"></span><span class="p">Sora</span></li>
+    <li><span class="n">04</span><span class="t">Composants</span><span class="fill"></span><span class="p">Boutons, champs, cachets</span></li>
+    <li><span class="n">05</span><span class="t">Iconographie</span><span class="fill"></span><span class="p">Planche d'icônes</span></li>
+    <li><span class="n">06</span><span class="t">Grille &amp; finitions</span><span class="fill"></span><span class="p">Espacement, angles, ombre</span></li>
+  </ul>
+
+  <!-- ══ 01 — LOGOTYPE ══ -->
+  <section class="article" id="art01">
+    <div class="article-head"><h2>01 Le logotype</h2></div>
+    <p class="article-intro">Le monogramme <b>DL</b> et le mot-symbole <b>DOUALOG</b> forment un ensemble indivisible. Ils ne sont jamais recomposés, recolorés ou reconstruits — seul le fichier fourni fait référence.</p>
+
+    <div class="block-group">
+      <div class="lead">Usage sur fond</div>
+      <div class="grid g3">
+        <div><div class="logo-specimen on-paper"><img src="logo.png" alt="Logo sur papier"></div><div class="specimen-cap">Fond Papier — #F1EEE7 — usage courant</div></div>
+        <div><div class="logo-specimen"><img src="logo.png" alt="Logo sur blanc"></div><div class="specimen-cap">Fond Blanc — #FFFFFF — documents, impression</div></div>
+        <div><div class="logo-specimen on-navy"><img src="logo.png" alt="Logo sur fond marine"></div><div class="specimen-cap">Fond Encre — lisibilité réduite, voir note</div></div>
+      </div>
+      <div class="note-box" style="margin-top:2px;">Aucune version inversée (blanche) du logotype n'existe à ce jour. Sur fond sombre — bandeau du Control Tower, présentations — préférer le monogramme seul sur pastille blanche, à défaut du logotype complet.</div>
+    </div>
+
+    <div class="block-group">
+      <div class="grid g2">
+        <div>
+          <div class="lead">Zone de protection</div>
+          <div class="clearspace-wrap"><div class="clearspace-box"><img src="logo.png" alt="Zone de protection du logo"></div></div>
+          <div class="specimen-cap">Marge minimale = hauteur du monogramme DL, sur les quatre côtés.</div>
+        </div>
+        <div>
+          <div class="lead">Taille minimale</div>
+          <div class="clearspace-wrap"><img src="logo.png" alt="Taille minimale du logo" style="width:88px;"></div>
+          <div class="specimen-cap">88px de large à l'écran (32mm en impression). En-deçà, utiliser le monogramme DL seul.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block-group">
+      <div class="lead">Ce qu'il ne faut pas faire</div>
+      <div class="grid g4">
+        <div class="dont-tile dont-stretch"><img src="logo.png" alt="Logo déformé"><div class="dont-mark"></div><div class="specimen-cap">Déformer</div></div>
+        <div class="dont-tile dont-recolor"><img src="logo.png" alt="Logo recoloré"><div class="dont-mark"></div><div class="specimen-cap">Recolorer</div></div>
+        <div class="dont-tile dont-rotate"><img src="logo.png" alt="Logo pivoté"><div class="dont-mark"></div><div class="specimen-cap">Pivoter</div></div>
+        <div class="dont-tile dont-contrast"><img src="logo.png" alt="Logo sur fond faible contraste"><div class="dont-mark"></div><div class="specimen-cap">Fond sans contraste</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 02 — COULEUR ══ -->
+  <section class="article" id="art02">
+    <div class="article-head"><h2>02 Couleur</h2></div>
+    <p class="article-intro">La palette est extraite de deux sources vérifiées : le fichier logotype, et une capture d'écran de référence du Control Tower en production. Aucune couleur n'est choisie hors de ces sources.</p>
+
+    <div class="block-group">
+      <div class="lead">Identité de marque</div>
+      <div class="grid g2">
+        <div class="swatch"><div class="swatch-color" style="background:var(--navy);"></div><div class="swatch-info"><div class="swatch-name">Bleu Marine Doualog</div><div class="swatch-hex">#0C2C5E</div><div class="swatch-use">Wordmark, titres de section, structure éditoriale du document.</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--gold-fill);"></div><div class="swatch-info"><div class="swatch-name">Or Douane</div><div class="swatch-hex">#D6821A</div><div class="swatch-use">Action principale, accent de marque, trait de signature. À doser — jamais en fond de texte long.</div></div></div>
+      </div>
+    </div>
+
+    <div class="block-group">
+      <div class="lead">Surfaces</div>
+      <div class="grid g4">
+        <div class="swatch"><div class="swatch-color" style="background:#070D18;"></div><div class="swatch-info"><div class="swatch-name">Encre</div><div class="swatch-hex">#070D18</div><div class="swatch-use">Bandeau et navigation du Control Tower.</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#131A26;"></div><div class="swatch-info"><div class="swatch-name">Ardoise</div><div class="swatch-hex">#131A26</div><div class="swatch-use">Panneaux sur fond sombre, menu latéral.</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#F1EEE7;border:1px solid var(--border);"></div><div class="swatch-info"><div class="swatch-name">Ivoire écran</div><div class="swatch-hex">#F1EEE7</div><div class="swatch-use">Fond de la zone de travail, mode clair.</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FFFFFF;border:1px solid var(--border);"></div><div class="swatch-info"><div class="swatch-name">Blanc</div><div class="swatch-hex">#FFFFFF</div><div class="swatch-use">Cartes, panneaux, champs de saisie.</div></div></div>
+      </div>
+    </div>
+
+    <div class="block-group">
+      <div class="lead">Texte</div>
+      <div class="grid g3">
+        <div class="swatch"><div class="swatch-color" style="background:#14110D;"></div><div class="swatch-info"><div class="swatch-name">Encre texte</div><div class="swatch-hex">#14110D</div><div class="swatch-use">Texte principal.</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#5B564A;"></div><div class="swatch-info"><div class="swatch-name">Gris chaud</div><div class="swatch-hex">#5B564A</div><div class="swatch-use">Texte secondaire, légendes.</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#B9B0A0;"></div><div class="swatch-info"><div class="swatch-name">Trait</div><div class="swatch-hex">#B9B0A0</div><div class="swatch-use">Bordures, séparateurs.</div></div></div>
+      </div>
+    </div>
+
+    <div class="block-group">
+      <div class="lead">Statuts métier — cycle de vie d'un dossier</div>
+      <div class="grid g3">
+        <div class="swatch"><div class="swatch-color" style="background:#2F63AE;"></div><div class="swatch-info"><div class="swatch-name">Bleu Réception</div><div class="swatch-hex">#2F63AE</div><div class="swatch-use">Réception, déclaration stockée.</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#6A4FD1;"></div><div class="swatch-info"><div class="swatch-name">Violet Anticipé</div><div class="swatch-hex">#6A4FD1</div><div class="swatch-use">Déclaration anticipée.</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#A8447F;"></div><div class="swatch-info"><div class="swatch-name">Magenta Contrôle</div><div class="swatch-hex">#A8447F</div><div class="swatch-use">Contrôle douanier en cours, physique ou documentaire.</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#2E8347;"></div><div class="swatch-info"><div class="swatch-name">Vert Validé</div><div class="swatch-hex">#2E8347</div><div class="swatch-use">BAE / BAS obtenu, livré, clôturé.</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#B04B1B;"></div><div class="swatch-info"><div class="swatch-name">Rouille Transport</div><div class="swatch-hex">#B04B1B</div><div class="swatch-use">Transport en cours, en route.</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#B23327;"></div><div class="swatch-info"><div class="swatch-name">Rouge Alerte</div><div class="swatch-hex">#B23327</div><div class="swatch-use">Information manquante, alerte critique.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 03 — TYPOGRAPHIE ══ -->
+  <section class="article" id="art03">
+    <div class="article-head"><h2>03 Typographie</h2></div>
+    <p class="article-intro">Une seule police, du logotype à la moindre légende : <b style="color:var(--ink-900);">Sora</b>. Aucune autre famille n'entre dans l'interface — la hiérarchie se fait par le poids et la taille, jamais par un changement de police.</p>
+
+    <div class="grid g4" style="margin-bottom:32px;">
+      <div class="type-role">
+        <div class="role-label">Titrage</div>
+        <div class="role-name">700</div>
+        <div class="role-spec">Marque, titres d'article, chiffres KPI</div>
+        <div class="role-display role-sample-big" style="font-weight:700;">Contrôle douane</div>
+      </div>
+      <div class="type-role">
+        <div class="role-label">Interface</div>
+        <div class="role-name">600</div>
+        <div class="role-spec">Sous-titres, libellés, boutons, navigation</div>
+        <div class="role-display role-sample-med" style="font-weight:600;">Liste des dossiers</div>
+      </div>
+      <div class="type-role">
+        <div class="role-label">Données</div>
+        <div class="role-name">500</div>
+        <div class="role-spec">Références dossier, valeurs tabulaires</div>
+        <div class="role-display role-sample-med" style="font-weight:500;font-variant-numeric:tabular-nums;">DLG-2026-0001</div>
+      </div>
+      <div class="type-role">
+        <div class="role-label">Corps</div>
+        <div class="role-name">400</div>
+        <div class="role-spec">Texte courant, descriptions, tableaux</div>
+        <div class="role-display role-sample-med" style="font-weight:400;">Déclaration stockée, en attente de contrôle.</div>
+      </div>
+    </div>
+
+    <div class="lead">Échelle</div>
+    <div class="overflow-x">
+    <table class="scale-table">
+      <thead><tr><th>Rôle</th><th>Spécification</th><th>Exemple</th></tr></thead>
+      <tbody>
+        <tr><td class="scale-spec">Titre d'article</td><td class="scale-spec">30px · 700</td><td class="scale-sample d1">Couleur</td></tr>
+        <tr><td class="scale-spec">Titre de section</td><td class="scale-spec">22px · 700</td><td class="scale-sample d2">Tableau de bord</td></tr>
+        <tr><td class="scale-spec">Sous-titre</td><td class="scale-spec">17px · 600</td><td class="scale-sample d3">Liste des dossiers</td></tr>
+        <tr><td class="scale-spec">Corps</td><td class="scale-spec">15px · 400</td><td class="scale-sample b1">Texte courant, valeurs de champ</td></tr>
+        <tr><td class="scale-spec">Corps secondaire</td><td class="scale-spec">13px · 400</td><td class="scale-sample b2">Métadonnées, dates, mentions</td></tr>
+        <tr><td class="scale-spec">Libellé</td><td class="scale-spec">11px · 600 · majuscules</td><td class="scale-sample lb">N° Dossier</td></tr>
+        <tr><td class="scale-spec">Référence</td><td class="scale-spec">13px · 500 · tabulaire</td><td class="scale-sample mn">DLG-2026-0003</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- ══ 04 — COMPOSANTS ══ -->
+  <section class="article" id="art04">
+    <div class="article-head"><h2>04 Composants</h2></div>
+    <p class="article-intro">Angles droits, traits fins, aucune icône décorative. Chaque composant porte l'information par la couleur et la forme, jamais par un pictogramme surajouté.</p>
+
+    <div class="grid g2" style="margin-bottom:2px;">
+      <div class="panel">
+        <div class="panel-label">Boutons</div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+          <button class="btn btn-primary">Nouveau dossier</button>
+          <button class="btn">Exporter PDF</button>
+          <button class="btn btn-danger">Supprimer</button>
+          <button class="btn btn-sm">Filtres</button>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-label">Champs de saisie</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div class="field"><label>N° de BL</label><input value="MSKU1234567"></div>
+          <div class="field err"><input placeholder="Champ obligatoire"><span class="err-msg">Ce champ est requis</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-bottom:2px;">
+      <div class="panel-label">Badges de statut</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <span class="tag tag-bleu">Réception</span>
+        <span class="tag tag-bleu">Décl. stockée</span>
+        <span class="tag tag-violet">Anticipé</span>
+        <span class="tag tag-magenta">Contrôle physique</span>
+        <span class="tag tag-magenta">Contrôle documentaire</span>
+        <span class="tag tag-vert">BAE obtenu</span>
+        <span class="tag tag-vert">BAS obtenu</span>
+        <span class="tag tag-rouille">Transport en cours</span>
+        <span class="tag tag-vert">Livré</span>
+        <span class="tag tag-rouge">Info manquante</span>
+        <span class="tag tag-neutre">Clôturé</span>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-bottom:2px;padding:0;overflow:hidden;">
+      <div class="panel-label" style="padding:26px 26px 0;">Indicateurs — tableau de bord</div>
+      <div class="kpi-dark-row" style="margin-top:16px;">
+        <div class="kpi-tile">
+          <div class="kpi-chip" style="background:var(--st-bleu);"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6m-6 4h6M7 8h10M5 4h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5a1 1 0 011-1z"/></svg></div>
+          <div><div class="kpi-num">127</div><div class="kpi-lbl">Dossiers actifs</div></div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-chip" style="background:var(--st-magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg></div>
+          <div><div class="kpi-num">9</div><div class="kpi-lbl">Contrôles en cours</div></div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-chip" style="background:var(--st-vert);"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg></div>
+          <div><div class="kpi-num">21</div><div class="kpi-lbl">BAE obtenus</div></div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-chip" style="background:var(--st-vert);"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 18H5a2 2 0 01-2-2V8a2 2 0 012-2h3M16 6h3a2 2 0 012 2v8a2 2 0 01-2 2h-3M9 12h6"/></svg></div>
+          <div><div class="kpi-num">27</div><div class="kpi-lbl">Livrés</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-label">Cheminement d'un dossier</div>
+      <div class="stepper">
+        <div class="step"><div class="step-node"><div class="tick done"></div><div class="step-lbl">Réception</div></div><div class="step-line done"></div></div>
+        <div class="step"><div class="step-node"><div class="tick done"></div><div class="step-lbl">Décl. stockée</div></div><div class="step-line grad-dv"></div></div>
+        <div class="step"><div class="step-node"><div class="tick special"></div><div class="step-lbl">Anticipé</div></div><div class="step-line grad-va"></div></div>
+        <div class="step"><div class="step-node"><div class="tick active"></div><div class="step-lbl on">Contrôle douane</div></div><div class="step-line"></div></div>
+        <div class="step"><div class="step-node"><div class="tick"></div><div class="step-lbl">BAE</div></div><div class="step-line"></div></div>
+        <div class="step"><div class="step-node"><div class="tick"></div><div class="step-lbl">BAS</div></div><div class="step-line"></div></div>
+        <div class="step"><div class="step-node"><div class="tick"></div><div class="step-lbl">Transport</div></div><div class="step-line"></div></div>
+        <div class="step"><div class="step-node"><div class="tick"></div><div class="step-lbl">Livraison</div></div><div class="step-line"></div></div>
+        <div class="step-node"><div class="tick"></div><div class="step-lbl">Clôture</div></div>
+      </div>
+      <p style="font-size:11.5px;color:var(--ink-600);margin-top:10px;">La ligne entre deux étapes n'est jamais une seule couleur plate : elle dégrade de la couleur de l'étape passée vers celle de l'étape suivante — vert → violet → or au fil du dossier ci-dessus.</p>
+    </div>
+  </section>
+
+  <!-- ══ 05 — ICONOGRAPHIE ══ -->
+  <section class="article" id="art05">
+    <div class="article-head"><h2>05 Iconographie</h2></div>
+    <p class="article-intro">Une seule famille d'icônes, trait fin, sans remplissage — celle utilisée dans la navigation et les cartes du Control Tower. Aucun pictogramme décoratif, aucun émoji.</p>
+
+    <div class="icon-grid">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v9a1 1 0 001 1h10a1 1 0 001-1v-9"/></svg><span>Tableau de bord</span></div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a1 1 0 011-1h5l2 2h9a1 1 0 011 1v9a1 1 0 01-1 1H4a1 1 0 01-1-1V7z"/></svg><span>Dossiers</span></div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 18H5a2 2 0 01-2-2V8a2 2 0 012-2h3M16 6h3a2 2 0 012 2v8a2 2 0 01-2 2h-3M9 12h6"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg><span>Transport</span></div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2"/><circle cx="12" cy="10" r="2.2"/><path d="M8 16c0-1.8 1.8-3 4-3s4 1.2 4 3"/></svg><span>Mandats</span></div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20h5v-1a4 4 0 00-5.447-3.724M12 12a4 4 0 110-8 4 4 0 010 8zm-8 8v-1a4 4 0 014-4h8a4 4 0 014 4v1H4z"/></svg><span>Clients</span></div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a1 1 0 00-1 1v16a1 1 0 001 1h12a1 1 0 001-1V8l-5-5z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg><span>Documents</span></div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span>Messagerie</span></div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg><span>Notifications</span></div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a1 1 0 011-1h9l5 5v10a1 1 0 01-1 1H5a1 1 0 01-1-1z"/><path d="M9 13h6M9 17h4"/></svg><span>Rapports</span></div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.34 1.87l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.7 1.7 0 00-1.87-.34 1.7 1.7 0 00-1 1.55V21a2 2 0 11-4 0v-.09a1.7 1.7 0 00-1-1.55 1.7 1.7 0 00-1.87.34l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.7 1.7 0 00.34-1.87 1.7 1.7 0 00-1.55-1H3a2 2 0 110-4h.09a1.7 1.7 0 001.55-1 1.7 1.7 0 00-.34-1.87l-.06-.06a2 2 0 112.83-2.83l.06.06a1.7 1.7 0 001.87.34H9a1.7 1.7 0 001-1.55V3a2 2 0 114 0v.09a1.7 1.7 0 001 1.55 1.7 1.7 0 001.87-.34l.06-.06a2 2 0 112.83 2.83l-.06.06a1.7 1.7 0 00-.34 1.87V9a1.7 1.7 0 001.55 1H21a2 2 0 110 4h-.09a1.7 1.7 0 00-1.55 1z"/></svg><span>Paramètres</span></div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 16l4-4m0 0l-4-4m4 4H7"/><path d="M13 20H6a1 1 0 01-1-1V5a1 1 0 011-1h7"/></svg><span>Déconnexion</span></div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span>Recherche</span></div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg><span>Contrôle</span></div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg><span>Validé / BAE / BAS</span></div>
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span>Livré</span></div>
+    </div>
+    <p style="font-size:11.5px;color:var(--ink-600);margin-top:14px;">Grille 24×24, trait 1.8px, extrémités et jonctions arrondies, aucun remplissage. Une icône = un sens ; jamais deux icônes différentes pour le même statut.</p>
+  </section>
+
+  <!-- ══ 06 — GRILLE & FINITIONS ══ -->
+  <section class="article" id="art06">
+    <div class="article-head"><h2>06 Grille &amp; finitions</h2></div>
+
+    <div class="grid g2">
+      <div class="panel">
+        <div class="panel-label">Espacement — base 8</div>
+        <div class="space-row"><div class="space-bar" style="width:4px;"></div><span class="space-code">4px</span><span class="space-desc">Micro-espacement interne</span></div>
+        <div class="space-row"><div class="space-bar" style="width:8px;"></div><span class="space-code">8px</span><span class="space-desc">Écart entre éléments d'un composant</span></div>
+        <div class="space-row"><div class="space-bar" style="width:16px;"></div><span class="space-code">16px</span><span class="space-desc">Fermeture de panneau, gouttière minimale</span></div>
+        <div class="space-row"><div class="space-bar" style="width:24px;"></div><span class="space-code">24px</span><span class="space-desc">Padding de panneau</span></div>
+        <div class="space-row"><div class="space-bar" style="width:48px;"></div><span class="space-code">48px</span><span class="space-desc">Écart entre blocs</span></div>
+        <div class="space-row"><div class="space-bar" style="width:76px;"></div><span class="space-code">76px</span><span class="space-desc">Écart entre articles</span></div>
+      </div>
+      <div class="panel">
+        <div class="panel-label">Angles &amp; ombre</div>
+        <p style="font-size:12.5px;color:var(--ink-600);margin:0 0 16px;">Rayon repris tel quel du Control Tower : <b style="color:var(--ink-900);">6px</b> pour boutons, champs et cartes d'interface — <b style="color:var(--ink-900);">pilule pleine</b> pour les badges de statut. Seuls la couverture et les nuanciers de ce manuel restent en angle droit, comme un document de référence imprimé.</p>
+        <div class="hard-demo">
+          <div class="hard-box"></div>
+          <div class="hard-caption">Pas d'ombre portée. La séparation entre panneaux se fait par la bordure fine et l'espacement, jamais par un flou ou un décalage.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PIED — VISA ══ -->
+  <footer class="visa">
+    <div class="visa-info">
+      <div><b>Doualog</b> — Douane &amp; Logistique</div>
+      <div>Manuel d'identité visuelle · Réf. MIV-DLG-2026-A</div>
+      <div>Usage réservé à l'équipe produit et aux prestataires mandatés</div>
+    </div>
+    <div class="stamp"><div class="stamp-tx">Validé<br>Direction<br>Produit<br>Sept. 2026</div></div>
+  </footer>
+
+</div>
+</body>
+</html>
