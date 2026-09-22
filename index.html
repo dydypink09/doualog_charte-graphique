@@ -19,7 +19,7 @@
 
     /* Identité */
     --navy:        #0C2C5E;   /* bleu marine — extrait du logotype */
-    --navy-ink:    #070D18;   /* encre — chrome du Control Tower */
+    --navy-ink:    #070D18;   /* encre — chrome */
     --gold:        #B96C15;   /* or douane — texte/traits, contraste AA sur clair */
     --gold-fill:   #D6821A;   /* or douane — aplats, boutons */
     --gold-soft:   #F3E2C6;
@@ -405,14 +405,37 @@
     .cover-meta{ grid-template-columns:repeat(2,1fr); row-gap:16px; }
     .cover-meta div:nth-child(2n){ border-right:none; }
     .toc .t{ white-space:normal; }
+    .pdf-btn{ right:14px; bottom:14px; padding:10px 16px; font-size:12px; }
+  }
+
+  /* ══════════════════════════════════════════════════════════════
+     BOUTON TÉLÉCHARGER PDF
+     ══════════════════════════════════════════════════════════════ */
+  html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; }
+  .pdf-btn{
+    position:fixed; bottom:26px; right:26px; z-index:100;
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--gold-fill); color:#1A1204;
+    font-family:'Sora',sans-serif; font-size:13px; font-weight:600;
+    padding:12px 20px; border:none; border-radius:var(--radius);
+    cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.28);
+  }
+  .pdf-btn:hover{ filter:brightness(.96); }
+  .pdf-btn svg{ width:15px; height:15px; flex-shrink:0; }
+  @media print{
+    .pdf-btn{ display:none !important; }
   }
 </style>
 </head>
 <body>
+<button class="pdf-btn" onclick="window.print()" aria-label="Télécharger le manuel en PDF">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
+  Télécharger en PDF
+</button>
 <div class="doc">
 
   <div class="doc-control">
-    <span>Réf. <strong>MIV&#8209;DLG&#8209;2026&#8209;A</strong> · Manuel d'identité visuelle</span>
+    <span>Réf. <strong>MIV&#8209;DLG&#8209;2026&#8209;A</strong> · Charte Graphique </span>
     <span>Direction produit · Doualog</span>
   </div>
 
@@ -422,8 +445,8 @@
       <div class="cover-logo"><img src="logo.png" alt="Logotype Doualog"></div>
       <div class="cover-brandline">Douane &amp; Logistique</div>
     </div>
-    <h1>Manuel d'identité visuelle</h1>
-    <p class="cover-sub">Règles d'usage de la marque Doualog pour la plateforme Control Tower, les documents d'exploitation et les supports internes.</p>
+    <h1>Charte Graphique </h1>
+    <p class="cover-sub">Règles d'usage de la plateforme Doualog, les documents d'exploitation et les supports internes.</p>
     <div class="cover-meta">
       <div><div class="k">Version</div><div class="v num">1.0</div></div>
       <div><div class="k">Édition</div><div class="v">Septembre 2026</div></div>
@@ -454,7 +477,7 @@
         <div><div class="logo-specimen"><img src="logo.png" alt="Logo sur blanc"></div><div class="specimen-cap">Fond Blanc — #FFFFFF — documents, impression</div></div>
         <div><div class="logo-specimen on-navy"><img src="logo.png" alt="Logo sur fond marine"></div><div class="specimen-cap">Fond Encre — lisibilité réduite, voir note</div></div>
       </div>
-      <div class="note-box" style="margin-top:2px;">Aucune version inversée (blanche) du logotype n'existe à ce jour. Sur fond sombre — bandeau du Control Tower, présentations — préférer le monogramme seul sur pastille blanche, à défaut du logotype complet.</div>
+      <div class="note-box" style="margin-top:2px;">Aucune version inversée (blanche) du logotype n'existe à ce jour. Sur fond sombre préférer le monogramme seul sur pastille blanche, à défaut du logotype complet.</div>
     </div>
 
     <div class="block-group">
@@ -486,7 +509,7 @@
   <!-- ══ 02 — COULEUR ══ -->
   <section class="article" id="art02">
     <div class="article-head"><h2>02 Couleur</h2></div>
-    <p class="article-intro">La palette est extraite de deux sources vérifiées : le fichier logotype, et une capture d'écran de référence du Control Tower en production. Aucune couleur n'est choisie hors de ces sources.</p>
+    <p class="article-intro">La palette est extraite de deux sources vérifiées : le fichier logotype, et une maquette de référence. Aucune couleur n'est choisie hors de ces sources.</p>
 
     <div class="block-group">
       <div class="lead">Identité de marque</div>
@@ -499,7 +522,7 @@
     <div class="block-group">
       <div class="lead">Surfaces</div>
       <div class="grid g4">
-        <div class="swatch"><div class="swatch-color" style="background:#070D18;"></div><div class="swatch-info"><div class="swatch-name">Encre</div><div class="swatch-hex">#070D18</div><div class="swatch-use">Bandeau et navigation du Control Tower.</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#070D18;"></div><div class="swatch-info"><div class="swatch-name">Encre</div><div class="swatch-hex">#070D18</div><div class="swatch-use">Bandeau et navigation.</div></div></div>
         <div class="swatch"><div class="swatch-color" style="background:#131A26;"></div><div class="swatch-info"><div class="swatch-name">Ardoise</div><div class="swatch-hex">#131A26</div><div class="swatch-use">Panneaux sur fond sombre, menu latéral.</div></div></div>
         <div class="swatch"><div class="swatch-color" style="background:#F1EEE7;border:1px solid var(--border);"></div><div class="swatch-info"><div class="swatch-name">Ivoire écran</div><div class="swatch-hex">#F1EEE7</div><div class="swatch-use">Fond de la zone de travail, mode clair.</div></div></div>
         <div class="swatch"><div class="swatch-color" style="background:#FFFFFF;border:1px solid var(--border);"></div><div class="swatch-info"><div class="swatch-name">Blanc</div><div class="swatch-hex">#FFFFFF</div><div class="swatch-use">Cartes, panneaux, champs de saisie.</div></div></div>
@@ -660,7 +683,7 @@
   <!-- ══ 05 — ICONOGRAPHIE ══ -->
   <section class="article" id="art05">
     <div class="article-head"><h2>05 Iconographie</h2></div>
-    <p class="article-intro">Une seule famille d'icônes, trait fin, sans remplissage — celle utilisée dans la navigation et les cartes du Control Tower. Aucun pictogramme décoratif, aucun émoji.</p>
+    <p class="article-intro">Une seule famille d'icônes, trait fin, sans remplissage — celle utilisée dans la navigation et les cartes. Aucun pictogramme décoratif, aucun émoji.</p>
 
     <div class="icon-grid">
       <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v9a1 1 0 001 1h10a1 1 0 001-1v-9"/></svg><span>Tableau de bord</span></div>
@@ -698,7 +721,7 @@
       </div>
       <div class="panel">
         <div class="panel-label">Angles &amp; ombre</div>
-        <p style="font-size:12.5px;color:var(--ink-600);margin:0 0 16px;">Rayon repris tel quel du Control Tower : <b style="color:var(--ink-900);">6px</b> pour boutons, champs et cartes d'interface — <b style="color:var(--ink-900);">pilule pleine</b> pour les badges de statut. Seuls la couverture et les nuanciers de ce manuel restent en angle droit, comme un document de référence imprimé.</p>
+        <p style="font-size:12.5px;color:var(--ink-600);margin:0 0 16px;">Rayon repris tel que la maquette : <b style="color:var(--ink-900);">6px</b> pour boutons, champs et cartes d'interface — <b style="color:var(--ink-900);">pilule pleine</b> pour les badges de statut. Seuls la couverture et les nuanciers de ce manuel restent en angle droit, comme un document de référence imprimé.</p>
         <div class="hard-demo">
           <div class="hard-box"></div>
           <div class="hard-caption">Pas d'ombre portée. La séparation entre panneaux se fait par la bordure fine et l'espacement, jamais par un flou ou un décalage.</div>
@@ -714,7 +737,6 @@
       <div>Manuel d'identité visuelle · Réf. MIV-DLG-2026-A</div>
       <div>Usage réservé à l'équipe produit et aux prestataires mandatés</div>
     </div>
-    <div class="stamp"><div class="stamp-tx">Validé<br>Direction<br>Produit<br>Sept. 2026</div></div>
   </footer>
 
 </div>
