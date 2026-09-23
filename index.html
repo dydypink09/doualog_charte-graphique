@@ -158,6 +158,18 @@
   }
   .doc-control strong{ color:var(--ink-900); font-weight:600; }
 
+  .doc-links{
+    display:flex; align-items:center; gap:9px;
+    padding-block:9px;
+    border-bottom:1px solid var(--border);
+    font-family:'Sora', ui-sans-serif, sans-serif;
+    font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+  .doc-links a{ color:var(--gold); font-weight:600; text-decoration:none; }
+  .doc-links a:hover{ text-decoration:underline; }
+  .doc-links span{ color:var(--ink-300); }
+
   /* ══════════════════════════════════════════════════════════════
      COUVERTURE
      ══════════════════════════════════════════════════════════════ */
@@ -504,6 +516,11 @@
     <span>Réf. <strong>MIV&#8209;DLG&#8209;2026&#8209;A</strong> · Charte Graphique </span>
     <span>Direction produit · Doualog</span>
   </div>
+  <nav class="doc-links" aria-label="Autres documents du projet">
+    <a href="/roadmap">Roadmap du projet</a>
+    <span aria-hidden="true">·</span>
+    <a href="/livrables">Livrables du projet</a>
+  </nav>
 
   <!-- ══ COUVERTURE ══ -->
   <header class="cover">

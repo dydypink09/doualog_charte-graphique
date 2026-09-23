@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roadmap — DOUALOG Control Tower</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Identité (charte Doualog) */
+  --nuit: #070D18;
+  --moyen: #0C2C5E;
+  --orange: #D6821A;
+  --or: #B96C15;
+  --vert: #2E8347;
+  --bg: #F7F5F0;
+  --surface: #FFFFFF;
+  --text: #14110D;
+  --muted: #5B564A;
+  --line: #D9D2C2;
+  --soft: #F1EEE7;
+  --orange-bg: #F3E2C6;
+  --vert-bg: color-mix(in srgb, #2E8347 12%, #FFFFFF);
+  --gris: #B9B0A0;
+  --radius: 6px;
+  --radius-sm: 4px;
+  --radius-pill: 999px;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B0E13;
+    --surface: #12161D;
+    --text: #F1EEE6;
+    --muted: #A79F90;
+    --line: #2A3038;
+    --soft: #171C25;
+    --orange-bg: #2C2013;
+    --vert-bg: rgba(98,193,126,.14);
+    --gris: #333A44;
+    --orange: #E3A24A;
+    --or: #EAAE5D;
+    --vert: #62C17E;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B0E13;
+  --surface: #12161D;
+  --text: #F1EEE6;
+  --muted: #A79F90;
+  --line: #2A3038;
+  --soft: #171C25;
+  --orange-bg: #2C2013;
+  --vert-bg: rgba(98,193,126,.14);
+  --gris: #333A44;
+  --orange: #E3A24A;
+  --or: #EAAE5D;
+  --vert: #62C17E;
+}
+*, *::before, *::after { box-sizing: inherit; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Sora", ui-sans-serif, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.top { background: var(--nuit); color: #fff; border-bottom: 3px solid var(--orange); }
+.top-inner { max-width: 1040px; margin: 0 auto; padding: 28px 24px 30px; }
+.brand-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .02em; font-size: 15px; text-transform: uppercase; }
+.brand-mark { width: 30px; height: 30px; border-radius: var(--radius-sm); background: #fff; display: grid; place-items: center; padding: 4px; flex-shrink: 0; }
+.brand-mark img { width: 100%; height: auto; display: block; }
+.crosslink { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.crosslink a { color: rgba(255,255,255,.75); text-decoration: none; font-weight: 600; }
+.crosslink a:hover { color: #fff; text-decoration: underline; }
+.crosslink span { color: rgba(255,255,255,.3); }
+.brand span { color: rgba(255,255,255,.56); font-weight: 500; text-transform: none; letter-spacing: 0; }
+h1 { font-size: clamp(26px, 5vw, 36px); line-height: 1.15; font-weight: 700; margin: 26px 0 8px; letter-spacing: -.01em; }
+.sub { color: rgba(255,255,255,.62); margin: 0; max-width: 62ch; }
+
+/* Main */
+main { max-width: 1040px; margin: 0 auto; padding: 32px 24px 56px; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 28px; }
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.legend-swatch { width: 14px; height: 14px; border-radius: var(--radius-sm); flex-shrink: 0; }
+.legend-swatch.done { background: var(--vert); }
+.legend-swatch.current { background: var(--orange); }
+.legend-swatch.upcoming { background: var(--surface); border: 1.5px dashed var(--gris); }
+.legend-swatch.milestone { background: var(--or); transform: rotate(45deg); border-radius: 3px; width: 11px; height: 11px; }
+
+/* Timeline */
+.timeline-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.tl-body { display: flex; min-width: 760px; }
+.tl-labels { width: 168px; flex-shrink: 0; }
+.tl-label-spacer { height: 28px; border-bottom: 1px solid var(--line); }
+.tl-label {
+  display: flex; align-items: center;
+  height: 56px; box-sizing: border-box;
+  font-size: 13px; font-weight: 600;
+  padding-right: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.tl-plot { position: relative; flex: 1; min-width: 0; }
+.tl-axis { position: relative; height: 28px; border-bottom: 1px solid var(--line); }
+.tl-month {
+  position: absolute; top: 0; height: 100%;
+  font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--muted); border-left: 1px solid var(--line); padding: 0 0 8px 8px;
+  display: flex; align-items: flex-end;
+}
+.tl-month:first-child { border-left: none; }
+
+.tl-track { position: relative; height: 56px; box-sizing: border-box; border-top: 1px solid var(--line); }
+.tl-bar {
+  position: absolute; top: 12px; height: 32px;
+  border-radius: var(--radius);
+  display: flex; align-items: center; padding: 0 12px;
+  font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden;
+}
+.tl-bar.done { background: var(--vert); color: #fff; }
+.tl-bar.current { background: var(--orange); color: #fff; box-shadow: 0 0 0 3px color-mix(in srgb, var(--orange) 22%, transparent); }
+.tl-bar.upcoming { background: var(--surface); color: var(--muted); border: 1.5px dashed var(--gris); }
+
+.tl-milestone {
+  position: absolute; top: 50%; width: 13px; height: 13px;
+  background: var(--or); transform: translate(-50%, -50%) rotate(45deg);
+  border-radius: 3px; box-shadow: 0 0 0 3px var(--surface);
+}
+
+/* Superposition (spanne axe + toutes les lignes, alignée sur .tl-plot) */
+.tl-overlay { position: absolute; inset: 0; pointer-events: none; }
+.tl-today { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--orange); }
+.tl-today-tag {
+  position: absolute; top: -18px; transform: translateX(-50%);
+  font-size: 10px; font-weight: 700; color: var(--orange); white-space: nowrap;
+}
+
+/* Jalons */
+.milestones { margin-top: 28px; }
+.milestones h2 { font-size: 16px; font-weight: 700; margin: 0 0 12px; }
+.mi-list { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.mi-item { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-top: 1px solid var(--line); }
+.mi-item:first-child { border-top: 0; }
+.mi-diamond { width: 12px; height: 12px; background: var(--or); border-radius: 3px; transform: rotate(45deg); flex-shrink: 0; }
+.mi-date { font-variant-numeric: tabular-nums; font-weight: 600; font-size: 13px; width: 130px; flex-shrink: 0; color: var(--muted); }
+.mi-title { font-weight: 600; font-size: 14px; }
+
+footer { background: var(--nuit); color: #64748B; font-size: 13px; text-align: center; padding: 22px 24px; margin-top: 40px; }
+footer strong { color: #fff; font-weight: 700; }
+footer em { color: var(--or); font-style: normal; }
+
+@media (max-width: 560px) {
+  .top-inner, main { padding-left: 16px; padding-right: 16px; }
+  .tl-labels { width: 120px; }
+  .mi-date { width: 96px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand-row">
+      <div class="brand"><div class="brand-mark"><img src="logo.png" alt="Doualog"></div>DOUALOG <span>Control Tower</span></div>
+      <nav class="crosslink" aria-label="Autres documents du projet">
+        <a href="/">Charte graphique</a><span aria-hidden="true">·</span><a href="/livrables">Livrables</a>
+      </nav>
+    </div>
+    <h1>Roadmap du projet</h1>
+    <p class="sub">Les grandes phases du cadrage jusqu'à la mise en production de la V1, avec les dates clés et les jalons.</p>
+  </div>
+</header>
+
+<main>
+  <div class="legend">
+    <div class="legend-item"><span class="legend-swatch done"></span>Terminé</div>
+    <div class="legend-item"><span class="legend-swatch current"></span>En cours</div>
+    <div class="legend-item"><span class="legend-swatch upcoming"></span>À venir</div>
+    <div class="legend-item"><span class="legend-swatch milestone"></span>Jalon</div>
+  </div>
+
+  <div class="timeline-wrap">
+    <div class="tl-body">
+      <div class="tl-labels">
+        <div class="tl-label-spacer"></div>
+        <div id="tlLabels"></div>
+      </div>
+      <div class="tl-plot">
+        <div class="tl-axis" id="tlAxis"></div>
+        <div id="tlTracks"></div>
+        <div class="tl-overlay" id="tlOverlay"></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="milestones">
+    <h2>Jalons clés</h2>
+    <div class="mi-list" id="miList"></div>
+  </section>
+</main>
+
+<footer>
+  <strong>DOUALOG</strong> — Douane &amp; Logistique &nbsp;·&nbsp; <em>Connecter • Sécuriser • Livrer</em>
+</footer>
+
+<script>
+const START = new Date("2026-09-01");
+const END = new Date("2027-02-01");
+const DAY = 86400000;
+const totalDays = (END - START) / DAY;
+const pct = d => Math.min(100, Math.max(0, ((new Date(d) - START) / DAY) / totalDays * 100));
+
+const PHASES = [
+  { name: "Cadrage", start: "2026-09-01", end: "2026-09-30" },
+  { name: "Phase UX", start: "2026-09-14", end: "2026-10-04" },
+  { name: "Maquettes", start: "2026-09-21", end: "2026-10-04", milestone: { date: "2026-10-04", label: "Validation écrite des maquettes" } },
+  { name: "Conception technique", start: "2026-10-06", end: "2026-10-17" },
+  { name: "Développement V1", start: "2026-10-20", end: "2026-12-19" },
+  { name: "Fin de V1", start: "2027-01-04", end: "2027-01-30", milestone: { date: "2027-01-30", label: "Mise en production — V1 en ligne" } }
+];
+
+function tone(p) {
+  const now = new Date();
+  const s = new Date(p.start), e = new Date(p.end);
+  if (e < now) return "done";
+  if (s <= now) return "current";
+  return "upcoming";
+}
+function toneLabel(t) {
+  return t === "done" ? "Terminé" : t === "current" ? "En cours" : "À venir";
+}
+function fmt(d) {
+  return new Date(d).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+}
+
+const axisEl = document.getElementById("tlAxis");
+const labelsEl = document.getElementById("tlLabels");
+const tracksEl = document.getElementById("tlTracks");
+const overlayEl = document.getElementById("tlOverlay");
+const miListEl = document.getElementById("miList");
+
+// Axe des mois
+(function buildAxis() {
+  let cur = new Date(START);
+  let html = "";
+  while (cur < END) {
+    const next = new Date(cur.getFullYear(), cur.getMonth() + 1, 1);
+    const boundEnd = next < END ? next : END;
+    const left = pct(cur);
+    const width = pct(boundEnd) - left;
+    const label = cur.toLocaleDateString("fr-FR", { month: "long", year: "numeric" });
+    html += `<div class="tl-month" style="left:${left}%;width:${width}%">${label}</div>`;
+    cur = next;
+  }
+  axisEl.innerHTML = html;
+})();
+
+// Labels + lignes (une par phase), en deux colonnes séparées mais alignées
+// par la même hauteur de ligne (56px) — pas de grille CSS partagée avec la
+// superposition, donc pas de risque de collision de placement.
+labelsEl.innerHTML = PHASES.map(p => `<div class="tl-label">${p.name}</div>`).join("");
+
+tracksEl.innerHTML = PHASES.map(p => {
+  const t = tone(p);
+  const left = pct(p.start);
+  const width = Math.max(pct(p.end) - left, 2);
+  const milestone = p.milestone ? `<div class="tl-milestone" style="left:${pct(p.milestone.date)}%" title="${p.milestone.label}"></div>` : "";
+  return `
+    <div class="tl-track">
+      <div class="tl-bar ${t}" style="left:${left}%;width:${width}%">${p.name}</div>
+      ${milestone}
+    </div>`;
+}).join("");
+
+// Ligne "aujourd'hui"
+(function buildToday() {
+  const now = new Date();
+  if (now < START || now > END) return;
+  const left = pct(now);
+  overlayEl.innerHTML = `<div class="tl-today" style="left:${left}%"><span class="tl-today-tag" style="left:0">Aujourd'hui</span></div>`;
+})();
+
+// Liste des jalons (accessible, hors visuel)
+miListEl.innerHTML = PHASES.filter(p => p.milestone).map(p => `
+  <div class="mi-item">
+    <span class="mi-diamond" aria-hidden="true"></span>
+    <span class="mi-date">${fmt(p.milestone.date)}</span>
+    <span class="mi-title">${p.milestone.label}</span>
+  </div>`).join("");
+</script>
+</body>
+</html>
