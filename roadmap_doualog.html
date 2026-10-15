@@ -4,69 +4,42 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Roadmap — DOUALOG Control Tower</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet">
 <style>
 :root {
   /* Identité (charte Doualog) */
-  --nuit: #070D18;
+  --nuit: #123259;
   --moyen: #0C2C5E;
-  --orange: #D6821A;
-  --or: #B96C15;
+  --orange: #F99A00;
+  --or: #F99A00;
   --vert: #2E8347;
-  --bg: #F7F5F0;
+  --bg: #F4F5F7;
   --surface: #FFFFFF;
-  --text: #14110D;
-  --muted: #5B564A;
-  --line: #D9D2C2;
-  --soft: #F1EEE7;
-  --orange-bg: #F3E2C6;
+  --text: #101828;
+  --muted: #5D6676;
+  --line: #E4E7EC;
+  --soft: #F1F3F6;
+  --orange-bg: #FFF5E0;
   --vert-bg: color-mix(in srgb, #2E8347 12%, #FFFFFF);
-  --gris: #B9B0A0;
-  --radius: 6px;
-  --radius-sm: 4px;
+  --gris: #98A2B3;
+  --radius: 12px;
+  --radius-sm: 8px;
   --radius-pill: 999px;
+  --orange-txt: #9A5800;   /* texte orange sur fond clair (AA) */
+  --on-orange: #0C2C5E;    /* texte sur les aplats orange */
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0B0E13;
-    --surface: #12161D;
-    --text: #F1EEE6;
-    --muted: #A79F90;
-    --line: #2A3038;
-    --soft: #171C25;
-    --orange-bg: #2C2013;
-    --vert-bg: rgba(98,193,126,.14);
-    --gris: #333A44;
-    --orange: #E3A24A;
-    --or: #EAAE5D;
-    --vert: #62C17E;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0B0E13;
-  --surface: #12161D;
-  --text: #F1EEE6;
-  --muted: #A79F90;
-  --line: #2A3038;
-  --soft: #171C25;
-  --orange-bg: #2C2013;
-  --vert-bg: rgba(98,193,126,.14);
-  --gris: #333A44;
-  --orange: #E3A24A;
-  --or: #EAAE5D;
-  --vert: #62C17E;
 }
 *, *::before, *::after { box-sizing: inherit; }
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "Sora", ui-sans-serif, system-ui, sans-serif;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
   font-size: 15px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
@@ -76,7 +49,7 @@ body {
 .top { background: var(--nuit); color: #fff; border-bottom: 3px solid var(--orange); }
 .top-inner { max-width: 1040px; margin: 0 auto; padding: 28px 24px 30px; }
 .brand-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .02em; font-size: 15px; text-transform: uppercase; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: .02em; font-size: 15px; text-transform: uppercase; }
 .brand-mark { width: 30px; height: 30px; border-radius: var(--radius-sm); background: #fff; display: grid; place-items: center; padding: 4px; flex-shrink: 0; }
 .brand-mark img { width: 100%; height: auto; display: block; }
 .crosslink { display: flex; align-items: center; gap: 8px; font-size: 12px; }
@@ -84,7 +57,7 @@ body {
 .crosslink a:hover { color: #fff; text-decoration: underline; }
 .crosslink span { color: rgba(255,255,255,.3); }
 .brand span { color: rgba(255,255,255,.56); font-weight: 500; text-transform: none; letter-spacing: 0; }
-h1 { font-size: clamp(26px, 5vw, 36px); line-height: 1.15; font-weight: 700; margin: 26px 0 8px; letter-spacing: -.01em; }
+h1 { font-size: clamp(26px, 5vw, 36px); line-height: 1.15; font-weight: 600; margin: 26px 0 8px; letter-spacing: -.01em; }
 .sub { color: rgba(255,255,255,.62); margin: 0; max-width: 62ch; }
 
 /* Main */
@@ -129,7 +102,7 @@ main { max-width: 1040px; margin: 0 auto; padding: 32px 24px 56px; }
   font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden;
 }
 .tl-bar.done { background: var(--vert); color: #fff; }
-.tl-bar.current { background: var(--orange); color: #fff; box-shadow: 0 0 0 3px color-mix(in srgb, var(--orange) 22%, transparent); }
+.tl-bar.current { background: var(--orange); color: var(--on-orange); box-shadow: 0 0 0 3px color-mix(in srgb, var(--orange) 22%, transparent); }
 .tl-bar.upcoming { background: var(--surface); color: var(--muted); border: 1.5px dashed var(--gris); }
 
 .tl-milestone {
@@ -143,12 +116,12 @@ main { max-width: 1040px; margin: 0 auto; padding: 32px 24px 56px; }
 .tl-today { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--orange); }
 .tl-today-tag {
   position: absolute; top: -18px; transform: translateX(-50%);
-  font-size: 10px; font-weight: 700; color: var(--orange); white-space: nowrap;
+  font-size: 10px; font-weight: 600; color: var(--orange-txt); white-space: nowrap;
 }
 
 /* Jalons */
 .milestones { margin-top: 28px; }
-.milestones h2 { font-size: 16px; font-weight: 700; margin: 0 0 12px; }
+.milestones h2 { font-size: 16px; font-weight: 600; margin: 0 0 12px; }
 .mi-list { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 .mi-item { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-top: 1px solid var(--line); }
 .mi-item:first-child { border-top: 0; }
@@ -157,7 +130,7 @@ main { max-width: 1040px; margin: 0 auto; padding: 32px 24px 56px; }
 .mi-title { font-weight: 600; font-size: 14px; }
 
 footer { background: var(--nuit); color: #64748B; font-size: 13px; text-align: center; padding: 22px 24px; margin-top: 40px; }
-footer strong { color: #fff; font-weight: 700; }
+footer strong { color: #fff; font-weight: 600; }
 footer em { color: var(--or); font-style: normal; }
 
 @media (max-width: 560px) {
@@ -166,6 +139,17 @@ footer em { color: var(--or); font-style: normal; }
   .mi-date { width: 96px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+/* Impression / PDF (dossier du projet) : A4 paysage, calendrier entier */
+@page { size: A4 landscape; margin: 10mm; }
+@media print {
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .crosslink { display: none; }
+  .timeline-wrap { overflow: visible; }
+  body { zoom: .74; }
+  .milestones { break-inside: avoid; }
+  footer { display: none; }
+  main { padding-bottom: 0; }
+}
 </style>
 </head>
 <body>
@@ -173,9 +157,9 @@ footer em { color: var(--or); font-style: normal; }
 <header class="top">
   <div class="top-inner">
     <div class="brand-row">
-      <div class="brand"><div class="brand-mark"><img src="logo.png" alt="Doualog"></div>DOUALOG <span>Control Tower</span></div>
+      <a class="brand" href="index.html"><img src="assets/img/logo-blanc-menu.png" alt="DOUALOG" style="width:120px;height:auto;display:block"></a>
       <nav class="crosslink" aria-label="Autres documents du projet">
-        <a href="/">Charte graphique</a><span aria-hidden="true">·</span><a href="/livrables">Livrables</a>
+        <a href="index.html">Portail</a><span aria-hidden="true">·</span><a href="charte.html">Charte graphique</a><span aria-hidden="true">·</span><a href="livrables_doualog.html">Livrables</a>
       </nav>
     </div>
     <h1>Roadmap du projet</h1>
@@ -217,7 +201,7 @@ footer em { color: var(--or); font-style: normal; }
 
 <script>
 const START = new Date("2026-09-01");
-const END = new Date("2027-02-01");
+const END = new Date("2027-03-01");
 const DAY = 86400000;
 const totalDays = (END - START) / DAY;
 const pct = d => Math.min(100, Math.max(0, ((new Date(d) - START) / DAY) / totalDays * 100));
@@ -225,10 +209,11 @@ const pct = d => Math.min(100, Math.max(0, ((new Date(d) - START) / DAY) / total
 const PHASES = [
   { name: "Cadrage", start: "2026-09-01", end: "2026-09-30" },
   { name: "Phase UX", start: "2026-09-14", end: "2026-10-04" },
-  { name: "Maquettes", start: "2026-09-21", end: "2026-10-04", milestone: { date: "2026-10-04", label: "Validation écrite des maquettes" } },
-  { name: "Conception technique", start: "2026-10-06", end: "2026-10-17" },
-  { name: "Développement V1", start: "2026-10-20", end: "2026-12-19" },
-  { name: "Fin de V1", start: "2027-01-04", end: "2027-01-30", milestone: { date: "2027-01-30", label: "Mise en production — V1 en ligne" } }
+  { name: "Maquettes", start: "2026-09-21", end: "2026-10-15", milestone: { date: "2026-10-18", label: "Présentation et validation écrite des maquettes" } },
+  // Suite décalée de 2 semaines (maquettes terminées le 15/10 au lieu du 04/10), durées inchangées
+  { name: "Conception technique", start: "2026-10-20", end: "2026-10-31" },
+  { name: "Développement V1", start: "2026-11-03", end: "2027-01-02" },
+  { name: "Fin de V1", start: "2027-01-18", end: "2027-02-13", milestone: { date: "2027-02-13", label: "Mise en production — V1 en ligne" } }
 ];
 
 function tone(p) {

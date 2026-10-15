@@ -1,0 +1,192 @@
+/* ══════════════════════════════════════════════════════════════
+   DOUALOG Control Tower — Tokens
+   Style : skill apple-design (référence principale) · garde-fous anti-ai-generic-design · règles métier b2b-saas-ui.
+   Identité et structure : references/vision-client.jpeg (bleu nuit, orange du logo #F99A00, logo).
+   Aucune valeur en dur dans les pages : tout passe par ces variables.
+   ══════════════════════════════════════════════════════════════ */
+/* Police : Inter (choix du client après comparaison avec Roboto et Geist), axe de taille optique */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap');
+
+:root {
+  color-scheme: light;
+
+  /* — Bleu nuit (identité : menu, en-têtes des pages externes, emails) — */
+  --night-950: #123259;       /* menu latéral, en-tête des pages externes */
+  --gray-app:  #F4F5F7;       /* fond de la zone de travail */
+  --night-800: #1C406E;
+  --night-line: rgba(255, 255, 255, .10);
+
+  /* — Orange (identité) — */
+  --orange-500: #F99A00;      /* orange du logo DOUALOG : repère du menu, étape en cours, focus, boutons principaux */
+  --orange-650: #F99A00;      /* fond des boutons principaux : texte bleu marine à 5,9:1 (AA) ; le blanc ne donnerait que 2,2:1 */
+  --orange-600: #E68E00;      /* survol des boutons principaux */
+  --orange-700: #9A5800;      /* texte orange sur fond clair (5,1:1 sur le gris de la zone de travail) */
+  --orange-50:  #FFF5E0;
+
+  /* — Bleu marine (titres, liens, éléments actifs) — */
+  --navy-500: #0C2C5E;
+
+  /* — Neutres froids — */
+  --neutral-0:   #FFFFFF;
+  --neutral-50:  #F8F9FB;     /* survol de ligne */
+  --neutral-100: #F1F3F6;     /* fond de champ discret, piste de graphique */
+  --neutral-200: #E4E7EC;     /* filet */
+  --neutral-300: #D0D5DD;     /* bordure de contrôle */
+  --neutral-400: #98A2B3;     /* « — », à venir */
+  --neutral-600: #5D6676;     /* texte secondaire (AA sur blanc et sur gris clair) */
+  --neutral-700: #344054;     /* texte courant */
+  --neutral-900: #101828;     /* texte fort */
+
+  --on-dark:        #F1F5F9;
+  --on-dark-muted:  rgba(241, 245, 249, .68);
+  --on-dark-line:   var(--night-line);
+
+  /* — Icônes des indicateurs (une teinte par indicateur, demande du client) — */
+  --kpi-blue:    #3B82F6;
+  --kpi-violet:  #8B5CF6;
+  --kpi-magenta: #D946EF;
+  --kpi-green:   #22C55E;
+  --kpi-orange:  #F99A00;
+  --kpi-red:     #EF4444;
+
+  /* — Statuts : 6 teintes sémantiques (charte §07) — */
+  --tone-success: #2E8347;
+  --tone-info:    #2F63AE;
+  --tone-warning: #B04B1B;    /* rouille — vigilance */
+  --tone-danger:  #B23327;
+  --tone-special: #6A4FD1;    /* violet — anticipé, facturation */
+  --tone-neutral: #5B564A;
+
+  --status-success-bg: #E3F1E7; --status-success-fg: #1F6435;
+  --status-info-bg:    #E5EDF8; --status-info-fg:    #2A5A9E;
+  --status-warning-bg: #FBEBE2; --status-warning-fg: #A3441A;
+  --status-danger-bg:  #FBE6E4; --status-danger-fg:  #A82F24;
+  --status-special-bg: #EEEAFB; --status-special-fg: #5E44C4;
+  --status-neutral-bg: #EEEFF1; --status-neutral-fg: #4F5662;
+
+  /* — Sémantique : surfaces & texte — */
+  --bg-app:         var(--gray-app);
+  --bg-surface:     var(--neutral-0);
+  --bg-subtle:      var(--neutral-50);
+  --bg-muted:       var(--neutral-100);
+  --bg-chrome:      var(--night-950);
+  --bg-topbar:      rgba(255, 255, 255, .82);   /* matière translucide : le contenu défile dessous */
+  --bg-nav:         var(--night-950);
+  --bg-nav-hover:   rgba(255, 255, 255, .06);
+  --bg-nav-active:  rgba(255, 255, 255, .11);
+  --bg-tile:        var(--neutral-0);
+  --bg-overlay:     rgba(16, 24, 40, .38);
+  --bg-chrome-glass: rgba(18, 50, 89, .9);    /* bleu nuit translucide (barre de démo) */
+  --on-dark-fill:   rgba(255, 255, 255, .06); /* bouton sur fond sombre */
+  --on-dark-fill-hover: rgba(255, 255, 255, .12);
+  --on-dark-border: rgba(255, 255, 255, .16);
+  --blur-chrome:    saturate(180%) blur(14px);
+  --blur-overlay:   blur(3px);
+  --border:         var(--neutral-200);
+  --border-strong:  var(--neutral-300);
+  --border-ink:     var(--neutral-300);
+  --text-primary:   var(--neutral-700);
+  --text-strong:    var(--neutral-900);
+  --text-secondary: var(--neutral-600);
+  --text-muted:     var(--neutral-400);
+  --text-heading:   var(--navy-500);
+  --text-link:      var(--navy-500);
+
+  /* — Sémantique : actions — */
+  --action-primary:       var(--orange-650);
+  --action-primary-hover: var(--orange-600);
+  --action-on-primary:    var(--navy-500);
+  --action-accent:        var(--orange-500);   /* repères d'identité (menu actif, étape en cours) */
+  --action-active:        var(--navy-500);
+  --action-active-text:   var(--navy-500);
+  --action-active-bg:     #EAF0F8;
+  --focus-ring:           var(--orange-500);
+  --focus-halo:           rgba(249, 154, 0, .22);
+
+  /* — Typographie : Inter (sobre, très lisible en petite taille, chiffres nets) — */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --fs-2xs: 10px;
+  --fs-xs:  11px;   /* notes, axes de graphiques */
+  --fs-sm:  12px;   /* métadonnées, badges, en-têtes de colonnes */
+  --fs-md:  13px;   /* corps applicatif, tableaux */
+  --fs-base:14px;   /* titres de blocs, formulaires */
+  --fs-xl:  17px;   /* référence du dossier ouvert */
+  --fs-2xl: 22px;   /* titre de page */
+  --fw-regular: 400; --fw-medium: 500; --fw-semibold: 600; --fw-bold: 700;
+  --lh-tight: 1.2; --lh-normal: 1.5; --lh-relaxed: 1.6;
+  /* Approche (tracking) selon la taille : serrée sur les grands titres, neutre sur le corps */
+  --ls-title: -.02em;
+  --ls-heading: -.01em;
+  --ls-body: -.006em;   /* Inter : très légère approche négative au corps 13–14 px */
+  --ls-label: .05em;   /* rares libellés en majuscules (facture, démo) */
+
+  /* — Espacements (base 4) — */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-12: 48px;
+
+  /* — Formes — */
+  --radius-sm: 6px;      /* éléments internes (entrées de menu, cases) */
+  --radius-md: 8px;      /* boutons, champs, filtres */
+  --radius-lg: 12px;     /* cartes */
+  --radius-xl: 16px;     /* modales */
+  --radius-pill: 999px;  /* statuts, compteurs */
+  --border-w: 1px;
+  --border-w-strong: 1.5px;
+
+  /* — Profondeur : ombres douces et courtes (plus la surface est haute, plus l'ombre est diffuse) — */
+  --shadow-xs: 0 1px 2px rgba(16, 24, 40, .05);
+  --shadow-md: 0 2px 4px -2px rgba(16, 24, 40, .05), 0 6px 14px -4px rgba(16, 24, 40, .09);
+  --shadow-lg: 0 4px 8px -4px rgba(16, 24, 40, .06), 0 16px 36px -8px rgba(16, 24, 40, .18);
+  --shadow-btn: 0 1px 2px rgba(16, 24, 40, .06);
+  --shadow-btn-primary: inset 0 1px 0 rgba(255, 255, 255, .28), 0 1px 2px rgba(140, 86, 0, .30);
+
+  /* — Icônes — */
+  --icon-sm: 14px; --icon-md: 16px; --icon-lg: 20px;
+
+  /* — Layout — */
+  --sidebar-w: 216px;
+  --sidebar-w-ferme: 64px;    /* menu fermé : icônes seules */
+  --topbar-h: 60px;
+  --topbar-line: 1px;
+  --row-h: 40px;
+  --control-h: 36px;
+  --control-h-sm: 30px;
+  --demobar-h: 72px;
+  --external-max: 640px;
+
+  /* — Couches — */
+  --z-sticky: 10;
+  --z-panel: 30;
+  --z-overlay: 40;
+  --z-modal: 50;
+  --z-tooltip: 60;
+
+  /* — Mouvement : court (90–240 ms), sans rebond, interrompable (transitions CSS repartant de l'état courant) — */
+  --dur-press: 90ms;     /* pression d'un bouton */
+  --dur-fast: 120ms;     /* survols, couleurs */
+  --dur-base: 180ms;     /* onglets, menus, infobulles */
+  --dur-enter: 240ms;    /* panneau dossier, modale, panneau latéral */
+  --dur-exit: 180ms;
+  --dur-stagger: 18ms;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --ease-out: cubic-bezier(.32, .72, 0, 1);    /* courbe des feuilles iOS : départ vif, arrivée douce */
+  --ease-in: cubic-bezier(1, 0, .68, .28);     /* miroir, pour la sortie (même chemin, sens inverse) */
+  /* Distances de mouvement (mises à 0 si l'utilisateur demande moins d'animations) */
+  --move-sheet: 28px;    /* montée du panneau dossier */
+  --move-rise: 6px;      /* apparition d'un bloc, d'un menu */
+  --press-scale: .97;
+}
+
+
+/* Accessibilité : moins de mouvement → fondus courts, sans déplacement ni échelle */
+@media (prefers-reduced-motion: reduce) {
+  :root { --move-sheet: 0px; --move-rise: 0px; --press-scale: 1; --dur-stagger: 0ms; }
+}
+/* Moins de transparence → matières opaques */
+@media (prefers-reduced-transparency: reduce) {
+  :root { --bg-topbar: var(--neutral-0); --blur-chrome: none; --blur-overlay: none; --bg-overlay: rgba(16, 24, 40, .55); }
+}
+/* Contraste renforcé → filets et textes secondaires plus marqués */
+@media (prefers-contrast: more) {
+  :root { --border: var(--neutral-400); --border-strong: var(--neutral-600); --text-secondary: var(--neutral-700); --bg-topbar: var(--neutral-0); }
+}

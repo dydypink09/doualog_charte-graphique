@@ -1,3 +1,6 @@
-/roadmap    /roadmap_doualog.html    200
-/livrables  /livrables_doualog.html  200
-/charte     /index.html              200
+/roadmap    /roadmap_doualog.html   200
+/livrables  /livrables_doualog.html 200
+/charte     /charte.html            200
+/outils/*   /                       302
+/perimetre  /perimetre-v1.html      200
+/roles      /roles-droits.html      200

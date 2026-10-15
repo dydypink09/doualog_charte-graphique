@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Charte graphique — DOUALOG</title>
+<meta name="description" content="Charte graphique de la plateforme DOUALOG Control Tower : identité, couleurs, typographie, composants et kit de marque.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<!-- Tokens et composants des maquettes (doualog_maquette/output/assets), copiés tels quels : ne pas les modifier ici. -->
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/components.css">
+<link rel="stylesheet" href="assets/charte.css">
+<!-- Sora : uniquement pour reconstituer l'ancienne identité dans l'avant / après -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<script src="assets/icons.js"></script>
+</head>
+<body>
+
+<div class="ch-progress" aria-hidden="true"><span id="progress"></span></div>
+
+<!-- Navigation latérale (grands écrans) -->
+<nav class="ch-rail" aria-label="Chapitres">
+  <a class="ch-rail__brand" href="#top"><img src="assets/img/logo-monogramme.png" alt="Retour en haut"></a>
+  <ol class="ch-rail__list" id="rail"></ol>
+  <a class="c-btn c-btn--sm ch-rail__pdf" href="documents/DOUALOG_Charte-graphique_v2.0.pdf" download><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-download"></use></svg>PDF</a>
+</nav>
+
+<!-- ══ COUVERTURE ══ -->
+<header class="ch-hero" id="top" data-slide>
+  <div class="ch-hero__bar">
+    <span>Réf. <b>MIV&#8209;DLG&#8209;2026&#8209;B</b> · Charte graphique 2.0</span>
+    <nav aria-label="Documents du projet">
+      <a href="index.html">Portail</a>
+      <a href="roadmap_doualog.html">Roadmap</a>
+      <a href="livrables_doualog.html">Livrables</a>
+    </nav>
+  </div>
+
+  <div class="ch-hero__in">
+    <div class="ch-hero__logo"><img src="assets/img/logo-doualog-blanc.png" alt="DOUALOG — Douane &amp; Logistique"></div>
+    <p class="ch-hero__kicker">Charte graphique · version 2.0 · octobre 2026</p>
+    <h1 class="ch-hero__title">DOUALOG relie la douane, le transport et le client. <span>Son identité aussi.</span></h1>
+    <p class="ch-hero__slogan" aria-label="Connecter, sécuriser, livrer"><span>Connecter</span><i>•</i><span>Sécuriser</span><i>•</i><span>Livrer</span></p>
+
+    <ul class="ch-hero__count">
+      <li><b data-count="12">12</b>chapitres</li>
+      <li><b data-count="3">3</b>couleurs d'identité</li>
+      <li><b data-count="6">6</b>teintes de statut</li>
+      <li><b data-count="1">1</b>police</li>
+      <li><b data-count="0" id="nb-icons">57</b>icônes</li>
+    </ul>
+
+    <div class="ch-hero__actions">
+      <a class="c-btn c-btn--primary c-btn--lg" href="documents/DOUALOG_Charte-graphique_v2.0.pdf" download>
+        <svg class="c-icon" aria-hidden="true"><use href="#i-download"></use></svg>Télécharger la charte
+      </a>
+      <a class="c-btn c-btn--lg c-btn--on-dark" href="documents/DOUALOG_Kit-de-marque_v2.0.zip" download>
+        <svg class="c-icon" aria-hidden="true"><use href="#i-package"></use></svg>Kit de marque
+      </a>
+      <button class="c-btn c-btn--lg c-btn--ghost ch-hero__ghost" type="button" data-pres>
+        <svg class="c-icon" aria-hidden="true"><use href="#i-maximize"></use></svg>Mode présentation <kbd>P</kbd>
+      </button>
+    </div>
+    <p class="ch-hero__meta"><span data-meta="pdf">PDF · 22 pages · 3,1 Mo</span> · <span data-meta="kit">ZIP · logos, couleurs, charte · 3,0 Mo</span></p>
+  </div>
+
+  <a class="ch-hero__scroll" href="#sommaire" aria-label="Aller au sommaire"><svg class="c-icon" aria-hidden="true"><use href="#i-chevron-down"></use></svg></a>
+  <div class="ch-hero__line"></div>
+</header>
+
+<div class="ch">
+
+  <!-- ══ SOMMAIRE ══ -->
+  <section class="ch-toc-wrap" id="sommaire" data-slide>
+    <p class="ch-eyebrow">Sommaire</p>
+    <ol class="ch-toc" id="toc"></ol>
+  </section>
+
+  <!-- ══ 00 — HISTOIRE ══ -->
+  <section class="ch-art" id="histoire" data-n="00" data-titre="L'histoire" data-slide>
+    <div class="ch-art__head"><span class="n">00</span><h2>L'histoire</h2></div>
+    <p class="ch-lead">Un dossier de dédouanement traverse beaucoup de mains : le client, le déclarant, la douane, le transporteur, la facturation. DOUALOG les réunit dans un même outil. L'identité dit la même chose : <b>calme, précise, en mouvement</b>.</p>
+
+    <div class="ch-group">
+      <div class="ch-pillars">
+        <article class="ch-pillar ch-reveal">
+          <span class="ch-pillar__n">01</span>
+          <h3>Connecter</h3>
+          <p>Le client, l'équipe, la douane et le transporteur travaillent sur le même dossier, avec le même numéro, le même statut, la même couleur partout.</p>
+        </article>
+        <article class="ch-pillar ch-reveal">
+          <span class="ch-pillar__n">02</span>
+          <h3>Sécuriser</h3>
+          <p>Mandat, pièces obligatoires, codes de confirmation, historique horodaté : rien ne se perd, tout se retrouve.</p>
+        </article>
+        <article class="ch-pillar ch-reveal">
+          <span class="ch-pillar__n">03</span>
+          <h3>Livrer</h3>
+          <p>Du bon à enlever jusqu'au camion, chaque étape est visible. Le client suit son dossier sans créer de compte.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Pourquoi ces choix</p>
+      <div class="ch-why">
+        <div class="ch-why__item ch-reveal">
+          <span class="ch-why__chip" style="background:var(--night-950)"></span>
+          <h3>Le bleu nuit</h3>
+          <p>La couleur de la confiance et de la rigueur douanière. C'est aussi la nuit du port, quand la marchandise continue d'avancer. Il tient le cadre : menu, en-têtes, emails.</p>
+        </div>
+        <div class="ch-why__item ch-reveal">
+          <span class="ch-why__chip" style="background:var(--orange-500)"></span>
+          <h3>L'orange du logo</h3>
+          <p>L'arc qui traverse le monogramme : la trajectoire de la marchandise, du quai jusqu'au client. À l'écran, il signale l'action à faire et l'étape en cours, et rien d'autre.</p>
+        </div>
+        <div class="ch-why__item ch-reveal">
+          <span class="ch-why__chip ch-why__chip--type">Aa</span>
+          <h3>Inter</h3>
+          <p>Un déclarant passe huit heures par jour sur l'outil. Inter reste nette en petite taille, ses chiffres s'alignent, et elle ne fatigue pas l'œil.</p>
+        </div>
+        <div class="ch-why__item ch-reveal">
+          <span class="ch-why__chip ch-why__chip--shape"></span>
+          <h3>Formes douces, gestes courts</h3>
+          <p>Des angles arrondis, des ombres légères, des animations de moins d'un quart de seconde : un outil moderne qui ne détourne jamais l'attention des données.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Avant, après</p>
+      <p class="ch-note ch-note--top">Le même écran de la liste des dossiers, avec l'identité de septembre (v1.0) et celle d'aujourd'hui (v2.0). Faites glisser la poignée.</p>
+      <div class="ch-ba" id="ba">
+        <div class="ch-ba__layer ch-ba__layer--old" aria-hidden="true">
+          <div class="ch-ba__screen old">
+            <aside class="old-nav">
+              <div class="old-brand"><span class="old-mark"><img src="assets/img/logo-monogramme.png" alt=""></span><b>DOUA<em>LOG</em></b></div>
+              <span class="old-item">Tableau de bord</span><span class="old-item is-on">Dossiers</span><span class="old-item">Transport</span><span class="old-item">Mandats</span><span class="old-item">Clients</span><span class="old-item">Documents</span><span class="old-item">Messagerie</span>
+            </aside>
+            <div class="old-main">
+              <div class="old-top"><b>DOUALOG CONTROL TOWER</b><span>CONNECTER • SÉCURISER • LIVRER</span></div>
+              <div class="old-kpis">
+                <div><i style="background:#2F63AE"></i><b>17</b><span>DOSSIERS ACTIFS</span></div>
+                <div><i style="background:#A8447F"></i><b>3</b><span>CONTRÔLES EN COURS</span></div>
+                <div><i style="background:#2E8347"></i><b>2</b><span>BAE OBTENUS</span></div>
+                <div><i style="background:#B04B1B"></i><b>3</b><span>TRANSPORT EN COURS</span></div>
+              </div>
+              <div class="old-card">
+                <div class="old-card__head"><b>LISTE DES DOSSIERS</b><span class="old-btn">NOUVEAU DOSSIER</span></div>
+                <table>
+                  <thead><tr><th>N° DOSSIER</th><th>TYPE</th><th>CLIENT</th><th>STATUT</th><th>CONTRÔLE</th></tr></thead>
+                  <tbody>
+                    <tr><td>DLG-2026-0412</td><td>IMPORT</td><td>Agrofertil Normandie</td><td><span class="old-tag" style="--t:#6A4FD1">En facturation</span></td><td>Aucun</td></tr>
+                    <tr><td>DLG-2026-0415</td><td>IMPORT</td><td>Pièces Auto du Havre</td><td><span class="old-tag" style="--t:#A8447F">Contrôle physique</span></td><td>Physique</td></tr>
+                    <tr><td>DLG-2026-0416</td><td>IMPORT</td><td>Bâtiment et Travaux de l’Estuaire</td><td><span class="old-tag" style="--t:#B23327">Info manquante</span></td><td>Documentaire</td></tr>
+                    <tr><td>DLG-2026-0420</td><td>IMPORT</td><td>Éts Moreau &amp; Fils</td><td><span class="old-tag" style="--t:#6A4FD1">Anticipé</span></td><td>—</td></tr>
+                    <tr><td>DLG-2026-0423</td><td>IMPORT</td><td>Pièces Auto du Havre</td><td><span class="old-tag" style="--t:#2F63AE">Décl. stockée</span></td><td>—</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ch-ba__layer ch-ba__layer--new" aria-hidden="true">
+          <div class="ch-ba__screen new">
+            <aside class="c-sidebar new-nav">
+              <div class="c-sidebar__brand"><span class="c-brand"><img class="c-brand__logo" src="assets/img/logo-blanc-menu.png" alt=""></span></div>
+              <ul class="c-nav">
+                <li><span class="c-nav__item"><svg class="c-icon"><use href="#i-dashboard"></use></svg><span class="c-nav__label">Tableau de bord</span></span></li>
+                <li><span class="c-nav__item is-active"><svg class="c-icon"><use href="#i-dossiers"></use></svg><span class="c-nav__label">Dossiers</span></span></li>
+                <li><span class="c-nav__item"><svg class="c-icon"><use href="#i-transport"></use></svg><span class="c-nav__label">Transport</span></span></li>
+                <li><span class="c-nav__item"><svg class="c-icon"><use href="#i-mandat"></use></svg><span class="c-nav__label">Mandats</span><span class="c-count">4</span></span></li>
+                <li><span class="c-nav__item"><svg class="c-icon"><use href="#i-clients"></use></svg><span class="c-nav__label">Clients</span></span></li>
+                <li><span class="c-nav__item"><svg class="c-icon"><use href="#i-document"></use></svg><span class="c-nav__label">Documents</span><span class="c-count">9</span></span></li>
+                <li><span class="c-nav__item"><svg class="c-icon"><use href="#i-mail"></use></svg><span class="c-nav__label">Messagerie</span><span class="c-count">6</span></span></li>
+              </ul>
+            </aside>
+            <div class="new-main">
+              <div class="new-top">
+                <div class="c-topbar__search c-input-icon"><svg class="c-icon"><use href="#i-search"></use></svg><input class="c-input" placeholder="Rechercher un dossier, un BL, un client…" tabindex="-1"></div>
+                <div class="c-user"><span class="c-user__initials">AN</span><span><span class="c-user__name">Awa Ndiaye</span><span class="u-muted" style="font-size:var(--fs-xs)">Déclarant douane</span></span></div>
+              </div>
+              <div class="new-body">
+                <div class="new-head"><h1>Dossiers</h1><span class="c-btn c-btn--primary"><svg class="c-icon"><use href="#i-plus"></use></svg>Nouveau dossier</span></div>
+                <div class="c-stats">
+                  <div class="c-stats__group">
+                    <span class="c-stat c-stat--blue"><span class="c-stat__in"><span class="c-stat__icon"><svg class="c-icon"><use href="#i-dossiers"></use></svg></span><span class="c-stat__value">17</span><span class="c-stat__label"><span class="is-long">Dossiers actifs</span></span></span></span>
+                    <span class="c-stat c-stat--magenta"><span class="c-stat__in"><span class="c-stat__icon"><svg class="c-icon"><use href="#i-controle"></use></svg></span><span class="c-stat__value">3</span><span class="c-stat__label"><span class="is-long">Contrôles en cours</span></span></span></span>
+                    <span class="c-stat c-stat--green"><span class="c-stat__in"><span class="c-stat__icon"><svg class="c-icon"><use href="#i-valide"></use></svg></span><span class="c-stat__value">2</span><span class="c-stat__label"><span class="is-long">BAE obtenus</span></span></span></span>
+                    <span class="c-stat c-stat--red"><span class="c-stat__in"><span class="c-stat__icon"><svg class="c-icon"><use href="#i-transport"></use></svg></span><span class="c-stat__value">3</span><span class="c-stat__label"><span class="is-long">Transport en cours</span></span></span></span>
+                  </div>
+                </div>
+                <div class="c-table-wrap">
+                  <table class="c-table">
+                    <thead><tr><th>N° dossier</th><th>Type</th><th>Client</th><th>Statut</th><th>Contrôle</th></tr></thead>
+                    <tbody>
+                      <tr class="is-selected"><td><span class="c-ref" style="color:var(--text-link)">DLG-2026-0412</span></td><td>Import</td><td>Agrofertil Normandie</td><td><span class="c-badge c-badge--special">En facturation</span></td><td><span class="c-ctrl c-ctrl--success"><span class="c-ctrl__type">Aucun contrôle</span></span></td></tr>
+                      <tr class="is-warning"><td><span class="c-ref" style="color:var(--text-link)">DLG-2026-0415</span></td><td>Import</td><td>Pièces Auto du Havre</td><td><span class="c-badge c-badge--warning">Contrôle physique en cours</span></td><td><span class="c-ctrl c-ctrl--warning"><span class="c-ctrl__type">Physique · en cours</span></span></td></tr>
+                      <tr class="is-alert"><td><span class="c-ref" style="color:var(--text-link)">DLG-2026-0416</span></td><td>Import</td><td>Bâtiment et Travaux de l’Estuaire</td><td><span class="c-badge c-badge--danger">Info manquante</span></td><td><span class="c-ctrl c-ctrl--danger"><span class="c-ctrl__type">Documentaire</span></span></td></tr>
+                      <tr><td><span class="c-ref" style="color:var(--text-link)">DLG-2026-0420</span></td><td>Import</td><td>Éts Moreau &amp; Fils</td><td><span class="c-badge c-badge--special">Déclaration anticipée</span></td><td><span class="c-dash">—</span></td></tr>
+                      <tr><td><span class="c-ref" style="color:var(--text-link)">DLG-2026-0423</span></td><td>Import</td><td>Pièces Auto du Havre</td><td><span class="c-badge c-badge--info">Déclaration stockée</span></td><td><span class="c-dash">—</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="ch-ba__tag ch-ba__tag--old">Avant · v1.0</span>
+        <span class="ch-ba__tag ch-ba__tag--new">Après · v2.0</span>
+        <span class="ch-ba__handle" aria-hidden="true"><svg class="c-icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg><svg class="c-icon" aria-hidden="true"><use href="#i-chevron-right"></use></svg></span>
+        <input class="ch-ba__range" type="range" min="0" max="100" value="50" aria-label="Comparer l'ancienne et la nouvelle identité">
+      </div>
+      <div class="ch-ba__legend">
+        <div><b>v1.0</b> Sora en majuscules, or douane, fond ivoire, angles durs, bandeau d'indicateurs sombre, magenta pour les contrôles.</div>
+        <div><b>v2.0</b> Inter en casse normale, orange du logo, fond gris clair, cartes blanches, six teintes de statut, un seul bouton orange par zone.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 01 — LOGO ══ -->
+  <section class="ch-art" id="logo" data-n="01" data-titre="Logo" data-slide>
+    <div class="ch-art__head"><span class="n">01</span><h2>Logo</h2></div>
+    <p class="ch-intro">Le monogramme <b>DL</b> et le nom <b>DOUALOG</b> sont fournis en fichiers : on ne les redessine pas, on ne les recompose pas. La version <b>blanche</b> est la version d'usage sur le bleu nuit (menu de l'application, en-tête des pages client, emails) ; la version <b>couleur</b> s'utilise sur fond clair. Le nom DOUALOG apparaît une seule fois par écran.</p>
+
+    <div class="ch-group">
+      <p class="ch-cap">Versions</p>
+      <div class="ch-grid ch-grid--4">
+        <div class="ch-logo ch-reveal"><div class="ch-logo__stage is-night"><img src="assets/img/logo-blanc-menu.png" alt="Logo blanc sur bleu nuit"></div>
+          <div class="ch-logo__cap"><b>Blanc sur bleu nuit</b>Menu de l'application, pages client, emails</div></div>
+        <div class="ch-logo ch-reveal"><div class="ch-logo__stage"><img src="assets/img/logo.png" alt="Logo couleur sur blanc"></div>
+          <div class="ch-logo__cap"><b>Couleur sur blanc</b>Connexion, facture, mandat, documents imprimés</div></div>
+        <div class="ch-logo ch-reveal"><div class="ch-logo__stage is-app"><img src="assets/img/logo.png" alt="Logo couleur sur gris clair"></div>
+          <div class="ch-logo__cap"><b>Couleur sur fond de travail</b>Sommaire, présentation <code>#F4F5F7</code></div></div>
+        <div class="ch-logo ch-reveal"><div class="ch-logo__stage is-night"><img class="mono" src="assets/img/logo-monogramme-blanc-menu.png" alt="Monogramme blanc"></div>
+          <div class="ch-logo__cap"><b>Monogramme blanc</b>Menu replié (64 px), en-tête des emails</div></div>
+        <div class="ch-logo ch-reveal"><div class="ch-logo__stage is-night"><img src="assets/img/logo-doualog-blanc.png" alt="Logo complet blanc sur bleu nuit" style="width:150px"></div>
+          <div class="ch-logo__cap"><b>Logo complet blanc</b>Couverture, présentation, grands formats sur bleu nuit</div></div>
+        <div class="ch-logo ch-reveal"><div class="ch-logo__stage"><img class="mono" src="assets/img/logo-monogramme.png" alt="Monogramme couleur"></div>
+          <div class="ch-logo__cap"><b>Monogramme couleur</b>Petits formats sur fond clair</div></div>
+        <div class="ch-logo ch-reveal"><div class="ch-logo__stage is-app"><img src="assets/img/favicon.png" alt="Favicon" style="width:48px"></div>
+          <div class="ch-logo__cap"><b>Favicon</b>Toutes les pages, onglet du navigateur</div></div>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <div class="ch-grid ch-grid--2">
+        <div class="ch-logo">
+          <div class="ch-clear"><div class="ch-clear__box"><img src="assets/img/logo.png" alt="Zone de protection du logo"></div></div>
+          <div class="ch-logo__cap"><b>Zone de protection</b>Marge libre égale à la hauteur du monogramme DL, sur les quatre côtés.</div>
+        </div>
+        <div class="ch-logo">
+          <div class="ch-clear"><span class="ch-size"><img src="assets/img/logo-blanc-menu.png" alt="Logo à la taille du menu"></span></div>
+          <div class="ch-logo__cap"><b>Taille</b>128 px de large dans le menu, aligné sur les icônes des entrées. En dessous de 88 px, utiliser le monogramme seul.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">À éviter</p>
+      <div class="ch-grid ch-grid--4">
+        <div class="ch-logo"><div class="ch-dont ch-dont--stretch"><img src="assets/img/logo.png" alt="Logo déformé"><span class="ch-dont__x"><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-x"></use></svg></span></div><div class="ch-logo__cap">Déformer</div></div>
+        <div class="ch-logo"><div class="ch-dont ch-dont--recolor"><img src="assets/img/logo.png" alt="Logo recoloré"><span class="ch-dont__x"><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-x"></use></svg></span></div><div class="ch-logo__cap">Recolorer</div></div>
+        <div class="ch-logo"><div class="ch-dont ch-dont--rotate"><img src="assets/img/logo.png" alt="Logo pivoté"><span class="ch-dont__x"><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-x"></use></svg></span></div><div class="ch-logo__cap">Pivoter</div></div>
+        <div class="ch-logo"><div class="ch-dont ch-dont--contrast"><img src="assets/img/logo-blanc-menu.png" alt="Logo blanc sur orange"><span class="ch-dont__x"><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-x"></use></svg></span></div><div class="ch-logo__cap">Blanc sur orange (contraste trop faible)</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 02 — COULEUR ══ -->
+  <section class="ch-art" id="couleur" data-n="02" data-titre="Couleur" data-slide>
+    <div class="ch-art__head"><span class="n">02</span><h2>Couleur</h2></div>
+    <p class="ch-intro">Trois couleurs portent l'identité : le <b>bleu nuit</b> du menu, l'<b>orange du logo</b> et le <b>bleu marine</b> des titres et éléments actifs. Tout le reste est neutre. L'orange est rare, et c'est ce qui le rend lisible. <span class="ch-hint"><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-link"></use></svg>Cliquez sur une couleur pour copier son code.</span></p>
+
+    <div class="ch-group">
+      <p class="ch-cap">Identité</p>
+      <div class="ch-grid ch-grid--3">
+        <button class="ch-sw ch-sw--lg ch-reveal" type="button" data-copy="#123259"><span class="ch-sw__c" style="background:var(--night-950);color:var(--on-dark)">Bleu nuit</span>
+          <span class="ch-sw__i"><b>Bleu nuit</b><span class="hex">#123259 · <code>--night-950</code></span>Menu latéral pleine hauteur, en-tête des pages client et des emails.</span></button>
+        <button class="ch-sw ch-sw--lg ch-reveal" type="button" data-copy="#F99A00"><span class="ch-sw__c" style="background:var(--orange-500);color:var(--navy-500)">Orange DOUALOG</span>
+          <span class="ch-sw__i"><b>Orange DOUALOG</b><span class="hex">#F99A00 · <code>--orange-500</code></span>Orange du logo : boutons principaux, entrée active du menu, étape en cours, focus.</span></button>
+        <button class="ch-sw ch-sw--lg ch-reveal" type="button" data-copy="#0C2C5E"><span class="ch-sw__c" style="background:var(--navy-500);color:var(--neutral-0)">Bleu marine</span>
+          <span class="ch-sw__i"><b>Bleu marine</b><span class="hex">#0C2C5E · <code>--navy-500</code></span>Titres, liens, onglets et filtres actifs, texte des boutons orange.</span></button>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Déclinaisons de l'orange</p>
+      <div class="ch-grid ch-grid--4">
+        <button class="ch-sw" type="button" data-copy="#E68E00"><span class="ch-sw__c" style="background:var(--orange-600);color:var(--navy-500)">Survol</span>
+          <span class="ch-sw__i"><b>Orange survol</b><span class="hex">#E68E00 · <code>--orange-600</code></span>Survol des boutons principaux.</span></button>
+        <button class="ch-sw" type="button" data-copy="#9A5800"><span class="ch-sw__c" style="background:var(--orange-700);color:var(--neutral-0)">Texte</span>
+          <span class="ch-sw__i"><b>Orange texte</b><span class="hex">#9A5800 · <code>--orange-700</code></span>Texte orange sur fond clair.</span></button>
+        <button class="ch-sw" type="button" data-copy="#FFF5E0"><span class="ch-sw__c" style="background:var(--orange-50);color:var(--orange-700)">Fond</span>
+          <span class="ch-sw__i"><b>Orange très clair</b><span class="hex">#FFF5E0 · <code>--orange-50</code></span>Fonds d'accent rares.</span></button>
+        <button class="ch-sw" type="button" data-copy="#EAF0F8"><span class="ch-sw__c" style="background:var(--action-active-bg);color:var(--navy-500)">Actif</span>
+          <span class="ch-sw__i"><b>Fond actif</b><span class="hex">#EAF0F8 · <code>--action-active-bg</code></span>Indicateur actif, ligne sélectionnée.</span></button>
+      </div>
+      <p class="ch-note"><b>Bouton orange = texte bleu marine.</b> Le blanc sur l'orange n'est pas assez lisible (voir le vérificateur ci-dessous).</p>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Surfaces et texte</p>
+      <div class="ch-grid ch-grid--4">
+        <button class="ch-sw" type="button" data-copy="#F4F5F7"><span class="ch-sw__c" style="background:var(--gray-app)"></span><span class="ch-sw__i"><b>Fond de travail</b><span class="hex">#F4F5F7 · <code>--gray-app</code></span>Zone de travail, sous les cartes.</span></button>
+        <button class="ch-sw" type="button" data-copy="#FFFFFF"><span class="ch-sw__c" style="background:var(--neutral-0)"></span><span class="ch-sw__i"><b>Blanc</b><span class="hex">#FFFFFF · <code>--neutral-0</code></span>Cartes, liste, champs, header translucide.</span></button>
+        <button class="ch-sw" type="button" data-copy="#F8F9FB"><span class="ch-sw__c" style="background:var(--neutral-50)"></span><span class="ch-sw__i"><b>Gris en-tête</b><span class="hex">#F8F9FB · <code>--neutral-50</code></span>En-têtes et survol de tableau.</span></button>
+        <button class="ch-sw" type="button" data-copy="#E4E7EC"><span class="ch-sw__c" style="background:var(--neutral-200)"></span><span class="ch-sw__i"><b>Filet</b><span class="hex">#E4E7EC · <code>--neutral-200</code></span>Bordures fines, séparateurs.</span></button>
+        <button class="ch-sw" type="button" data-copy="#101828"><span class="ch-sw__c" style="background:var(--neutral-900)"></span><span class="ch-sw__i"><b>Texte fort</b><span class="hex">#101828 · <code>--neutral-900</code></span>Titres de page, valeurs.</span></button>
+        <button class="ch-sw" type="button" data-copy="#344054"><span class="ch-sw__c" style="background:var(--neutral-700)"></span><span class="ch-sw__i"><b>Texte courant</b><span class="hex">#344054 · <code>--neutral-700</code></span>Texte des tableaux et formulaires.</span></button>
+        <button class="ch-sw" type="button" data-copy="#5D6676"><span class="ch-sw__c" style="background:var(--neutral-600)"></span><span class="ch-sw__i"><b>Texte secondaire</b><span class="hex">#5D6676 · <code>--neutral-600</code></span>Libellés, métadonnées.</span></button>
+        <button class="ch-sw" type="button" data-copy="#98A2B3"><span class="ch-sw__c" style="background:var(--neutral-400)"></span><span class="ch-sw__i"><b>Discret</b><span class="hex">#98A2B3 · <code>--neutral-400</code></span>« — », étapes à venir. Jamais pour un texte à lire.</span></button>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Vérifier un contraste</p>
+      <div class="ch-box ch-contrast">
+        <div class="ch-contrast__ctrl">
+          <div class="c-field"><label class="c-field__label" for="ct-fg">Texte</label><select class="c-select" id="ct-fg"></select></div>
+          <div class="c-field"><label class="c-field__label" for="ct-bg">Fond</label><select class="c-select" id="ct-bg"></select></div>
+          <button class="c-btn c-btn--sm c-btn--ghost u-self-start" type="button" id="ct-swap"><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-refresh"></use></svg>Inverser</button>
+        </div>
+        <div class="ch-contrast__preview" id="ct-preview">
+          <span class="ch-contrast__big">Valider le BAS</span>
+          <span>Le dossier DLG-2026-0412 passera en facturation.</span>
+        </div>
+        <div class="ch-contrast__result">
+          <b id="ct-ratio">5,9:1</b>
+          <ul id="ct-checks"></ul>
+        </div>
+      </div>
+      <p class="ch-note">Minimum exigé dans DOUALOG : <b>4,5:1</b> pour tout texte courant (niveau AA), 3:1 pour les grands titres et les icônes.</p>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Couleurs des indicateurs</p>
+      <div class="ch-grid ch-grid--3">
+        <div class="ch-box"><div class="u-row ch-kpi-dots">
+          <button type="button" data-copy="#3B82F6" style="background:var(--kpi-blue)" aria-label="Bleu #3B82F6"></button>
+          <button type="button" data-copy="#8B5CF6" style="background:var(--kpi-violet)" aria-label="Violet #8B5CF6"></button>
+          <button type="button" data-copy="#D946EF" style="background:var(--kpi-magenta)" aria-label="Magenta #D946EF"></button>
+          <button type="button" data-copy="#22C55E" style="background:var(--kpi-green)" aria-label="Vert #22C55E"></button>
+          <button type="button" data-copy="#F99A00" style="background:var(--kpi-orange)" aria-label="Orange #F99A00"></button>
+          <button type="button" data-copy="#EF4444" style="background:var(--kpi-red)" aria-label="Rouge #EF4444"></button></div>
+          <p class="ch-note">Bleu <code>#3B82F6</code> · violet <code>#8B5CF6</code> · magenta <code>#D946EF</code> · vert <code>#22C55E</code> · orange <code>#F99A00</code> · rouge <code>#EF4444</code>.</p></div>
+        <div class="ch-box ch-span2"><p class="ch-note" style="margin:0">Une teinte par indicateur du tableau de bord, en icône sur un carré légèrement teinté, et dans les graphiques. Ces couleurs <b>ne disent pas l'état</b> d'un dossier : pour un statut, on utilise toujours les six teintes de statut (chapitre 07).</p></div>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Dosage sur un écran</p>
+      <div class="ch-ratio">
+        <div><div class="ch-ratio__bar"><span style="flex:62;background:var(--gray-app)"></span><span style="flex:22;background:var(--neutral-0)"></span><span style="flex:13;background:var(--night-950)"></span><span style="flex:3;background:var(--orange-500)"></span></div>
+          <p class="ch-note">Application : fond de travail, cartes blanches, menu bleu nuit, une touche d'orange.</p></div>
+        <div><div class="ch-ratio__bar"><span style="flex:14;background:var(--night-950)"></span><span style="flex:1;background:var(--orange-500)"></span><span style="flex:70;background:var(--gray-app)"></span><span style="flex:15;background:var(--neutral-0)"></span></div>
+          <p class="ch-note">Pages client : en-tête bleu nuit, ligne orange, contenu clair.</p></div>
+        <div><div class="ch-ratio__bar"><span style="flex:50;background:var(--neutral-0)"></span><span style="flex:20;background:var(--status-success-bg)"></span><span style="flex:15;background:var(--status-info-bg)"></span><span style="flex:15;background:var(--status-warning-bg)"></span></div>
+          <p class="ch-note">Tableau : blanc, statuts en fonds très légers.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 03 — TYPOGRAPHIE ══ -->
+  <section class="ch-art" id="typo" data-n="03" data-titre="Typographie" data-slide>
+    <div class="ch-art__head"><span class="n">03</span><h2>Typographie</h2></div>
+    <p class="ch-intro">Une seule police : <b>Inter</b>, choisie après comparaison avec Roboto et Geist. Très lisible en petite taille, elle tient la densité d'un écran utilisé huit heures par jour. La hiérarchie se fait par la taille et la graisse, <b>jamais par les majuscules</b>.</p>
+
+    <div class="ch-group">
+      <div class="ch-box ch-hero-type">
+        <div class="ch-aa">Aa</div>
+        <div>
+          <div class="ch-glyphs">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br><span class="u-num">0123456789</span> € % · — « »</div>
+          <div class="ch-weights">
+            <div><span style="font-weight:400">Aa</span>Normal 400</div>
+            <div><span style="font-weight:500">Aa</span>Moyen 500</div>
+            <div><span style="font-weight:600">Aa</span>Semi-gras 600</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch-group ch-noprint">
+      <p class="ch-cap">Essayer</p>
+      <div class="ch-box ch-tester">
+        <div class="ch-tester__ctrl">
+          <input class="c-input" id="tt-text" value="Le conteneur MSCU 4120936-2 est en route vers Rouen." aria-label="Texte d'essai">
+          <label class="ch-tester__size">Taille <input type="range" id="tt-size" min="11" max="64" value="28"><output id="tt-size-out">28 px</output></label>
+          <div class="c-segmented" role="group" aria-label="Graisse">
+            <button class="c-segmented__opt" type="button" data-w="400">Normal</button><button class="c-segmented__opt" type="button" data-w="500">Moyen</button><button class="c-segmented__opt" type="button" data-w="600" aria-pressed="true">Semi-gras</button>
+          </div>
+        </div>
+        <p class="ch-tester__out" id="tt-out">Le conteneur MSCU 4120936-2 est en route vers Rouen.</p>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Échelle</p>
+      <div class="ch-box ch-box--flush ch-scroll">
+        <table class="ch-table">
+          <thead><tr><th>Rôle</th><th>Taille · graisse</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td>Titre de page</td><td class="spec">22 px · 600 · approche −2 %</td><td><span class="ch-sample-h1">Tableau de bord</span></td></tr>
+            <tr><td>Chiffre indicateur</td><td class="spec">22 px · 600 · tabulaire</td><td><span class="c-stat__value">17</span></td></tr>
+            <tr><td>Référence du dossier ouvert</td><td class="spec">17 px · 600 · approche −1 %</td><td><span class="ch-sample-h2">Dossier DLG-2026-0412</span></td></tr>
+            <tr><td>Titre de bloc</td><td class="spec">14 px · 600</td><td><span class="ch-sample-h3">Liste des dossiers</span></td></tr>
+            <tr><td>Corps formulaire</td><td class="spec">14 px · 400</td><td style="font-size:var(--fs-base)">Vérification du poids et du marquage des sacs : conforme au manifeste.</td></tr>
+            <tr><td>Corps application, tableaux</td><td class="spec">13 px · 400 · approche −0,6 %</td><td style="font-size:var(--fs-md)">Déclaration stockée, en attente de contrôle.</td></tr>
+            <tr><td>Référence</td><td class="spec">13 px · 500</td><td style="font-size:var(--fs-md)"><span class="c-ref" style="color:var(--text-link)">DLG-2026-0412</span></td></tr>
+            <tr><td>Libellé, en-tête de colonne</td><td class="spec">12 px · 600</td><td><span class="u-label">N° dossier</span></td></tr>
+            <tr><td>Métadonnée</td><td class="spec">12 px · 400</td><td style="font-size:var(--fs-sm)" class="u-muted">Reçu le 29/09/2026 · 09:14</td></tr>
+            <tr><td>Note, axe de graphique</td><td class="spec">11 px · 400</td><td style="font-size:var(--fs-xs)" class="u-muted">8 dernières semaines</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="ch-rules">
+      <div class="ch-rule ch-rule--do"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-valide"></use></svg>À faire</h3><ul>
+        <li>Chiffres tabulaires pour les contenus purement numériques : dates, montants, compteurs.</li>
+        <li>Approche légèrement négative sur les titres (<code>--ls-title</code>, <code>--ls-heading</code>).</li>
+        <li>Dates au format français : 16/10/2026 · 09:14. Montants : 4 658,20 €.</li>
+      </ul></div>
+      <div class="ch-rule ch-rule--dont"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-x"></use></svg>À éviter</h3><ul>
+        <li>Titres de blocs ou en-têtes de colonnes en MAJUSCULES.</li>
+        <li>Chiffres tabulaires sur les références (DLG-2026-…) : ils élargissent les traits d'union.</li>
+        <li>Une deuxième police, une police à chasse fixe, du gras 700 dans l'interface.</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <!-- ══ 04 — FORMES ══ -->
+  <section class="ch-art" id="formes" data-n="04" data-titre="Formes et profondeur" data-slide>
+    <div class="ch-art__head"><span class="n">04</span><h2>Formes et profondeur</h2></div>
+    <p class="ch-intro">Des angles doux, des ombres courtes et légères, des matières translucides pour ce qui flotte au-dessus du contenu. Plus une surface est haute, plus son ombre est diffuse. Aucun effet ne doit gêner la lecture des données.</p>
+
+    <div class="ch-group">
+      <div class="ch-grid ch-grid--2">
+        <div class="ch-box">
+          <p class="ch-cap">Espacements · base 4</p>
+          <div class="ch-space"><code>--sp-1</code><i style="width:4px"></i><span class="u-muted">4 px · icône et texte</span></div>
+          <div class="ch-space"><code>--sp-2</code><i style="width:8px"></i><span class="u-muted">8 px · éléments d'un composant</span></div>
+          <div class="ch-space"><code>--sp-3</code><i style="width:12px"></i><span class="u-muted">12 px · entre cartes</span></div>
+          <div class="ch-space"><code>--sp-4</code><i style="width:16px"></i><span class="u-muted">16 px · intérieur de carte</span></div>
+          <div class="ch-space"><code>--sp-5</code><i style="width:20px"></i><span class="u-muted">20 px</span></div>
+          <div class="ch-space"><code>--sp-6</code><i style="width:24px"></i><span class="u-muted">24 px · marge de page</span></div>
+          <div class="ch-space"><code>--sp-8</code><i style="width:32px"></i><span class="u-muted">32 px · entre sections</span></div>
+          <div class="ch-space"><code>--sp-12</code><i style="width:48px"></i><span class="u-muted">48 px</span></div>
+        </div>
+        <div class="ch-box">
+          <p class="ch-cap">Dimensions de l'application</p>
+          <table class="ch-table">
+            <tbody>
+              <tr><td>Menu ouvert / replié</td><td class="spec">216 px / 64 px</td></tr>
+              <tr><td>Header</td><td class="spec">60 px</td></tr>
+              <tr><td>Ligne de tableau</td><td class="spec">40 px</td></tr>
+              <tr><td>Contrôle (bouton, champ)</td><td class="spec">36 px · petit 30 px</td></tr>
+              <tr><td>Cible tactile, pages client</td><td class="spec">44 px</td></tr>
+              <tr><td>Contenu des pages client</td><td class="spec">640 px max</td></tr>
+              <tr><td>Icônes</td><td class="spec">14 · 16 · 20 px</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Angles</p>
+      <div class="ch-box">
+        <div class="ch-radius">
+          <div><i style="border-radius:6px"></i><b>6 px</b>entrées de menu, cases</div>
+          <div><i style="border-radius:8px"></i><b>8 px</b>boutons, champs, filtres</div>
+          <div><i style="border-radius:12px"></i><b>12 px</b>cartes</div>
+          <div><i style="border-radius:16px"></i><b>16 px</b>modales, connexion</div>
+          <div><i style="border-radius:999px"></i><b>Pilule</b>statuts, compteurs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Profondeur</p>
+      <div class="ch-depth">
+        <div style="box-shadow:var(--shadow-xs);border:var(--border-w) solid var(--border)"><b>--shadow-xs</b>Cartes posées sur le fond de travail, avec bordure fine.</div>
+        <div style="box-shadow:var(--shadow-md)"><b>--shadow-md</b>Éléments qui se détachent : bouton flottant, aperçu.</div>
+        <div style="box-shadow:var(--shadow-lg)"><b>--shadow-lg</b>Menus, panneau du dossier, modales.</div>
+      </div>
+      <p class="ch-note">Header et bandeau du dossier <b>translucides</b> (blanc à 82 %, flou de 14 px) : le contenu défile dessous. Voile de modale légèrement flouté. Avec « moins de transparence » activé sur l'appareil, ces matières deviennent opaques.</p>
+    </div>
+  </section>
+
+  <!-- ══ 05 — MOUVEMENT ══ -->
+  <section class="ch-art" id="mouvement" data-n="05" data-titre="Mouvement" data-slide>
+    <div class="ch-art__head"><span class="n">05</span><h2>Mouvement</h2></div>
+    <p class="ch-intro">Le mouvement explique d'où vient un élément et où il retourne. Il est <b>court</b> (90 à 240 ms), <b>sans rebond</b>, et interrompable : fermer pendant l'ouverture repart de la position affichée. La sortie suit le même chemin que l'entrée, en plus rapide.</p>
+
+    <div class="ch-group">
+      <div class="ch-motion">
+        <div><b>90 ms</b>Pression d'un bouton, qui s'enfonce dès l'appui (97 %).<br><code>--dur-press</code></div>
+        <div><b>120 ms</b>Survols, changements de couleur.<br><code>--dur-fast</code></div>
+        <div><b>180 ms</b>Onglets, menus « … », infobulles, sorties.<br><code>--dur-base</code></div>
+        <div><b>240 ms</b>Panneau du dossier, modale, panneau latéral.<br><code>--dur-enter</code></div>
+        <div><b>18 ms</b>Décalage entre les lignes d'un tableau qui apparaissent en cascade.<br><code>--dur-stagger</code></div>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <div class="ch-box">
+        <div class="ch-curve">
+          <svg viewBox="0 0 150 110" aria-hidden="true">
+            <path d="M10 100 H140 M10 100 V10" stroke="var(--border-strong)" stroke-width="1" fill="none"/>
+            <path d="M10 100 C58 21.4, 10 10, 140 10" stroke="var(--action-accent)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="ch-curve__txt">
+            <p class="ch-cap" style="margin-bottom:var(--sp-1)">Courbe des feuilles iOS : départ vif, arrivée douce</p>
+            <p class="ch-note" style="margin:0 0 var(--sp-3)">Entrée <code>--ease-out</code> = cubic-bezier(.32, .72, 0, 1) · sortie en miroir <code>--ease-in</code>.</p>
+            <div class="ch-track" id="track"><span></span></div>
+            <button class="c-btn c-btn--sm u-mt-3 ch-noprint" type="button" id="track-btn"><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-refresh"></use></svg>Rejouer</button>
+          </div>
+        </div>
+      </div>
+      <p class="ch-note">Accessibilité : avec « moins d'animations », les distances passent à 0 (fondus seuls) ; avec « contraste renforcé », filets et textes secondaires sont plus marqués.</p>
+    </div>
+  </section>
+
+  <!-- ══ 06 — ICÔNES ══ -->
+  <section class="ch-art" id="icones" data-n="06" data-titre="Icônes" data-slide>
+    <div class="ch-art__head"><span class="n">06</span><h2>Icônes</h2></div>
+    <p class="ch-intro">Une seule famille : grille 24 × 24, trait de 1,8 px, extrémités arrondies, aucun remplissage. Une icône seulement si elle accélère la reconnaissance ; une icône = un sens. <b>Aucun emoji.</b></p>
+
+    <div class="ch-group">
+      <div class="ch-box">
+        <div class="ch-icon-sizes">
+          <div><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-dossiers"></use></svg>14 px · petits boutons</div>
+          <div><svg class="c-icon" aria-hidden="true"><use href="#i-dossiers"></use></svg>16 px · tableaux, menu</div>
+          <div><svg class="c-icon c-icon--lg" aria-hidden="true"><use href="#i-dossiers"></use></svg>20 px · header</div>
+        </div>
+      </div>
+    </div>
+    <div class="ch-icons" id="icons"></div>
+  </section>
+
+  <!-- ══ 07 — STATUTS ══ -->
+  <section class="ch-art" id="statuts" data-n="07" data-titre="Statuts" data-slide>
+    <div class="ch-art__head"><span class="n">07</span><h2>Statuts</h2></div>
+    <p class="ch-intro">Chaque statut de dossier, de transport ou de facture est rattaché à <b>une des six teintes</b>. Le même libellé a la même teinte partout : liste, dossier, pages client. La couleur n'est jamais seule : toujours une pastille et un libellé.</p>
+
+    <div class="ch-group">
+      <div class="ch-grid ch-grid--3">
+        <button class="ch-tone ch-reveal" type="button" data-copy="#2E8347"><span class="ch-tone__top"><span class="c-badge c-badge--success c-badge--lg">Succès</span><span class="ch-tone__dot" style="background:var(--tone-success)"></span></span>
+          <span class="ch-tone__i"><b>Terminé, obtenu, livré</b><span class="hex">#2E8347 · fond #E3F1E7 · texte #1F6435</span></span></button>
+        <button class="ch-tone ch-reveal" type="button" data-copy="#2F63AE"><span class="ch-tone__top"><span class="c-badge c-badge--info c-badge--lg">Info</span><span class="ch-tone__dot" style="background:var(--tone-info)"></span></span>
+          <span class="ch-tone__i"><b>En cours normal</b><span class="hex">#2F63AE · fond #E5EDF8 · texte #2A5A9E</span></span></button>
+        <button class="ch-tone ch-reveal" type="button" data-copy="#B04B1B"><span class="ch-tone__top"><span class="c-badge c-badge--warning c-badge--lg">Vigilance</span><span class="ch-tone__dot" style="background:var(--tone-warning)"></span></span>
+          <span class="ch-tone__i"><b>Attente, contrôle, à traiter</b><span class="hex">#B04B1B · fond #FBEBE2 · texte #A3441A</span></span></button>
+        <button class="ch-tone ch-reveal" type="button" data-copy="#B23327"><span class="ch-tone__top"><span class="c-badge c-badge--danger c-badge--lg">Bloquant</span><span class="ch-tone__dot" style="background:var(--tone-danger)"></span></span>
+          <span class="ch-tone__i"><b>Anomalie, info manquante</b><span class="hex">#B23327 · fond #FBE6E4 · texte #A82F24</span></span></button>
+        <button class="ch-tone ch-reveal" type="button" data-copy="#6A4FD1"><span class="ch-tone__top"><span class="c-badge c-badge--special c-badge--lg">Spécifique</span><span class="ch-tone__dot" style="background:var(--tone-special)"></span></span>
+          <span class="ch-tone__i"><b>Anticipé, facturation</b><span class="hex">#6A4FD1 · fond #EEEAFB · texte #5E44C4</span></span></button>
+        <button class="ch-tone ch-reveal" type="button" data-copy="#5B564A"><span class="ch-tone__top"><span class="c-badge c-badge--neutral c-badge--lg">Neutre</span><span class="ch-tone__dot" style="background:var(--tone-neutral)"></span></span>
+          <span class="ch-tone__i"><b>Clôturé, sans objet</b><span class="hex">#5B564A · fond #EEEFF1 · texte #4F5662</span></span></button>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Un dossier, du premier email à la clôture</p>
+      <div class="ch-box ch-player" id="player">
+        <div class="ch-player__head">
+          <div><span class="ch-player__ref">Dossier DLG-2026-0412</span> <span class="c-badge c-badge--info" id="pl-badge">Réception</span><span class="u-muted ch-player__client">Agrofertil Normandie · Import maritime</span></div>
+          <button class="c-btn c-btn--sm ch-noprint" type="button" id="pl-btn"><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-refresh"></use></svg>Rejouer</button>
+        </div>
+        <div class="ch-scroll"><ol class="c-wf" id="pl-wf" aria-label="Avancement du dossier"></ol></div>
+        <p class="ch-player__event" id="pl-event" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Correspondance des statuts</p>
+      <div class="ch-grid ch-grid--3">
+        <div class="ch-box ch-box--flush"><table class="ch-table"><thead><tr><th>Dossier</th></tr></thead><tbody id="map-dossier"></tbody></table></div>
+        <div class="ch-box ch-box--flush"><table class="ch-table"><thead><tr><th>Transport</th></tr></thead><tbody id="map-transport"></tbody></table></div>
+        <div class="u-stack">
+          <div class="ch-box ch-box--flush"><table class="ch-table"><thead><tr><th>Facture</th></tr></thead><tbody id="map-facture"></tbody></table></div>
+          <div class="ch-box ch-box--flush"><table class="ch-table"><thead><tr><th>Colonne Contrôle (texte coloré + date)</th></tr></thead><tbody>
+            <tr><td><span class="c-ctrl c-ctrl--warning"><span class="c-ctrl__type">Physique · en cours</span><span class="c-ctrl__date">16/10/2026</span></span></td></tr>
+            <tr><td><span class="c-ctrl c-ctrl--danger"><span class="c-ctrl__type">Documentaire · info manquante</span><span class="c-ctrl__date">13/10/2026</span></span></td></tr>
+            <tr><td><span class="c-ctrl c-ctrl--success"><span class="c-ctrl__type">Aucun contrôle</span></span></td></tr>
+          </tbody></table></div>
+        </div>
+      </div>
+      <p class="ch-note">États du workflow : terminé (vert ✓), anticipé (violet ✓), <b>en cours (orange DOUALOG)</b>, contrôle en cours (rouille !), bloquant (rouge !), sans objet (gris –), à venir (cercle vide). Le trait entre deux étapes dégrade de la couleur de l'étape passée vers la suivante.</p>
+    </div>
+  </section>
+
+  <!-- ══ 08 — COMPOSANTS ══ -->
+  <section class="ch-art" id="composants" data-n="08" data-titre="Composants" data-slide>
+    <div class="ch-art__head"><span class="n">08</span><h2>Composants</h2></div>
+    <p class="ch-intro">Les briques de l'application, telles qu'elles fonctionnent dans les maquettes : essayez-les. Le détail technique (classes, variantes, états) est dans le design system des maquettes, <code>output/design-system.html</code>.</p>
+
+    <div class="ch-group">
+      <div class="ch-cap-row"><p class="ch-cap">Structure de l'application</p>
+        <button class="c-btn c-btn--sm ch-noprint" type="button" id="shell-toggle"><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-sidebar"></use></svg>Replier le menu</button></div>
+      <div class="ch-shell" id="shell">
+        <div class="c-app">
+          <header class="c-topbar">
+            <button class="c-btn c-btn--icon c-btn--ghost" type="button" aria-label="Replier le menu" data-shell-toggle><svg class="c-icon c-icon--lg" aria-hidden="true"><use href="#i-sidebar"></use></svg></button>
+            <div class="c-topbar__search c-input-icon"><svg class="c-icon" aria-hidden="true"><use href="#i-search"></use></svg><input class="c-input" placeholder="Rechercher un dossier, un BL, un client…" aria-label="Recherche"></div>
+            <div class="c-topbar__right">
+              <span class="c-btn c-btn--icon c-btn--ghost c-topbar__icon" aria-label="Notifications"><svg class="c-icon c-icon--lg" aria-hidden="true"><use href="#i-bell"></use></svg><span class="c-count c-count--accent">4</span></span>
+              <span class="c-btn c-btn--icon c-btn--ghost c-topbar__icon" aria-label="Emails"><svg class="c-icon c-icon--lg" aria-hidden="true"><use href="#i-mail"></use></svg><span class="c-count c-count--accent">3</span></span>
+              <div class="c-user"><span class="c-user__initials">AN</span><span><span class="c-user__name">Awa Ndiaye</span><span class="u-muted" style="font-size:var(--fs-xs)">Déclarant douane</span></span></div>
+            </div>
+          </header>
+          <nav class="c-sidebar" aria-label="Menu (exemple)">
+            <div class="c-sidebar__brand"><span class="c-brand"><img class="c-brand__logo" src="assets/img/logo-blanc-menu.png" alt="DOUALOG"><img class="c-brand__logo c-brand__logo--mono" src="assets/img/logo-monogramme-blanc-menu.png" alt="DOUALOG"></span></div>
+            <ul class="c-nav">
+              <li><span class="c-nav__item is-active" title="Tableau de bord"><svg class="c-icon" aria-hidden="true"><use href="#i-dashboard"></use></svg><span class="c-nav__label">Tableau de bord</span></span></li>
+              <li><span class="c-nav__item" title="Dossiers"><svg class="c-icon" aria-hidden="true"><use href="#i-dossiers"></use></svg><span class="c-nav__label">Dossiers</span></span></li>
+              <li><span class="c-nav__item" title="Transport"><svg class="c-icon" aria-hidden="true"><use href="#i-transport"></use></svg><span class="c-nav__label">Transport</span></span></li>
+              <li><span class="c-nav__item" title="Mandats"><svg class="c-icon" aria-hidden="true"><use href="#i-mandat"></use></svg><span class="c-nav__label">Mandats</span><span class="c-count">2</span></span></li>
+              <li><span class="c-nav__item" title="Clients"><svg class="c-icon" aria-hidden="true"><use href="#i-clients"></use></svg><span class="c-nav__label">Clients</span></span></li>
+              <li><span class="c-nav__item is-disabled" aria-disabled="true" title="Facturation"><svg class="c-icon" aria-hidden="true"><use href="#i-facture"></use></svg><span class="c-nav__label">Facturation</span></span></li>
+            </ul>
+          </nav>
+          <main class="c-main">
+            <h1>Tableau de bord</h1>
+            <p class="u-muted">Menu bleu nuit pleine hauteur, logo blanc en tête. Replié (64 px), il ne garde que les icônes et le monogramme. Header blanc translucide. Entrée active : fond discret et repère orange à gauche. Entrée hors droits du profil : grisée.</p>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Indicateurs du tableau de bord</p>
+      <div class="ch-box ch-box--app">
+        <div class="c-stats">
+          <div class="c-stats__group" id="stats">
+            <button class="c-stat c-stat--blue" type="button"><span class="c-stat__in"><span class="c-stat__icon"><svg class="c-icon" aria-hidden="true"><use href="#i-dossiers"></use></svg></span><span class="c-stat__value">16</span><span class="c-stat__label"><span class="is-long">Dossiers actifs</span></span></span></button>
+            <button class="c-stat c-stat--violet" type="button"><span class="c-stat__in"><span class="c-stat__icon"><svg class="c-icon" aria-hidden="true"><use href="#i-clock"></use></svg></span><span class="c-stat__value">2</span><span class="c-stat__label"><span class="is-long">Déclarations anticipées</span><span class="is-short">Décl. anticipées</span></span></span></button>
+            <button class="c-stat c-stat--magenta is-active" type="button"><span class="c-stat__in"><span class="c-stat__icon"><svg class="c-icon" aria-hidden="true"><use href="#i-controle"></use></svg></span><span class="c-stat__value">3</span><span class="c-stat__label"><span class="is-long">Contrôles en cours</span></span></span></button>
+            <button class="c-stat c-stat--green" type="button"><span class="c-stat__in"><span class="c-stat__icon"><svg class="c-icon" aria-hidden="true"><use href="#i-valide"></use></svg></span><span class="c-stat__value">4</span><span class="c-stat__label"><span class="is-long">BAE obtenus</span></span></span></button>
+          </div>
+        </div>
+      </div>
+      <p class="ch-note">Bandeau blanc découpé par des filets fins. Un clic ouvre la liste filtrée ; l'indicateur actif porte un trait bleu marine en bas. Cliquez pour essayer.</p>
+    </div>
+
+    <div class="ch-group">
+      <div class="ch-grid ch-grid--2">
+        <div>
+          <p class="ch-cap">Boutons</p>
+          <div class="ch-box u-stack">
+            <div class="u-row">
+              <button class="c-btn c-btn--primary" type="button" id="open-modal"><svg class="c-icon" aria-hidden="true"><use href="#i-check"></use></svg>BAS obtenu</button>
+              <button class="c-btn" type="button"><svg class="c-icon" aria-hidden="true"><use href="#i-mail"></use></svg>Envoyer un email</button>
+            </div>
+            <div class="u-row">
+              <button class="c-btn c-btn--ghost" type="button">Annuler</button>
+              <button class="c-btn c-btn--danger" type="button">Désactiver le lien</button>
+              <button class="c-btn c-btn--icon" type="button" aria-label="Plus d'actions"><svg class="c-icon" aria-hidden="true"><use href="#i-more"></use></svg></button>
+            </div>
+            <div class="u-row">
+              <button class="c-btn c-btn--primary c-btn--sm" type="button">Créer OT</button>
+              <button class="c-btn c-btn--sm" type="button"><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-pdf"></use></svg>Exporter PDF</button>
+              <button class="c-btn c-btn--primary c-btn--sm" type="button" disabled>Désactivé</button>
+            </div>
+            <p class="ch-note" style="margin:0"><b>Un seul bouton orange par zone.</b> Appuyez : il s'enfonce dès l'appui. « BAS obtenu » ouvre la modale de confirmation.</p>
+          </div>
+        </div>
+        <div>
+          <p class="ch-cap">Champs de saisie</p>
+          <div class="ch-box u-stack">
+            <div class="c-field"><label class="c-field__label" for="f1">N° de BAE <span class="is-required">*</span></label><input class="c-input" id="f1" value="2026-BAE-048213"></div>
+            <div class="c-field is-error"><label class="c-field__label" for="f2">Inspecteur <span class="is-required">*</span></label><input class="c-input" id="f2" value="">
+              <span class="c-field__error"><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-controle"></use></svg>Indiquez le nom de l'inspecteur.</span></div>
+            <div class="c-field"><label class="c-field__label" for="f3">Type de contrôle</label><select class="c-select" id="f3"><option>Aucun</option><option selected>Physique</option><option>Documentaire</option></select></div>
+            <p class="ch-note" style="margin:0">Libellé au-dessus, jamais en placeholder seul. Erreur sous le champ, en langage clair. Focus orange.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Onglets, filtres et tableau</p>
+      <div class="ch-box u-stack">
+        <div class="c-tabs c-tabs--page" role="tablist">
+          <button class="c-tabs__tab is-active" role="tab" aria-selected="true" type="button">Dossiers <span class="c-count c-count--accent">17</span></button>
+          <button class="c-tabs__tab" role="tab" aria-selected="false" type="button">Salle d'attente <span class="c-count">3</span></button>
+        </div>
+        <div class="c-toolbar" id="chips">
+          <button class="c-chip is-active" type="button" data-f="tous">Tous <span class="c-count">4</span></button>
+          <button class="c-chip" type="button" data-f="ctrl">En contrôle <span class="c-count">2</span></button>
+          <button class="c-chip" type="button" data-f="info">Info manquante <span class="c-count">1</span></button>
+          <div class="c-toolbar__end"><button class="c-btn c-btn--sm" type="button"><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-filter"></use></svg>Filtres</button></div>
+        </div>
+        <div class="c-table-wrap">
+          <table class="c-table">
+            <thead><tr><th>N° dossier</th><th>Type</th><th>Client</th><th>Statut</th><th>Contrôle</th><th>Transport</th></tr></thead>
+            <tbody id="rows">
+              <tr class="is-selected" data-f="tous"><td><span class="c-ref" style="color:var(--text-link)">DLG-2026-0412</span></td><td>Import</td><td>Agrofertil Normandie</td><td><span class="c-badge c-badge--special">En facturation</span></td><td><span class="c-ctrl c-ctrl--success"><span class="c-ctrl__type">Aucun contrôle</span></span></td><td><span class="c-badge c-badge--info">En route</span></td></tr>
+              <tr class="is-warning" data-f="tous ctrl"><td><span class="c-ref" style="color:var(--text-link)">DLG-2026-0415</span></td><td>Import</td><td>Pièces Auto du Havre</td><td><span class="c-badge c-badge--warning">Contrôle physique en cours</span></td><td><span class="c-ctrl c-ctrl--warning"><span class="c-ctrl__type">Physique · en cours</span><span class="c-ctrl__date">16/10/2026</span></span></td><td><span class="c-dash">—</span></td></tr>
+              <tr class="is-alert" data-f="tous ctrl info"><td><span class="c-ref" style="color:var(--text-link)">DLG-2026-0416</span></td><td>Import</td><td>Bâtiment et Travaux de l’Estuaire</td><td><span class="c-badge c-badge--danger">Info manquante</span></td><td><span class="c-ctrl c-ctrl--danger"><span class="c-ctrl__type">Documentaire · info manquante</span><span class="c-ctrl__date">13/10/2026</span></span></td><td><span class="c-dash">—</span></td></tr>
+              <tr data-f="tous"><td><span class="c-ref" style="color:var(--text-link)">DLG-2026-0420</span></td><td>Import</td><td>Éts Moreau &amp; Fils</td><td><span class="c-badge c-badge--special">Déclaration anticipée</span></td><td><span class="c-dash">—</span></td><td><span class="c-dash">—</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="ch-note">Lignes de 40 px, en-têtes sur bande gris très clair, en casse normale. Filtre actif plein bleu marine ; les lignes apparaissent en cascade à chaque filtrage. Exceptions marquées par un filet à gauche (rouge : bloquant, rouille : vigilance).</p>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Alertes</p>
+      <div class="u-stack">
+        <div class="c-alert c-alert--danger"><svg class="c-icon" aria-hidden="true"><use href="#i-alert"></use></svg>
+          <div><div class="c-alert__title">Information demandée au client</div><div>Certificat d'origine requis pour appliquer le tarif préférentiel. Demande envoyée le 13/10/2026 à 15:22.</div></div></div>
+        <div class="c-alert c-alert--warning"><svg class="c-icon" aria-hidden="true"><use href="#i-clock"></use></svg>
+          <div><div class="c-alert__title">Valider le BAS déclenche la facturation</div><div>Le dossier sera basculé en facturation et le service facturation notifié.</div></div></div>
+        <div class="c-alert c-alert--success"><svg class="c-icon" aria-hidden="true"><use href="#i-valide"></use></svg>
+          <div><div class="c-alert__title">Offre acceptée par Normandie Fret Express</div><div>Le 09/10/2026 à 14:47.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 09 — EXTERNE ══ -->
+  <section class="ch-art" id="externe" data-n="09" data-titre="Pages client et emails" data-slide>
+    <div class="ch-art__head"><span class="n">09</span><h2>Pages client et emails</h2></div>
+    <p class="ch-intro">Le client et le transporteur n'ont pas de compte : ils reçoivent un email et un lien. Même identité, registre plus simple : <b>en-tête bleu nuit, logo blanc, ligne orange</b>, contenu clair sur 640 px maximum, un seul bouton orange pleine largeur, cibles tactiles de 44 px. Vouvoiement, ton professionnel sobre.</p>
+
+    <div class="ch-grid ch-grid--2">
+      <div>
+        <p class="ch-cap">Page lien transporteur</p>
+        <div class="ch-ext">
+          <div class="c-ext">
+            <header class="c-ext__top"><div class="c-ext__top-in">
+              <span class="c-brand c-brand--blanc"><img class="c-brand__mono" src="assets/img/logo-monogramme-blanc-menu.png" alt=""><span class="c-brand__texte"><img class="c-brand__logo" src="assets/img/logo-blanc-menu.png" alt="DOUALOG"><span class="c-brand__sub">Douane &amp; Logistique</span></span></span>
+              <span class="c-ext__ctx">Offre de transport<b>OT-2026-0161</b></span></div></header>
+            <main class="c-ext__main">
+              <div><h1>Offre acceptée</h1><p class="c-ext__lead">Merci. L'ordre de transport <b>OT-2026-0161</b> vous est attribué.</p></div>
+              <span class="c-btn c-btn--primary c-btn--block">Ouvrir mon lien transporteur</span>
+            </main>
+            <footer class="c-ext__foot">Service transport DOUALOG · dossiers@doualog.fr</footer>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="ch-cap">Email</p>
+        <div class="ch-box ch-box--app">
+          <div class="ch-mail">
+            <div class="ch-mail__top"><img class="mono" src="assets/img/logo-monogramme-blanc-menu.png" alt=""><div><img class="logo" src="assets/img/logo-blanc-menu.png" alt="DOUALOG"><span>Douane &amp; Logistique</span></div></div>
+            <div class="ch-mail__body">
+              <p class="ch-mail__title">Nous avons bien reçu votre dossier</p>
+              <div class="ch-mail__ref">Votre numéro de dossier<b>DLG-2026-0412</b></div>
+              <p style="color:var(--text-primary)">Suivez son avancement à tout moment, sans créer de compte.</p>
+              <span class="c-btn c-btn--primary c-btn--block">Suivre mon dossier</span>
+            </div>
+            <div class="ch-mail__foot">Connecter • Sécuriser • Livrer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="ch-note"><b>Emails</b> : 600 px, styles en ligne (les messageries ne lisent pas les variables CSS), police système avec Inter si installée, carte aux angles de 12 px, bouton <code>#F99A00</code> à texte bleu marine <code>#0C2C5E</code>, N° de dossier dans un encadré gris très clair. Le slogan apparaît en pied d'email et sur l'écran de connexion, nulle part ailleurs.</p>
+  </section>
+
+  <!-- ══ 10 — EN SITUATION ══ -->
+  <section class="ch-art" id="situation" data-n="10" data-titre="La marque en situation" data-slide>
+    <div class="ch-art__head"><span class="n">10</span><h2>La marque en situation</h2></div>
+    <p class="ch-intro">Les règles appliquées : les écrans sont des captures des maquettes V1, les objets sont des déclinaisons de la même identité pour les supports de l'entreprise.</p>
+
+    <div class="ch-group">
+      <div class="ch-cap-row"><p class="ch-cap">Dans l'application</p>
+        <div class="c-segmented ch-noprint" role="group" aria-label="Écran affiché" id="mac-tabs">
+          <button class="c-segmented__opt" type="button" data-src="assets/img/mockups/ecran-tableau-de-bord.png" aria-pressed="true">Tableau de bord</button>
+          <button class="c-segmented__opt" type="button" data-src="assets/img/mockups/ecran-dossiers.png">Dossiers</button>
+          <button class="c-segmented__opt" type="button" data-src="assets/img/mockups/ecran-dossier.png">Dossier ouvert</button>
+          <button class="c-segmented__opt" type="button" data-src="assets/img/mockups/ecran-connexion.png">Connexion</button>
+        </div></div>
+      <div class="ch-mac">
+        <div class="ch-mac__screen"><img id="mac-img" src="assets/img/mockups/ecran-tableau-de-bord.png" alt="Tableau de bord DOUALOG sur un ordinateur portable"></div>
+        <div class="ch-mac__base"></div>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Chez le client et le transporteur</p>
+      <div class="ch-phones">
+        <figure class="ch-phone ch-reveal"><div class="ch-phone__screen"><img src="assets/img/mockups/mobile-suivi-public.png" alt="Page de suivi publique sur téléphone"></div><figcaption>Suivi public</figcaption></figure>
+        <figure class="ch-phone ch-phone--up ch-reveal"><div class="ch-phone__screen"><img src="assets/img/mockups/mobile-suivi-client.png" alt="Lien personnel du client sur téléphone"></div><figcaption>Lien personnel du client</figcaption></figure>
+        <figure class="ch-phone ch-reveal"><div class="ch-phone__screen"><img src="assets/img/mockups/mobile-transporteur.png" alt="Lien transporteur sur téléphone"></div><figcaption>Lien transporteur</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Hors écran</p>
+      <div class="ch-objects">
+        <figure class="ch-obj ch-obj--cards ch-reveal">
+          <div class="ch-card ch-card--front"><img src="assets/img/logo-doualog-blanc.png" alt="DOUALOG"></div>
+          <div class="ch-card ch-card--back">
+            <img class="ch-card__mono" src="assets/img/logo-monogramme.png" alt="">
+            <div><b>Babacar Gaye</b><span>Manager des opérations</span></div>
+            <ul><li>+33 2 35 19 42 60</li><li>b.gaye@doualog.fr</li><li>18 quai de Southampton, 76600 Le Havre</li></ul>
+            <i class="ch-card__line"></i>
+          </div>
+          <figcaption>Carte de visite · 85 × 55 mm</figcaption>
+        </figure>
+
+        <figure class="ch-obj ch-reveal">
+          <div class="ch-paper">
+            <div class="ch-paper__head"><img src="assets/img/logo.png" alt="DOUALOG"><div><b>Facture</b><span>FAC-2026-0193 · 09/10/2026</span></div></div>
+            <div class="ch-paper__parties"><div><span>Client</span><b>Agrofertil Normandie</b>Le Havre</div><div><span>Dossier</span><b>DLG-2026-0412</b>BL MEDULH482093</div></div>
+            <div class="ch-paper__lines"><i></i><i></i><i></i><i class="short"></i></div>
+            <div class="ch-paper__total"><span>Total TTC</span><b>4 658,20 €</b></div>
+            <div class="ch-paper__foot">DOUALOG — 18 quai de Southampton, 76600 Le Havre · SIRET 914 237 586 00012</div>
+          </div>
+          <figcaption>Papier à en-tête, facture · A4</figcaption>
+        </figure>
+
+        <figure class="ch-obj ch-reveal">
+          <div class="ch-sign">
+            <p>Bonjour Madame Dubois,<br>Le BAS de votre dossier est obtenu. Le camion est en route.</p>
+            <div class="ch-sign__block">
+              <img src="assets/img/logo-monogramme.png" alt="">
+              <div><b>Awa Ndiaye</b><span>Déclarant douane · DOUALOG</span><span>+33 2 35 19 42 60 · a.ndiaye@doualog.fr</span><span class="ch-sign__slogan">Connecter • Sécuriser • Livrer</span></div>
+            </div>
+          </div>
+          <figcaption>Signature email</figcaption>
+        </figure>
+
+        <figure class="ch-obj ch-reveal">
+          <div class="ch-badge-card">
+            <div class="ch-badge-card__top"><img src="assets/img/logo-blanc-menu.png" alt="DOUALOG"></div>
+            <span class="ch-badge-card__init">MD</span>
+            <b>Moussa Diagne</b><span>Opérateur transit</span>
+            <i class="ch-badge-card__band">Accès port du Havre</i>
+          </div>
+          <figcaption>Badge d'accès</figcaption>
+        </figure>
+
+        <figure class="ch-obj ch-obj--wide ch-reveal">
+          <svg class="ch-container" viewBox="0 0 600 230" role="img" aria-label="Conteneur maritime aux couleurs de DOUALOG">
+            <defs>
+              <pattern id="ribs" width="16" height="10" patternUnits="userSpaceOnUse"><rect width="16" height="10" fill="#123259"/><rect x="0" width="3" height="10" fill="#0E2A4C"/></pattern>
+            </defs>
+            <rect x="20" y="20" width="560" height="180" rx="4" fill="url(#ribs)"/>
+            <rect x="20" y="20" width="560" height="12" fill="#0E2A4C"/>
+            <rect x="20" y="188" width="560" height="12" fill="#0E2A4C"/>
+            <rect x="20" y="194" width="560" height="4" fill="#F99A00"/>
+            <rect x="20" y="20" width="10" height="180" fill="#0E2A4C"/><rect x="570" y="20" width="10" height="180" fill="#0E2A4C"/>
+            <image href="assets/img/logo-doualog-blanc.png" x="190" y="46" width="220" height="132" preserveAspectRatio="xMidYMid meet"/>
+            <text x="44" y="60" fill="#F1F5F9" font-family="Inter, sans-serif" font-size="13" font-weight="600" letter-spacing=".04em">DLGU 412026 2</text>
+            <text x="44" y="78" fill="rgba(241,245,249,.6)" font-family="Inter, sans-serif" font-size="10">45G1 · MAX GROSS 32 500 KG</text>
+            <rect x="60" y="208" width="36" height="10" rx="2" fill="#5D6676"/><rect x="504" y="208" width="36" height="10" rx="2" fill="#5D6676"/>
+          </svg>
+          <figcaption>Conteneur et véhicules · marquage</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 11 — VALIDATION ══ -->
+  <section class="ch-art ch-final" id="validation" data-n="11" data-titre="Validation et téléchargements" data-slide>
+    <div class="ch-art__head"><span class="n">11</span><h2>Validation et téléchargements</h2></div>
+    <p class="ch-intro">Tout ce qu'il faut pour appliquer la charte, et la validation qui la rend officielle.</p>
+
+    <div class="ch-group">
+      <div class="ch-downloads">
+        <a class="ch-dl ch-reveal" href="documents/DOUALOG_Charte-graphique_v2.0.pdf" download>
+          <span class="ch-dl__icon"><svg class="c-icon c-icon--lg" aria-hidden="true"><use href="#i-pdf"></use></svg></span>
+          <span class="ch-dl__txt"><b>Charte graphique</b><span>Ce document en PDF, format A4 paysage, sommaire cliquable.</span><small data-meta="pdf">PDF · 22 pages · 3,1 Mo</small></span>
+          <span class="c-btn c-btn--primary"><svg class="c-icon" aria-hidden="true"><use href="#i-download"></use></svg>Télécharger</span>
+        </a>
+        <a class="ch-dl ch-reveal" href="documents/DOUALOG_Kit-de-marque_v2.0.zip" download>
+          <span class="ch-dl__icon"><svg class="c-icon c-icon--lg" aria-hidden="true"><use href="#i-package"></use></svg></span>
+          <span class="ch-dl__txt"><b>Kit de marque</b><span>Logos (6 fichiers PNG), palette Adobe (.ase), variables CSS, jetons Figma (.json), police, charte PDF.</span><small data-meta="kit">ZIP · logos, couleurs, charte · 3,0 Mo</small></span>
+          <span class="c-btn"><svg class="c-icon" aria-hidden="true"><use href="#i-download"></use></svg>Télécharger</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="ch-group">
+      <p class="ch-cap">Validation de la charte</p>
+      <div class="ch-approve">
+        <div class="ch-approve__txt">
+          <p class="ch-approve__title">Bon pour accord</p>
+          <p>En validant, vous confirmez que la charte graphique DOUALOG v2.0 devient la référence pour l'application, les pages client, les emails et les supports de l'entreprise.</p>
+          <ul class="ch-approve__list">
+            <li><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Logo, couleurs, typographie</li>
+            <li><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Statuts et composants de l'application</li>
+            <li><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-check"></use></svg>Pages client, emails et supports</li>
+          </ul>
+        </div>
+
+        <form class="ch-approve__form ch-noprint" name="validation-charte" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="approve-form">
+          <input type="hidden" name="form-name" value="validation-charte">
+          <input type="hidden" name="version" value="2.0">
+          <p hidden><label>Ne pas remplir <input name="bot-field"></label></p>
+          <div class="c-field"><label class="c-field__label" for="ap-nom">Nom et prénom <span class="is-required">*</span></label><input class="c-input" id="ap-nom" name="nom" required autocomplete="name"></div>
+          <div class="c-field"><label class="c-field__label" for="ap-fonction">Fonction</label><input class="c-input" id="ap-fonction" name="fonction" placeholder="Ex. Directeur général"></div>
+          <div class="c-field"><label class="c-field__label" for="ap-com">Remarques</label><textarea class="c-textarea" id="ap-com" name="remarques" rows="3"></textarea></div>
+          <label class="c-check"><input type="checkbox" name="accord" value="oui" required> J'approuve la charte graphique DOUALOG v2.0</label>
+          <button class="c-btn c-btn--primary c-btn--block" type="submit"><svg class="c-icon" aria-hidden="true"><use href="#i-valide"></use></svg>Approuver la charte</button>
+          <p class="ch-approve__err" id="ap-err" hidden></p>
+        </form>
+
+        <div class="ch-approve__done" id="approve-done" hidden>
+          <span class="ch-approve__seal"><svg class="c-icon" aria-hidden="true"><use href="#i-valide"></use></svg></span>
+          <p class="ch-approve__title">Charte approuvée</p>
+          <p id="approve-who"></p>
+        </div>
+
+        <div class="ch-approve__print">
+          <div><span>Nom</span><i></i></div><div><span>Fonction</span><i></i></div><div><span>Date</span><i></i></div><div><span>Signature</span><i class="tall"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ch-visa">
+    <div>
+      <div><b>DOUALOG</b> — Douane &amp; Logistique</div>
+      <div>Charte graphique 2.0 · Réf. MIV-DLG-2026-B · octobre 2026</div>
+      <div>Remplace la version 1.0 (septembre 2026 : Sora, or douane, fond ivoire)</div>
+      <div>Usage réservé à l'équipe produit et aux prestataires mandatés</div>
+    </div>
+    <img src="assets/img/logo.png" alt="DOUALOG">
+  </footer>
+
+</div>
+
+<!-- Modale de démonstration -->
+<div class="c-overlay" id="modal" hidden>
+  <div class="c-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="c-modal__head"><h3 id="modal-title">Valider le BAS ?</h3>
+      <button class="c-btn c-btn--icon c-btn--ghost c-btn--sm" type="button" aria-label="Fermer" data-close><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-x"></use></svg></button></div>
+    <div class="c-modal__body">
+      <p>Le dossier <b class="c-ref">DLG-2026-0412</b> passera automatiquement <b>en facturation</b> et le service facturation sera notifié.</p>
+      <div class="c-field"><label class="c-field__label" for="m1">N° de BAS <span class="is-required">*</span></label><input class="c-input" id="m1" value="2026-BAS-051907"></div>
+    </div>
+    <div class="c-modal__foot"><button class="c-btn c-btn--ghost" type="button" data-close>Annuler</button><button class="c-btn c-btn--primary" type="button" data-close>Valider le BAS</button></div>
+  </div>
+</div>
+
+<!-- Mode présentation -->
+<div class="ch-pres-bar" id="pres-bar" hidden>
+  <button class="c-btn c-btn--icon c-btn--on-dark" type="button" id="pres-prev" aria-label="Précédent"><svg class="c-icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg></button>
+  <span id="pres-num">1 / 13</span>
+  <button class="c-btn c-btn--icon c-btn--on-dark" type="button" id="pres-next" aria-label="Suivant"><svg class="c-icon" aria-hidden="true"><use href="#i-chevron-right"></use></svg></button>
+  <button class="c-btn c-btn--sm c-btn--on-dark" type="button" id="pres-exit">Quitter <kbd>Échap</kbd></button>
+</div>
+
+<div class="ch-toast" id="toast" role="status" aria-live="polite"></div>
+
+<a class="c-btn c-btn--primary ch-pdf" href="documents/DOUALOG_Charte-graphique_v2.0.pdf" download>
+  <svg class="c-icon" aria-hidden="true"><use href="#i-download"></use></svg>Télécharger en PDF
+</a>
+
+<script src="assets/charte.js"></script>
+</body>
+</html>

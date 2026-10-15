@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Périmètre de la V1 — DOUALOG</title>
+<meta name="description" content="Ce que contient la V1 de DOUALOG Control Tower, ce qui est ajouté par les maquettes et ce qui vient plus tard.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/components.css">
+<link rel="stylesheet" href="assets/document.css">
+<script src="assets/icons.js"></script>
+</head>
+<body>
+<!-- Sources : User Stories V1 (48 stories, priorités MUST / SHOULD / COULD), cahier des charges §01–§17,
+     maquettes V1 (doualog_maquette, CLAUDE.md). Règle V1 : aucun compte ni portail pour le client et le transporteur,
+     tout passe par email avec des liens rattachés à UN dossier / UN ordre de transport (CDC §11–12). -->
+
+<header class="dc-top">
+  <div class="dc-in">
+    <div class="dc-bar">
+      <a href="index.html"><img src="assets/img/logo-blanc-menu.png" alt="DOUALOG — portail du projet"></a>
+      <nav aria-label="Documents du projet">
+        <a href="index.html">Portail</a><a href="cahier-des-charges.html">Cahier des charges</a><a href="charte.html">Charte</a><a href="roadmap_doualog.html">Roadmap</a><a href="livrables_doualog.html">Livrables</a><a href="perimetre-v1.html" aria-current="page">Périmètre V1</a><a href="roles-droits.html">Rôles et droits</a>
+      </nav>
+    </div>
+    <div class="dc-head">
+      <p class="dc-kicker">Document à valider · version 1.0 · octobre 2026</p>
+      <h1>Ce que fait la V1, et ce qui vient ensuite</h1>
+      <p>Le cahier des charges décrit la plateforme complète. Ce document dit ce qui est livré dans la première version, ce que les maquettes ont ajouté, et ce qui est prévu pour plus tard.</p>
+      <div class="dc-head__actions">
+        <a class="c-btn c-btn--primary" href="documents/DOUALOG_Perimetre-V1_v1.0.pdf" download><svg class="c-icon" aria-hidden="true"><use href="#i-download"></use></svg>Télécharger en PDF</a>
+        <span class="dc-head__meta" data-meta="perimetre">PDF · 7 pages · 0,6 Mo</span>
+        <a class="c-btn c-btn--on-dark" href="roles-droits.html"><svg class="c-icon" aria-hidden="true"><use href="#i-clients"></use></svg>Rôles et droits</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="dc-in dc-main">
+
+  <!-- ══ 01 — Le principe ══ -->
+  <section class="dc-sec">
+    <div class="dc-sec__head"><span class="n">01</span><h2>Le principe de la V1</h2></div>
+    <p class="dc-intro">L'équipe DOUALOG travaille dans la plateforme. <b>Le client et le transporteur n'ont ni compte ni portail</b> : tout passe par email. Chaque email contient un lien personnel qui ouvre la page d'<b>un seul</b> dossier ou d'<b>un seul</b> ordre de transport. Le portail avec compte viendra dans un second temps.</p>
+    <div class="dc-split">
+      <div class="dc-split__col dc-split__col--v1">
+        <span class="c-badge c-badge--success">V1</span>
+        <h3>Tout par email</h3>
+        <ul>
+          <li><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-mail"></use></svg><span>Le client envoie ses documents <b>par email</b>, reçoit un accusé de réception avec son numéro DLG, puis un email à chaque étape importante.</span></li>
+          <li><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-link"></use></svg><span>Le lien de l'email ouvre <b>la page de son dossier</b> : où il en est, ce qu'on attend de lui, ses documents.</span></li>
+          <li><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-search"></use></svg><span>Une <b>page de suivi</b> permet aussi de retrouver un dossier avec son N° DLG et son BL / LTA.</span></li>
+          <li><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-transport"></use></svg><span>Le transporteur reçoit l'offre <b>par email</b>, l'accepte ou la refuse d'un clic, puis suit la livraison depuis le lien de son ordre de transport.</span></li>
+        </ul>
+      </div>
+      <div class="dc-split__col dc-split__col--v2">
+        <span class="c-badge c-badge--neutral">Plus tard</span>
+        <h3>Le portail, avec un compte</h3>
+        <ul>
+          <li><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-user"></use></svg><span>Le client se connecte et retrouve <b>tous ses dossiers</b> au même endroit, avec leur historique.</span></li>
+          <li><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-edit"></use></svg><span>Il tient à jour lui-même les informations de sa société et sa grille tarifaire.</span></li>
+          <li><svg class="c-icon c-icon--sm" aria-hidden="true"><use href="#i-transport"></use></svg><span>Le transporteur retrouve <b>toutes ses offres</b> et livraisons dans son espace.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 02 — Dans la V1 ══ -->
+  <section class="dc-sec">
+    <div class="dc-sec__head"><span class="n">02</span><h2>Ce qui est dans la V1</h2></div>
+    <p class="dc-intro">Repris des 48 user stories, module par module. <b>Indispensable</b> : la V1 ne peut pas être mise en service sans. <b>Prévu en V1</b> : la plateforme reste utilisable si cette fonction arrive un peu plus tard. Les références (US-…) renvoient aux user stories de l'équipe.</p>
+    <div class="dc-legend"><span class="c-badge c-badge--success">Indispensable</span><span class="c-badge c-badge--info">Prévu en V1</span><span class="c-badge c-badge--neutral">Si le planning le permet</span><span class="c-badge c-badge--warning">À confirmer</span></div>
+
+    <div class="u-stack">
+      <div class="dc-card dc-module">
+        <div class="dc-module__head"><span class="dc-module__icon"><svg class="c-icon" aria-hidden="true"><use href="#i-mail"></use></svg></span><h3>Réception des emails et création des dossiers</h3><span>9 fonctions</span></div>
+        <ul class="dc-feat">
+          <li><b>Un dossier créé automatiquement à chaque email avec pièces jointes<small>US-01</small></b><p>Numéro unique DLG-AAAA-NNNN, type import ou export.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Les emails qui citent un numéro DLG rejoignent leur dossier<small>US-02</small></b><p>Pas de doublon : tous les échanges sont rangés au même endroit.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Vérification des documents obligatoires<small>US-03</small></b><p>Import : facture, packing list, instruction, BL / LTA, bon de livraison. Export : facture, packing list, instruction.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Salle d'attente des dossiers incomplets<small>US-04</small></b><p>Ils sortent de la liste principale jusqu'à ce que le dossier soit complet.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Accusé de réception à chaque envoi<small>US-07</small></b><p>Avec le numéro DLG et le lien de suivi, que le dossier soit complet ou non.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Email au client listant les documents manquants<small>US-05</small></b><p>Envoyé dès qu'un dossier est incomplet.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Relances automatiques des documents manquants<small>US-06</small></b><p>Elles s'arrêtent dès que les documents arrivent.</p><span class="c-badge c-badge--info">Prévu en V1</span></li>
+          <li><b>Mandat : recherche automatique, demande par email s'il manque<small>US-08</small></b><p>Le dossier est créé quand même ; le client reçoit le modèle de mandat DOUALOG.</p><span class="c-badge c-badge--info">Prévu en V1</span></li>
+          <li><b>Prestations souhaitées et prix cible repris dans le dossier<small>US-09</small></b><p>Ils pré-remplissent la grille tarifaire du dossier.</p><span class="c-badge c-badge--info">Prévu en V1</span></li>
+        </ul>
+      </div>
+
+      <div class="dc-card dc-module">
+        <div class="dc-module__head"><span class="dc-module__icon"><svg class="c-icon" aria-hidden="true"><use href="#i-dossiers"></use></svg></span><h3>Liste des dossiers et dossier ouvert</h3><span>11 fonctions</span></div>
+        <ul class="dc-feat">
+          <li><b>Liste de tous les dossiers en cours<small>US-10</small></b><p>Une ligne par dossier, avec statut, contrôle, transport, alertes.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Ouverture d'un dossier sans quitter la liste<small>US-13</small></b><p>Le dossier s'ouvre en grand par-dessus la liste ; on la retrouve en le fermant.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Bandeau et frise des 9 étapes<small>US-14 · US-15</small></b><p>Informations clés, actions rapides, avancement en couleur de la réception à la clôture.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>13 statuts mis à jour automatiquement<small>US-16</small></b><p>De « En attente de documents » à « Clôturé », chacun avec sa couleur.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Informations générales du dossier<small>US-17</small></b><p>Importateur ou exportateur, SIRET, EORI, BL, conteneur, navire, ETA, Incoterm, poids, colis.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Documents du dossier : consulter, télécharger, ajouter<small>US-18</small></b><p>Chaque pièce avec son état, présente ou manquante.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Tous les emails du dossier dans un seul fil<small>US-20</small></b><p>Reçus du client, envoyés par DOUALOG, automatiques.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Recherche, filtres et tri<small>US-11</small></b><p>Retrouver un dossier par numéro, BL, conteneur ou client.</p><span class="c-badge c-badge--info">Prévu en V1</span></li>
+          <li><b>Envoyer un email depuis le dossier<small>US-21</small></b><p>L'email est archivé automatiquement dans le dossier.</p><span class="c-badge c-badge--info">Prévu en V1</span></li>
+          <li><b>Exports Excel et PDF<small>US-12</small></b><p>La liste en Excel ou PDF, un dossier en PDF.</p><span class="c-badge c-badge--neutral">Si le planning le permet</span></li>
+          <li><b>Versions précédentes d'un document<small>US-19</small></b><p>Retrouver une pièce remplacée.</p><span class="c-badge c-badge--neutral">Si le planning le permet</span></li>
+        </ul>
+      </div>
+
+      <div class="dc-card dc-module">
+        <div class="dc-module__head"><span class="dc-module__icon"><svg class="c-icon" aria-hidden="true"><use href="#i-controle"></use></svg></span><h3>Douane</h3><span>5 fonctions</span></div>
+        <ul class="dc-feat">
+          <li><b>Déclaration stockée et déclaration anticipée<small>US-22</small></b><p>Les dates apparaissent dans la liste, le détail au survol.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Contrôle douane : physique, documentaire ou aucun<small>US-23</small></b><p>Dates, inspecteur, résultat (conforme, non conforme, info manquante), commentaire.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>« Info manquante » : demande envoyée au client par email<small>US-24</small></b><p>Sa réponse est rangée automatiquement dans le dossier.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>BAE : bon à enlever<small>US-25</small></b><p>Numéro saisi, date du jour enregistrée en un clic.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>BAS : bon à sortir<small>US-26</small></b><p>Sa validation fait passer le dossier en facturation.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+        </ul>
+      </div>
+
+      <div class="dc-card dc-module">
+        <div class="dc-module__head"><span class="dc-module__icon"><svg class="c-icon" aria-hidden="true"><use href="#i-transport"></use></svg></span><h3>Transport, avec le transporteur par email</h3><span>6 fonctions</span></div>
+        <ul class="dc-feat">
+          <li><b>Annuaire des transporteurs<small>US-27</small></b><p>Le service transport ajoute et modifie les transporteurs.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Ordre de transport pré-rempli depuis le dossier<small>US-28</small></b><p>Marchandise, poids, colis, adresses, date, Incoterm. Un dossier peut aussi être marqué « Pas de livraison ».</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Offre envoyée par email aux transporteurs choisis<small>US-29</small></b><p>Le statut transport passe à « Demande de transport envoyée ».</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Le transporteur accepte ou refuse depuis l'email<small>US-30 · US-31</small></b><p>Sans compte. La première acceptation attribue l'ordre de transport et ferme l'offre aux autres.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Le transporteur met à jour la livraison depuis le lien de son ordre de transport<small>US-32</small></b><p>Camion affecté (immatriculation, chauffeur), chargement, en route, livré. La liste des dossiers se met à jour.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Dépôt des documents de transport depuis ce lien<small>US-33</small></b><p>Bon de livraison signé, lettre de voiture, photos.</p><span class="c-badge c-badge--info">Prévu en V1</span></li>
+        </ul>
+      </div>
+
+      <div class="dc-card dc-module">
+        <div class="dc-module__head"><span class="dc-module__icon"><svg class="c-icon" aria-hidden="true"><use href="#i-facture"></use></svg></span><h3>Facturation</h3><span>5 fonctions</span></div>
+        <ul class="dc-feat">
+          <li><b>Passage en facturation à la validation du BAS<small>US-34</small></b><p>Le service facturation est prévenu.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Facture générée depuis le dossier<small>US-35</small></b><p>Client, prestations de la grille tarifaire, références du dossier. PDF numéroté, archivé dans le dossier.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Facture envoyée au client par email<small>US-36</small></b><p>Le dossier passe au statut « Facturé ».</p><span class="c-badge c-badge--info">Prévu en V1</span></li>
+          <li><b>Suivi des paiements<small>US-37</small></b><p>Émise, partiellement réglée, réglée. Réglée et livrée : le dossier est clôturé.</p><span class="c-badge c-badge--info">Prévu en V1</span></li>
+          <li><b>Relances automatiques des factures impayées<small>US-38</small></b><p>Une relance envoyée à l'échéance.</p><span class="c-badge c-badge--neutral">Si le planning le permet</span></li>
+        </ul>
+      </div>
+
+      <div class="dc-card dc-module">
+        <div class="dc-module__head"><span class="dc-module__icon"><svg class="c-icon" aria-hidden="true"><use href="#i-user"></use></svg></span><h3>Le client, par email et lien personnel</h3><span>5 fonctions</span></div>
+        <ul class="dc-feat">
+          <li><b>Lien personnel dans chaque email, pour un seul dossier<small>US-39</small></b><p>Sans compte ni mot de passe. Le lien expire et peut être désactivé par l'équipe.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Suivi du dossier : étape en cours, étapes passées et à venir<small>US-40</small></b><p>Sur la page du lien, ou sur la page de suivi avec le N° DLG et le BL / LTA (ou le n° de booking à l'export).</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Téléchargement des documents de son dossier<small>US-41</small></b><p>Depuis la page du lien.</p><span class="c-badge c-badge--info">Prévu en V1</span></li>
+          <li><b>Envoi des instructions et des documents demandés<small>US-42</small></b><p>Depuis la page du lien, confirmé par un code reçu par email.</p><span class="c-badge c-badge--info">Prévu en V1</span></li>
+          <li><b>Mandat renvoyé signé depuis le lien<small>US-44</small></b><p>Le client télécharge le modèle, le signe et le cachète, puis le dépose avec le code reçu par email.</p><span class="c-badge c-badge--warning">À confirmer</span></li>
+        </ul>
+      </div>
+
+      <div class="dc-card dc-module">
+        <div class="dc-module__head"><span class="dc-module__icon"><svg class="c-icon" aria-hidden="true"><use href="#i-dashboard"></use></svg></span><h3>Équipe, notifications et pilotage</h3><span>4 fonctions</span></div>
+        <ul class="dc-feat">
+          <li><b>Un compte par personne, des droits selon le profil<small>US-45</small></b><p>Voir le document <a href="roles-droits.html">Rôles et droits</a>.</p><span class="c-badge c-badge--success">Indispensable</span></li>
+          <li><b>Centre de notifications<small>US-46</small></b><p>Contrôle programmé, documents requis, transporteur confirmé, BAS obtenu, facture en attente.</p><span class="c-badge c-badge--info">Prévu en V1</span></li>
+          <li><b>Historique horodaté de chaque dossier<small>US-47</small></b><p>Qui a fait quoi, et quand.</p><span class="c-badge c-badge--info">Prévu en V1</span></li>
+          <li><b>Indicateurs pour le manager<small>US-48</small></b><p>Dossiers actifs, contrôles, BAE, BAS, transports, livrés, facturation.</p><span class="c-badge c-badge--info">Prévu en V1</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 03 — Ajouts des maquettes ══ -->
+  <section class="dc-sec">
+    <div class="dc-sec__head"><span class="n">03</span><h2>Ajouté par les maquettes</h2></div>
+    <p class="dc-intro">En construisant les écrans, nous avons proposé des fonctions qui ne sont pas dans le cahier des charges. Elles apparaissent dans les maquettes. <b>Merci de nous dire si vous les voulez dans la V1</b> : sinon, elles passent dans une version suivante.</p>
+    <div class="dc-grid">
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-dashboard"></use></svg>Tableau de bord graphique<span class="c-badge c-badge--warning">À confirmer</span></h3><p>Activité dans le temps, délai moyen de dédouanement, comparaison avec l'année précédente, priorités du jour, clients à suivre.</p></div>
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-plus"></use></svg>Créer un dossier à la main<span class="c-badge c-badge--warning">À confirmer</span></h3><p>Le bouton « Nouveau dossier », pour un dossier qui n'arrive pas par email.</p></div>
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-clients"></use></svg>Écran Clients<span class="c-badge c-badge--warning">À confirmer</span></h3><p>Fiche de chaque client : société, contacts, mandat, grille tarifaire, dossiers, factures, échanges.</p></div>
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-mail"></use></svg>Messagerie centrale<span class="c-badge c-badge--warning">À confirmer</span></h3><p>La boîte DOUALOG dans l'outil, avec les emails qui ne citent aucun dossier, à ranger d'un clic.</p></div>
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-mandat"></use></svg>Écran Mandats<span class="c-badge c-badge--warning">À confirmer</span></h3><p>Tous les mandats : valides, à renouveler, en attente de signature ; demander, relancer, renouveler.</p></div>
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-document"></use></svg>Écran Documents<span class="c-badge c-badge--warning">À confirmer</span></h3><p>Toutes les pièces au même endroit. Les pièces jointes reçues sont proposées avec leur type et leur dossier probables : <b>V1 ou plus tard, à décider</b>.</p></div>
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-settings"></use></svg>Paramètres<span class="c-badge c-badge--warning">À confirmer</span></h3><p>Délais de relance, modèles d'emails, utilisateurs, coordonnées de la société, documents obligatoires.</p></div>
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-refresh"></use></svg>Changer de déclarant, relancer une facture<span class="c-badge c-badge--warning">À confirmer</span></h3><p>Le manager confie un dossier à un autre déclarant ; le service facturation relance à la main une facture en retard.</p></div>
+    </div>
+  </section>
+
+  <!-- ══ 04 — Plus tard ══ -->
+  <section class="dc-sec">
+    <div class="dc-sec__head"><span class="n">04</span><h2>Prévu pour plus tard</h2></div>
+    <p class="dc-intro">Ces fonctions ne sont pas dans la V1. Elles seront chiffrées et planifiées après la mise en production.</p>
+    <div class="dc-grid">
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-user"></use></svg>Portail client avec compte</h3><p>Tous ses dossiers et leur historique au même endroit ; informations de la société et grille tarifaire saisies par le client lui-même <span class="u-muted">(US-43)</span>.</p></div>
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-transport"></use></svg>Portail transporteur avec compte</h3><p>Toutes ses offres, ses livraisons et ses documents dans un espace personnel.</p></div>
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-edit"></use></svg>Signature électronique du mandat</h3><p>Signer en ligne, sans imprimer ni scanner <span class="u-muted">(US-44)</span>.</p></div>
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-lock"></use></svg>Connexion Microsoft et double authentification</h3><p>Prévues par le cahier des charges, reportées après la V1 (§16).</p></div>
+    </div>
+  </section>
+
+  <!-- ══ 05 — Ce qui change ══ -->
+  <section class="dc-sec">
+    <div class="dc-sec__head"><span class="n">05</span><h2>Ce qui remplace les documents précédents</h2></div>
+    <div class="dc-card">
+      <ul class="dc-feat" style="margin:calc(-1 * var(--sp-5)) calc(-1 * var(--sp-6))">
+        <li><b>« Portail client » et « portail transporteur »</b><p>Dans la V1, ils sont remplacés par les emails et les liens personnels rattachés à un seul dossier ou un seul ordre de transport (cahier des charges §11 et §12).</p></li>
+        <li><b>« N° IFU »</b><p>Remplacé par le SIRET et le numéro EORI : la V1 est prévue pour la France (Le Havre, Roissy, euros).</p></li>
+        <li><b>Charte visuelle du cahier des charges (§15)</b><p>Remplacée par la <a href="charte.html">charte graphique 2.0</a> : orange du logo #F99A00, police Inter.</p></li>
+        <li><b>Dossier ouvert « en bas de page »</b><p>Le dossier s'ouvre sur toute la hauteur de l'écran, plus lisible (choix validé sur les maquettes).</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══ 06 — Questions ══ -->
+  <section class="dc-sec">
+    <div class="dc-sec__head"><span class="n">06</span><h2>À trancher ensemble</h2></div>
+    <ol class="dc-questions">
+      <li><div><b>Les priorités vous conviennent-elles ?</b><p>Ce qui est « indispensable » et ce qui peut arriver un peu après la mise en service.</p><div class="dc-answer"></div></div></li>
+      <li><div><b>Voulez-vous les fonctions ajoutées par les maquettes dans la V1 ?</b><p>Tableau de bord graphique, création manuelle, Clients, Messagerie, Mandats, Documents, Paramètres.</p><div class="dc-answer"></div></div></li>
+      <li><div><b>Le mandat renvoyé signé depuis le lien suffit-il pour la V1 ?</b><p>La signature électronique viendrait plus tard.</p><div class="dc-answer"></div></div></li>
+      <li><div><b>Le tri automatique des pièces jointes : V1 ou plus tard ?</b><p>L'outil propose le type de document et le dossier ; l'équipe valide.</p><div class="dc-answer"></div></div></li>
+      <li><div><b>Faut-il reprendre l'historique de vos anciens dossiers ?</b><p>Pour comparer l'activité d'une année sur l'autre dans le tableau de bord.</p><div class="dc-answer"></div></div></li>
+    </ol>
+  </section>
+
+  <!-- ══ 07 — Accord ══ -->
+  <section class="dc-sec">
+    <div class="dc-accord">
+      <div>
+        <h3>Bon pour accord</h3>
+        <p>Le périmètre ci-dessus devient la référence de la V1 : ce qui y figure sera livré et testé en recette, le reste fera l'objet d'une version suivante.</p>
+      </div>
+      <div class="dc-accord__sign">
+        <div><span>Nom</span><i></i></div><div><span>Date</span><i></i></div><div><span>Signature</span><i class="tall"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="dc-foot">
+    <span><b style="color:var(--text-strong)">DOUALOG</b> — Douane &amp; Logistique · Périmètre de la V1 · version 1.0</span>
+    <img src="assets/img/logo.png" alt="DOUALOG">
+  </footer>
+</main>
+</body>
+</html>

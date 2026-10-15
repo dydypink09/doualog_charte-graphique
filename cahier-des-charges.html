@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cahier des charges — DOUALOG</title>
+<meta name="description" content="Cahier des charges fonctionnel de DOUALOG Control Tower : transit, douane, transport et facturation.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/components.css">
+<link rel="stylesheet" href="assets/document.css">
+<script src="assets/icons.js"></script>
+</head>
+<body>
+<!-- Retranscription fidèle de CDC_Doualog_Control_Tower (v1.0, septembre 2026). Seules les coquilles ont été corrigées.
+     Les encadrés « Mise à jour » signalent les décisions prises depuis (maquettes, octobre 2026) sans modifier le texte d'origine. -->
+
+<header class="dc-top">
+  <div class="dc-in">
+    <div class="dc-bar">
+      <a href="index.html"><img src="assets/img/logo-blanc-menu.png" alt="DOUALOG — portail du projet"></a>
+      <nav aria-label="Documents du projet">
+        <a href="index.html">Portail</a><a href="cahier-des-charges.html" aria-current="page">Cahier des charges</a><a href="charte.html">Charte</a><a href="roadmap_doualog.html">Roadmap</a><a href="livrables_doualog.html">Livrables</a><a href="perimetre-v1.html">Périmètre V1</a><a href="roles-droits.html">Rôles et droits</a>
+      </nav>
+    </div>
+    <div class="dc-head">
+      <p class="dc-kicker">Cahier des charges fonctionnel</p>
+      <h1>DOUALOG Control Tower</h1>
+      <p>Une plateforme unique pour gérer tout le cycle d'un dossier de transit : douane, transport et facturation. Connecter • Sécuriser • Livrer.</p>
+      <div class="dc-meta">
+        <div><span>Version</span><b>1.0 — septembre 2026</b></div>
+        <div><span>Statut</span><b>Document de référence</b></div>
+        <div><span>Domaine</span><b>Transit · Douane · Transport · Facturation</b></div>
+        <div><span>Société</span><b>DOUALOG — Douane &amp; Logistique</b></div>
+      </div>
+      <div class="dc-head__actions">
+        <a class="c-btn c-btn--primary" href="documents/DOUALOG_Cahier-des-charges_v1.0.pdf" download><svg class="c-icon" aria-hidden="true"><use href="#i-download"></use></svg>Télécharger en PDF</a>
+        <span class="dc-head__meta" data-meta="cdc">PDF · 13 pages · 0,8 Mo</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="dc-in dc-main">
+
+  <section class="dc-sec">
+    <ol class="dc-toc">
+      <li><a href="#s01"><span class="n">01</span>Objectif du projet</a></li>
+      <li><a href="#s02"><span class="n">02</span>Utilisateurs et accès</a></li>
+      <li><a href="#s03"><span class="n">03</span>Réception des emails entrants</a></li>
+      <li><a href="#s04"><span class="n">04</span>Numérotation et consolidation</a></li>
+      <li><a href="#s05"><span class="n">05</span>Tableau de bord principal</a></li>
+      <li><a href="#s06"><span class="n">06</span>Ouverture d'un dossier</a></li>
+      <li><a href="#s07"><span class="n">07</span>Blocs du dossier</a></li>
+      <li><a href="#s08"><span class="n">08</span>Statuts du dossier</a></li>
+      <li><a href="#s09"><span class="n">09</span>Module transport</a></li>
+      <li><a href="#s10"><span class="n">10</span>Module facturation</a></li>
+      <li><a href="#s11"><span class="n">11</span>Suivi client (sans compte)</a></li>
+      <li><a href="#s12"><span class="n">12</span>Suivi transporteur (sans compte)</a></li>
+      <li><a href="#s13"><span class="n">13</span>Notifications et historique</a></li>
+      <li><a href="#s14"><span class="n">14</span>Dashboard manager</a></li>
+      <li><a href="#s15"><span class="n">15</span>Design et identité visuelle</a></li>
+      <li><a href="#s16"><span class="n">16</span>Technologie</a></li>
+      <li><a href="#s17"><span class="n">17</span>Résultat attendu</a></li>
+    </ol>
+  </section>
+
+  <!-- 01 -->
+  <section class="dc-sec" id="s01">
+    <div class="dc-sec__head"><span class="n">01</span><h2>Objectif du projet</h2></div>
+    <p class="dc-text">DOUALOG Control Tower est une plateforme métier centralisée permettant de gérer l'intégralité du cycle opérationnel d'un dossier de transit, douane, transport et facturation dans un système unique.</p>
+    <h3 class="dc-h3">Objectifs principaux</h3>
+    <ul class="dc-list">
+      <li>Centraliser tous les dossiers import et export dans un référentiel unique (numéro DLG).</li>
+      <li>Automatiser la création de dossiers à partir des emails entrants.</li>
+      <li>Consolider tous les échanges email autour d'un numéro de dossier unique.</li>
+      <li>Assurer le suivi douanier complet (déclaration stockée, anticipée, contrôle, BAE, BAS).</li>
+      <li>Assurer le suivi transport (création OT, confirmation, livraison).</li>
+      <li>Assurer le suivi de la facturation (déclenchement automatique post-BAS).</li>
+      <li>Offrir au client un suivi simple sans création de compte : page de suivi par numéro de dossier et liens personnels sécurisés envoyés par email (suivi, documents, instructions, mandat).</li>
+      <li>Permettre au transporteur de gérer ses ordres de transport directement depuis ses emails, sans création de compte (acceptation des offres, mise à jour du statut, dépôt des documents).</li>
+      <li>Garantir une traçabilité complète de chaque action sur chaque dossier.</li>
+    </ul>
+    <p class="dc-callout"><svg class="c-icon" aria-hidden="true"><use href="#i-info"></use></svg><span><b>Note :</b> le dossier DOUALOG (numéro DLG) devient l'unique référence de travail pour toutes les parties.</span></p>
+  </section>
+
+  <!-- 02 -->
+  <section class="dc-sec" id="s02">
+    <div class="dc-sec__head"><span class="n">02</span><h2>Utilisateurs et accès</h2></div>
+    <div class="dc-tab-wrap"><table class="dc-tab">
+      <thead><tr><th>Profil</th><th>Type</th><th>Accès</th></tr></thead>
+      <tbody>
+        <tr><td>Déclarant douane</td><td>Interne</td><td>Gestion dossiers douane, déclarations, contrôles, BAE / BAS</td></tr>
+        <tr><td>Opérateur transit</td><td>Interne</td><td>Suivi opérationnel complet des dossiers</td></tr>
+        <tr><td>Service transport</td><td>Interne</td><td>Création OT, gestion transporteurs, suivi livraison</td></tr>
+        <tr><td>Service facturation</td><td>Interne</td><td>Génération et suivi des factures</td></tr>
+        <tr><td>Manager</td><td>Interne</td><td>Dashboard KPIs, validation, supervision équipe</td></tr>
+        <tr><td>Direction</td><td>Interne</td><td>Accès global lecture + reporting</td></tr>
+        <tr><td>Client</td><td>Externe</td><td>Suivi par email et liens personnels</td></tr>
+        <tr><td>Transporteur</td><td>Externe</td><td>Suivi par email et liens personnels</td></tr>
+      </tbody>
+    </table></div>
+    <p class="dc-update"><svg class="c-icon" aria-hidden="true"><use href="#i-refresh"></use></svg><span><b>Mise à jour (octobre 2026) :</b> le détail des droits, action par action, est précisé dans le document <a href="roles-droits.html">Rôles et droits</a>.</span></p>
+  </section>
+
+  <!-- 03 -->
+  <section class="dc-sec" id="s03">
+    <div class="dc-sec__head"><span class="n">03</span><h2>Réception et traitement des emails entrants</h2></div>
+    <p class="dc-text">La plateforme surveille en continu la boîte email DOUALOG. À chaque email entrant contenant des pièces jointes, le système engage automatiquement le processus de vérification et de création de dossier.</p>
+
+    <h3 class="dc-h3"><span class="n">3.1</span>Identification du type de prestation</h3>
+    <p class="dc-text">Lors de l'envoi, le client peut indiquer le type de prestation souhaitée et ses exigences tarifaires. Le système doit permettre de capturer ces informations (cochage de prestations, indication de prix cible) pour pré-remplir la grille tarifaire du dossier.</p>
+
+    <h3 class="dc-h3"><span class="n">3.2</span>Vérification des documents obligatoires</h3>
+    <p class="dc-text">Les documents obligatoires varient selon le type d'opération :</p>
+    <div class="dc-tab-wrap"><table class="dc-tab">
+      <thead><tr><th>Document</th><th>Import</th><th>Export</th></tr></thead>
+      <tbody>
+        <tr><td>Facture commerciale</td><td class="ok">Obligatoire</td><td class="ok">Obligatoire</td></tr>
+        <tr><td>Packing list</td><td class="ok">Obligatoire</td><td class="ok">Obligatoire</td></tr>
+        <tr><td>Instruction douane</td><td class="ok">Obligatoire</td><td class="ok">Obligatoire</td></tr>
+        <tr><td>BL / AWB</td><td class="ok">Obligatoire</td><td class="ko">Non requis</td></tr>
+        <tr><td>Bon de livraison</td><td class="ok">Obligatoire (import)</td><td class="ko">Non requis</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3 class="dc-h3"><span class="n">3.3</span>Cas dossier incomplet</h3>
+    <p class="dc-text">Si un ou plusieurs documents obligatoires sont manquants :</p>
+    <ul class="dc-list">
+      <li>Un dossier est quand même créé et placé en statut « En attente de documents ».</li>
+      <li>Le dossier est mis en salle d'attente (non visible dans le tableau de bord principal).</li>
+      <li>Un email automatique est envoyé au client listant les documents manquants.</li>
+      <li>Des relances automatiques sont programmées jusqu'à réception des documents.</li>
+      <li>Le dossier bascule dans le tableau de bord principal uniquement une fois complet.</li>
+    </ul>
+
+    <h3 class="dc-h3"><span class="n">3.4</span>Gestion du mandat</h3>
+    <p class="dc-text">Le mandat n'est pas obligatoire pour la création du dossier. Le système applique la logique suivante :</p>
+    <ul class="dc-list">
+      <li>Recherche automatique d'un mandat valide dans la base client.</li>
+      <li>Mandat trouvé et valide → aucune action supplémentaire.</li>
+      <li>Mandat non trouvé → le dossier est créé normalement ; un email automatique est envoyé au client avec le modèle de mandat DOUALOG en pièce jointe et une demande de signature.</li>
+    </ul>
+
+    <h3 class="dc-h3"><span class="n">3.5</span>Accusé de réception systématique</h3>
+    <p class="dc-text">Dans tous les cas (dossier complet, incomplet, mandat manquant), un accusé de réception automatique est envoyé au client confirmant la bonne réception de son envoi et indiquant le numéro de dossier attribué, ainsi qu'un lien de tracking personnalisé.</p>
+  </section>
+
+  <!-- 04 -->
+  <section class="dc-sec" id="s04">
+    <div class="dc-sec__head"><span class="n">04</span><h2>Numérotation et consolidation des dossiers</h2></div>
+    <h3 class="dc-h3"><span class="n">4.1</span>Identifiant unique DLG</h3>
+    <p class="dc-text">Chaque dossier reçoit un identifiant unique généré automatiquement, de la forme :</p>
+    <p><span class="dc-code">DLG-AAAA-NNNN</span> <span class="u-muted">(ex. : DLG-2026-0001)</span></p>
+    <h3 class="dc-h3"><span class="n">4.2</span>Règle de consolidation</h3>
+    <p class="dc-text">Si un email entrant fait référence à un numéro de dossier DLG existant (dans l'objet ou le corps du message) :</p>
+    <ul class="dc-list">
+      <li>Aucun nouveau dossier n'est créé.</li>
+      <li>L'email est automatiquement rattaché au dossier existant.</li>
+      <li>Tous les échanges futurs (reçus, envoyés, réponses) sont liés à ce numéro unique.</li>
+    </ul>
+    <h3 class="dc-h3"><span class="n">4.3</span>Distinction import / export</h3>
+    <p class="dc-text">Chaque dossier est typé à la création : import ou export. Cette distinction conditionne les documents obligatoires, le workflow douanier et les colonnes affichées dans le tableau de bord.</p>
+  </section>
+
+  <!-- 05 -->
+  <section class="dc-sec" id="s05">
+    <div class="dc-sec__head"><span class="n">05</span><h2>Tableau de bord principal — liste des dossiers</h2></div>
+    <p class="dc-text">Le tableau de bord occupe toute la largeur de la page. Il affiche une ligne par dossier, avec les colonnes suivantes :</p>
+    <div class="dc-tab-wrap"><table class="dc-tab">
+      <thead><tr><th>Colonne</th><th>Description</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>N° dossier</td><td>Identifiant DLG unique</td><td>Lien cliquable vers le dossier</td></tr>
+        <tr><td>Type</td><td>Import / Export</td><td>Badge coloré</td></tr>
+        <tr><td>Client</td><td>Raison sociale du client</td><td></td></tr>
+        <tr><td>Réception</td><td>Date et heure de réception email</td><td></td></tr>
+        <tr><td>Déclaration stockée</td><td>Date de stockage + survol : date détaillée</td><td>Infobulle au survol</td></tr>
+        <tr><td>Anticipé</td><td>Date d'anticipation douanière + survol : date ETA navire</td><td>Infobulle au survol</td></tr>
+        <tr><td>Contrôle</td><td>Type (physique / documentaire / aucun) + statut</td><td>Badge coloré</td></tr>
+        <tr><td>BAE</td><td>Date d'obtention du BAE</td><td>Modifiable</td></tr>
+        <tr><td>BAS</td><td>Date d'obtention du BAS</td><td>Modifiable — déclenche facturation</td></tr>
+        <tr><td>Transport</td><td>Statut OT (demande envoyée / confirmé / en route / livré)</td><td></td></tr>
+        <tr><td>Livraison</td><td>Date de livraison effective</td><td></td></tr>
+        <tr><td>Responsable</td><td>Membre de l'équipe DOUALOG assigné</td><td></td></tr>
+        <tr><td>Alertes</td><td>Nombre de notifications en attente</td><td>Badge compteur</td></tr>
+        <tr><td>Actions</td><td>Icône œil → ouvre le dossier en bas de page</td><td></td></tr>
+      </tbody>
+    </table></div>
+    <p class="dc-text" style="margin-top:var(--sp-4)">Fonctionnalités du tableau : recherche, filtres multicritères, tri par colonne, export Excel, export PDF.</p>
+    <p class="dc-callout"><svg class="c-icon" aria-hidden="true"><use href="#i-info"></use></svg><span><b>Note :</b> les dossiers incomplets (salle d'attente) ne sont pas affichés dans ce tableau. Un onglet ou filtre dédié permet d'y accéder.</span></p>
+  </section>
+
+  <!-- 06 -->
+  <section class="dc-sec" id="s06">
+    <div class="dc-sec__head"><span class="n">06</span><h2>Ouverture et structure d'un dossier</h2></div>
+    <p class="dc-text">Un clic sur l'icône œil d'une ligne ouvre le dossier dans un panneau bas de page (sans quitter la liste). Le dossier se compose des blocs suivants :</p>
+    <p class="dc-update"><svg class="c-icon" aria-hidden="true"><use href="#i-refresh"></use></svg><span><b>Mise à jour (octobre 2026) :</b> dans les maquettes validées, le dossier s'ouvre sur toute la hauteur de l'écran, au-dessus de la liste, pour une meilleure lisibilité. On retrouve la liste en le fermant.</span></p>
+    <h3 class="dc-h3"><span class="n">6.1</span>Bandeau dossier</h3>
+    <ul class="dc-list">
+      <li>Numéro DLG, statut global (badge couleur), type import / export.</li>
+      <li>Client, mode de transport, ETA, BL / AWB, conteneur.</li>
+      <li>Déclarant assigné, Incoterm, poids brut, nombre de colis.</li>
+      <li>Actions rapides : envoyer un email · créer OT · exporter PDF.</li>
+    </ul>
+    <h3 class="dc-h3"><span class="n">6.2</span>Workflow horizontal</h3>
+    <p class="dc-text">Affiché sous le bandeau, le workflow liste les étapes du dossier de gauche à droite :</p>
+    <div class="dc-tab-wrap"><table class="dc-tab">
+      <thead><tr><th>Étape</th><th>Couleur</th><th>Condition de passage</th></tr></thead>
+      <tbody>
+        <tr><td>Réception</td><td>Vert</td><td>Email reçu et dossier créé</td></tr>
+        <tr><td>Déclaration stockée</td><td>Vert</td><td>Saisie effectuée dans le système</td></tr>
+        <tr><td>Anticipé</td><td>Vert</td><td>ETA navire renseigné + conteneur identifié</td></tr>
+        <tr><td>Contrôle douane</td><td>Orange / Rouge / Gris</td><td>Selon type de contrôle</td></tr>
+        <tr><td>BAE</td><td>Vert</td><td>Date BAE saisie (modifiable)</td></tr>
+        <tr><td>BAS</td><td>Vert</td><td>Date BAS saisie → déclenche facturation</td></tr>
+        <tr><td>Transport</td><td>Bleu</td><td>OT créé et confirmé transporteur</td></tr>
+        <tr><td>Livraison</td><td>Vert</td><td>Livraison confirmée</td></tr>
+        <tr><td>Clôture</td><td>Vert foncé</td><td>Facture acquittée</td></tr>
+      </tbody>
+    </table></div>
+    <p class="dc-callout"><svg class="c-icon" aria-hidden="true"><use href="#i-info"></use></svg><span><b>Note :</b> au survol des étapes Déclaration stockée et Anticipé, une infobulle affiche les dates précises de stockage et d'anticipation.</span></p>
+  </section>
+
+  <!-- 07 -->
+  <section class="dc-sec" id="s07">
+    <div class="dc-sec__head"><span class="n">07</span><h2>Blocs de contenu du dossier</h2></div>
+    <h3 class="dc-h3"><span class="n">7.1</span>Informations générales</h3>
+    <div class="dc-tab-wrap"><table class="dc-tab">
+      <thead><tr><th>Champ</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Importateur / exportateur</td><td>Raison sociale</td></tr>
+        <tr><td>N° IFU</td><td>Identifiant fiscal</td></tr>
+        <tr><td>BL / AWB</td><td>Référence document de transport</td></tr>
+        <tr><td>Conteneur</td><td>Numéro de conteneur</td></tr>
+        <tr><td>Navire</td><td>Nom du navire (import maritime)</td></tr>
+        <tr><td>ETA</td><td>Date d'arrivée estimée</td></tr>
+        <tr><td>Date réception email</td><td>Horodatage automatique</td></tr>
+        <tr><td>Déclarant assigné</td><td>Membre équipe DOUALOG</td></tr>
+        <tr><td>Incoterm</td><td>FOB, CIF, DAP, etc.</td></tr>
+        <tr><td>Poids brut</td><td>En kg</td></tr>
+        <tr><td>Nombre de colis</td><td>Unité</td></tr>
+        <tr><td>Compagnie maritime / aérienne</td><td>Répertoire interne avec adresse mail</td></tr>
+      </tbody>
+    </table></div>
+    <p class="dc-update"><svg class="c-icon" aria-hidden="true"><use href="#i-refresh"></use></svg><span><b>Mise à jour (octobre 2026) :</b> la V1 étant prévue pour la France, le « N° IFU » est remplacé dans les maquettes par le <b>SIRET</b> et le <b>numéro EORI</b> (à confirmer).</span></p>
+
+    <h3 class="dc-h3"><span class="n">7.2</span>Gestion documentaire</h3>
+    <p class="dc-text">Documents affichés avec statut (présent / manquant) :</p>
+    <ul class="dc-list"><li>Facture commerciale, packing list, instruction douane, BL ou AWB, mandat, certificat d'origine.</li></ul>
+    <p class="dc-text" style="margin-top:var(--sp-3)">Fonctionnalités : consultation en ligne · téléchargement · upload · historique des versions · lien vers dossier logistique compagnie maritime ou client.</p>
+
+    <h3 class="dc-h3"><span class="n">7.3</span>Déclaration / contrôle douane</h3>
+    <div class="dc-tab-wrap"><table class="dc-tab">
+      <thead><tr><th>Champ</th><th>Valeur / comportement</th></tr></thead>
+      <tbody>
+        <tr><td>Type de contrôle</td><td>Physique / Documentaire / Aucun (sélection manuelle)</td></tr>
+        <tr><td>Date notification</td><td>Saisie manuelle ou automatique</td></tr>
+        <tr><td>Date contrôle</td><td>Saisie manuelle</td></tr>
+        <tr><td>Fin de contrôle</td><td>Saisie manuelle</td></tr>
+        <tr><td>Inspecteur</td><td>Nom de l'inspecteur douanier</td></tr>
+        <tr><td>Résultat</td><td>Conforme / Non conforme / Info manquante</td></tr>
+        <tr><td>Commentaire</td><td>Zone de texte libre</td></tr>
+      </tbody>
+    </table></div>
+    <p class="dc-text" style="margin-top:var(--sp-4)">Si le résultat est « Info manquante », le dossier passe au statut « En attente de réponse » et un email de demande d'information est envoyé automatiquement au client. La réponse est rattachée automatiquement au dossier.</p>
+    <p class="dc-update"><svg class="c-icon" aria-hidden="true"><use href="#i-refresh"></use></svg><span><b>Mise à jour (octobre 2026) :</b> pour rester cohérent avec la section 08, le statut retenu est « Info manquante ».</span></p>
+
+    <h3 class="dc-h3"><span class="n">7.4</span>BAE — Bon à enlever</h3>
+    <div class="dc-tab-wrap"><table class="dc-tab">
+      <thead><tr><th>Champ</th><th>Valeur / comportement</th></tr></thead>
+      <tbody>
+        <tr><td>N° BAE</td><td>Saisie manuelle</td></tr>
+        <tr><td>Date BAE</td><td>Saisie manuelle — date du clic sur le bouton « BAE obtenu » (modifiable)</td></tr>
+        <tr><td>Statut BAE</td><td>En attente / Obtenu</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3 class="dc-h3"><span class="n">7.5</span>BAS — Bon à sortir</h3>
+    <div class="dc-tab-wrap"><table class="dc-tab">
+      <thead><tr><th>Champ</th><th>Valeur / comportement</th></tr></thead>
+      <tbody>
+        <tr><td>N° BAS</td><td>Saisie manuelle</td></tr>
+        <tr><td>Date BAS</td><td>Saisie manuelle — date du clic sur le bouton « BAS obtenu » (modifiable)</td></tr>
+        <tr><td>Statut BAS</td><td>En attente / Obtenu</td></tr>
+      </tbody>
+    </table></div>
+    <p class="dc-callout"><svg class="c-icon" aria-hidden="true"><use href="#i-info"></use></svg><span><b>Note :</b> la validation du BAS déclenche automatiquement le passage en facturation.</span></p>
+
+    <h3 class="dc-h3"><span class="n">7.6</span>Messagerie dossier</h3>
+    <p class="dc-text">Tous les emails liés au dossier sont visibles dans un fil de messagerie intégré, classés par catégorie :</p>
+    <ul class="dc-list">
+      <li>Emails entrants client.</li>
+      <li>Emails sortants DOUALOG.</li>
+      <li>Emails automatiques (accusés de réception, relances, demandes d'information).</li>
+      <li>Emails logistiques (compagnie maritime, transitaires).</li>
+    </ul>
+    <p class="dc-text" style="margin-top:var(--sp-3)">Bouton « + Nouveau message » pour envoyer depuis l'interface, avec archivage automatique dans le dossier.</p>
+  </section>
+
+  <!-- 08 -->
+  <section class="dc-sec" id="s08">
+    <div class="dc-sec__head"><span class="n">08</span><h2>Statuts du dossier</h2></div>
+    <div class="dc-tab-wrap"><table class="dc-tab">
+      <thead><tr><th>Statut</th><th>Couleur</th><th>Déclencheur</th></tr></thead>
+      <tbody>
+        <tr><td>En attente de documents</td><td>Gris</td><td>Dossier créé, documents manquants</td></tr>
+        <tr><td>En cours de traitement</td><td>Bleu</td><td>Dossier complet, traitement démarré</td></tr>
+        <tr><td>Déclaration stockée</td><td>Bleu doux</td><td>Saisie déclaration stockée</td></tr>
+        <tr><td>Déclaration anticipée</td><td>Bleu doux</td><td>ETA + conteneur renseignés</td></tr>
+        <tr><td>Contrôle physique en cours</td><td>Orange</td><td>Type de contrôle = Physique</td></tr>
+        <tr><td>Contrôle documentaire en cours</td><td>Orange</td><td>Type de contrôle = Documentaire</td></tr>
+        <tr><td>Info manquante</td><td>Rouge</td><td>Résultat contrôle = Info manquante</td></tr>
+        <tr><td>BAE obtenu</td><td>Vert clair</td><td>Date BAE saisie</td></tr>
+        <tr><td>BAS obtenu</td><td>Vert</td><td>Date BAS saisie</td></tr>
+        <tr><td>En facturation</td><td>Violet</td><td>BAS validé → basculement automatique</td></tr>
+        <tr><td>Facturé</td><td>Vert foncé</td><td>Facture émise</td></tr>
+        <tr><td>Livré</td><td>Vert foncé</td><td>Livraison confirmée transporteur</td></tr>
+        <tr><td>Clôturé</td><td>Vert foncé</td><td>Facture acquittée + livraison confirmée</td></tr>
+      </tbody>
+    </table></div>
+    <p class="dc-update"><svg class="c-icon" aria-hidden="true"><use href="#i-refresh"></use></svg><span><b>Mise à jour (octobre 2026) :</b> les couleurs exactes des statuts sont fixées par la <a href="charte.html#statuts">charte graphique 2.0</a> (six teintes, chapitre 07).</span></p>
+  </section>
+
+  <!-- 09 -->
+  <section class="dc-sec" id="s09">
+    <div class="dc-sec__head"><span class="n">09</span><h2>Module transport</h2></div>
+    <h3 class="dc-h3"><span class="n">9.1</span>Création de l'ordre de transport (OT)</h3>
+    <p class="dc-text">Depuis un dossier, le bouton « Créer OT » génère automatiquement un ordre de transport pré-rempli avec :</p>
+    <ul class="dc-list">
+      <li>N° dossier DLG, client, nature de la marchandise, poids, nombre de colis.</li>
+      <li>Adresse de chargement et de livraison.</li>
+      <li>Date souhaitée de prise en charge.</li>
+      <li>Incoterm et instructions particulières.</li>
+    </ul>
+    <h3 class="dc-h3"><span class="n">9.2</span>Création d'une offre de transport</h3>
+    <p class="dc-text">Bouton « Créer offre de transport » : génère et envoie automatiquement une offre au(x) transporteur(s) sélectionné(s) dans l'annuaire. Tous les éléments sont pré-remplis depuis le dossier.</p>
+    <h3 class="dc-h3"><span class="n">9.3</span>Workflow transport</h3>
+    <div class="dc-tab-wrap"><table class="dc-tab">
+      <thead><tr><th>Statut</th><th>Couleur</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Demande de transport envoyée</td><td>Bleu</td><td>Offre envoyée au transporteur</td></tr>
+        <tr><td>À confirmer</td><td>Orange</td><td>En attente de confirmation transporteur</td></tr>
+        <tr><td>Confirmé</td><td>Vert</td><td>Transporteur a accepté la commande</td></tr>
+        <tr><td>Camion affecté</td><td>Vert</td><td>Immatriculation et chauffeur renseignés</td></tr>
+        <tr><td>En route</td><td>Bleu</td><td>Chargement effectué</td></tr>
+        <tr><td>Chargement</td><td>Bleu doux</td><td>En cours de chargement</td></tr>
+        <tr><td>Livré</td><td>Vert foncé</td><td>Livraison confirmée</td></tr>
+        <tr><td>Pas de livraison</td><td>Gris</td><td>Transport non requis pour ce dossier</td></tr>
+      </tbody>
+    </table></div>
+    <p class="dc-callout"><svg class="c-icon" aria-hidden="true"><use href="#i-info"></use></svg><span><b>Note :</b> la colonne Transport du tableau de bord reflète ces statuts en temps réel.</span></p>
+    <p class="dc-update"><svg class="c-icon" aria-hidden="true"><use href="#i-refresh"></use></svg><span><b>Mise à jour (octobre 2026) :</b> ordre retenu dans les maquettes : camion affecté → <b>chargement</b> → <b>en route</b> → livré.</span></p>
+  </section>
+
+  <!-- 10 -->
+  <section class="dc-sec" id="s10">
+    <div class="dc-sec__head"><span class="n">10</span><h2>Module facturation</h2></div>
+    <h3 class="dc-h3"><span class="n">10.1</span>Déclenchement</h3>
+    <p class="dc-text">La facturation est déclenchée automatiquement dès la validation du BAS. Le dossier bascule au statut « En facturation ».</p>
+    <h3 class="dc-h3"><span class="n">10.2</span>Création de la facture</h3>
+    <p class="dc-text">Récupération automatique depuis le dossier :</p>
+    <ul class="dc-list">
+      <li>Informations client (raison sociale, adresse, IFU).</li>
+      <li>Prestations réalisées (issues de la grille tarifaire cochée à la création).</li>
+      <li>Références dossier (N° DLG, BL, conteneur).</li>
+    </ul>
+    <p class="dc-text" style="margin-top:var(--sp-3)">La facture est générée au format PDF, numérotée séquentiellement, et archivée dans le dossier.</p>
+    <h3 class="dc-h3"><span class="n">10.3</span>Statuts facturation</h3>
+    <div class="dc-tab-wrap"><table class="dc-tab">
+      <thead><tr><th>Statut</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>En facturation</td><td>BAS validé, facture non encore émise</td></tr>
+        <tr><td>Facture émise</td><td>Facture générée et envoyée au client</td></tr>
+        <tr><td>Partiellement réglé</td><td>Acompte reçu</td></tr>
+        <tr><td>Réglé</td><td>Paiement intégral reçu — clôture dossier</td></tr>
+      </tbody>
+    </table></div>
+    <h3 class="dc-h3"><span class="n">10.4</span>Notifications facturation</h3>
+    <ul class="dc-list">
+      <li>Notification interne à la création de la facture.</li>
+      <li>Notification client par email avec facture en pièce jointe.</li>
+      <li>Relances automatiques en cas de non-paiement à échéance.</li>
+    </ul>
+  </section>
+
+  <!-- 11 -->
+  <section class="dc-sec" id="s11">
+    <div class="dc-sec__head"><span class="n">11</span><h2>Suivi client (sans compte)</h2></div>
+    <p class="dc-text">Le client n'a aucun compte à créer ni aucun mot de passe à retenir. L'ensemble des échanges passe par email, sur le modèle du suivi de colis : le client reçoit un numéro et des liens personnels qui lui donnent accès aux informations de son dossier.</p>
+    <h3 class="dc-h3"><span class="n">11.1</span>Page de suivi publique</h3>
+    <p class="dc-text">Le client y saisit :</p>
+    <ul class="dc-list">
+      <li>son numéro de dossier DLG ;</li>
+      <li>la référence de son document de transport (BL ou AWB).</li>
+    </ul>
+    <p class="dc-text" style="margin-top:var(--sp-3)">La combinaison des deux est exigée afin qu'aucun tiers ne puisse consulter un dossier en devinant simplement un numéro. Cette page affiche uniquement :</p>
+    <ul class="dc-list">
+      <li>le statut actuel du dossier ;</li>
+      <li>les étapes réalisées et à venir ;</li>
+      <li>les alertes éventuelles (document manquant, information demandée).</li>
+    </ul>
+    <p class="dc-text" style="margin-top:var(--sp-3)">Aucun document, montant ou donnée commerciale n'est visible sur cette page.</p>
+    <h3 class="dc-h3"><span class="n">11.2</span>Liens personnels envoyés par email</h3>
+    <p class="dc-text">Chaque email envoyé au client contient un lien personnel, unique et impossible à deviner, rattaché à un seul dossier. Ce lien permet au client, sans connexion préalable :</p>
+    <ul class="dc-list">
+      <li>de télécharger les documents de son dossier ;</li>
+      <li>de transmettre ses instructions douanières ;</li>
+      <li>de déposer les documents manquants ;</li>
+      <li>de télécharger et signer le mandat DOUALOG si nécessaire ;</li>
+      <li>de consulter le suivi détaillé de son dossier.</li>
+    </ul>
+    <h3 class="dc-h3"><span class="n">11.3</span>Règles de sécurité</h3>
+    <div class="dc-tab-wrap"><table class="dc-tab">
+      <thead><tr><th>Règle</th><th>Comportement</th></tr></thead>
+      <tbody>
+        <tr><td>Durée de validité</td><td>Chaque lien expire après un délai défini (ex. : 30 jours) ou à la clôture du dossier</td></tr>
+        <tr><td>Périmètre</td><td>Un lien donne accès à un seul dossier, jamais à l'ensemble des dossiers du client</td></tr>
+        <tr><td>Révocation</td><td>DOUALOG peut désactiver un lien à tout moment depuis le dossier</td></tr>
+        <tr><td>Actions sensibles</td><td>La signature du mandat et le dépôt de documents nécessitent un code de confirmation envoyé par email au client</td></tr>
+        <tr><td>Traçabilité</td><td>Chaque consultation ou action via un lien est enregistrée dans le journal du dossier</td></tr>
+      </tbody>
+    </table></div>
+    <h3 class="dc-h3"><span class="n">11.4</span>Informations société et grille tarifaire</h3>
+    <p class="dc-text">Les informations société et la grille tarifaire du client sont gérées par l'équipe DOUALOG dans la base centralisée. Si une mise à jour est nécessaire, un formulaire est envoyé au client par lien personnel ; les données saisies sont validées par DOUALOG avant enregistrement.</p>
+    <p class="dc-update"><svg class="c-icon" aria-hidden="true"><use href="#i-refresh"></use></svg><span><b>Mise à jour (octobre 2026) :</b> à l'export ou sans BL, le client peut retrouver son dossier avec le N° DLG et son <b>numéro de booking</b>. Le portail client avec compte est prévu après la V1 : voir le <a href="perimetre-v1.html">périmètre de la V1</a>.</span></p>
+  </section>
+
+  <!-- 12 -->
+  <section class="dc-sec" id="s12">
+    <div class="dc-sec__head"><span class="n">12</span><h2>Suivi transporteur (sans compte)</h2></div>
+    <p class="dc-text">Le transporteur n'a aucun compte à créer. Chaque ordre de transport lui est adressé par email, avec des liens personnels lui permettant d'agir directement.</p>
+    <h3 class="dc-h3"><span class="n">12.1</span>Réception de l'offre</h3>
+    <p class="dc-text">L'email d'offre de transport contient :</p>
+    <ul class="dc-list">
+      <li>le récapitulatif de l'ordre de transport (dossier DLG, marchandise, poids, colis, adresses, date souhaitée, instructions) ;</li>
+      <li>un bouton « Accepter » et un bouton « Refuser ».</li>
+    </ul>
+    <p class="dc-text" style="margin-top:var(--sp-3)">La réponse du transporteur met automatiquement à jour le statut transport du dossier.</p>
+    <h3 class="dc-h3"><span class="n">12.2</span>Suivi de la livraison</h3>
+    <p class="dc-text">Une fois l'offre acceptée, le transporteur reçoit un lien personnel lui permettant :</p>
+    <ul class="dc-list">
+      <li>de renseigner le camion affecté (immatriculation, chauffeur) ;</li>
+      <li>de mettre à jour le statut (chargement, en route, livré) ;</li>
+      <li>de déposer les documents de transport.</li>
+    </ul>
+    <h3 class="dc-h3"><span class="n">12.3</span>Documents déposables</h3>
+    <ul class="dc-list">
+      <li>Bon de livraison signé.</li>
+      <li>CMR / lettre de voiture.</li>
+      <li>Photos de chargement et de livraison.</li>
+    </ul>
+    <p class="dc-text" style="margin-top:var(--sp-3)">Ces documents sont automatiquement archivés dans le dossier DOUALOG correspondant.</p>
+    <h3 class="dc-h3"><span class="n">12.4</span>Règles de sécurité</h3>
+    <div class="dc-tab-wrap"><table class="dc-tab">
+      <thead><tr><th>Règle</th><th>Comportement</th></tr></thead>
+      <tbody>
+        <tr><td>Durée de validité</td><td>Le lien expire à la confirmation de la livraison</td></tr>
+        <tr><td>Périmètre</td><td>Le lien est rattaché à un seul ordre de transport</td></tr>
+        <tr><td>Révocation</td><td>DOUALOG peut désactiver un lien à tout moment</td></tr>
+        <tr><td>Traçabilité</td><td>Chaque action du transporteur est enregistrée dans le journal du dossier</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- 13 -->
+  <section class="dc-sec" id="s13">
+    <div class="dc-sec__head"><span class="n">13</span><h2>Notifications et historique</h2></div>
+    <h3 class="dc-h3"><span class="n">13.1</span>Centre de notifications internes</h3>
+    <ul class="dc-list">
+      <li>Contrôle douane programmé ou en cours.</li>
+      <li>Documents complémentaires requis.</li>
+      <li>Modification de déclaration en attente.</li>
+      <li>Confirmation transporteur reçue.</li>
+      <li>BAS obtenu → basculement facturation.</li>
+      <li>Facture en attente de règlement.</li>
+    </ul>
+    <h3 class="dc-h3"><span class="n">13.2</span>Journal d'historique automatique</h3>
+    <p class="dc-text">Chaque dossier dispose d'un journal horodaté enregistrant automatiquement toutes les actions :</p>
+    <ul class="dc-list">
+      <li>Création du dossier.</li>
+      <li>Réception / envoi d'email.</li>
+      <li>Upload de document.</li>
+      <li>Changement de statut.</li>
+      <li>Création OT / facturation.</li>
+      <li>Validation BAE / BAS.</li>
+      <li>Consultation ou action via lien personnel.</li>
+    </ul>
+  </section>
+
+  <!-- 14 -->
+  <section class="dc-sec" id="s14">
+    <div class="dc-sec__head"><span class="n">14</span><h2>Dashboard manager — KPIs</h2></div>
+    <div class="dc-tab-wrap"><table class="dc-tab">
+      <thead><tr><th>KPI</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Dossiers actifs</td><td>Nombre total de dossiers en cours de traitement</td></tr>
+        <tr><td>Déclarations stockées</td><td>Nombre de dossiers au stade déclaration stockée</td></tr>
+        <tr><td>Déclarations anticipées</td><td>Nombre de dossiers anticipés</td></tr>
+        <tr><td>Contrôles en cours</td><td>Dossiers en contrôle physique ou documentaire</td></tr>
+        <tr><td>BAE obtenus</td><td>Nombre de BAE validés sur la période</td></tr>
+        <tr><td>BAS obtenus</td><td>Nombre de BAS validés sur la période</td></tr>
+        <tr><td>Transport en cours</td><td>OT confirmés, non encore livrés</td></tr>
+        <tr><td>Livrés</td><td>Dossiers livrés sur la période</td></tr>
+        <tr><td>En attente de documents</td><td>Dossiers en salle d'attente</td></tr>
+        <tr><td>En facturation</td><td>Dossiers basculés en facturation non encore réglés</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- 15 -->
+  <section class="dc-sec" id="s15">
+    <div class="dc-sec__head"><span class="n">15</span><h2>Design et identité visuelle</h2></div>
+    <p class="dc-update"><svg class="c-icon" aria-hidden="true"><use href="#i-refresh"></use></svg><span><b>Mise à jour (octobre 2026) :</b> cette section est <b>remplacée par la <a href="charte.html">charte graphique 2.0</a></b> (orange du logo #F99A00 avec texte bleu marine, bleu nuit #123259, fond de travail gris clair, police Inter). Le tableau ci-dessous est conservé pour mémoire.</span></p>
+    <div class="dc-tab-wrap" style="opacity:.72"><table class="dc-tab">
+      <thead><tr><th>Élément</th><th>Spécification d'origine</th></tr></thead>
+      <tbody>
+        <tr><td>Fond principal</td><td>Blanc (#FFFFFF)</td></tr>
+        <tr><td>Header</td><td>Bleu nuit (#0A1628) — logo DOUALOG, recherche, notifications, profil</td></tr>
+        <tr><td>Séparation header</td><td>Fine ligne orange (#F97316) sous le header</td></tr>
+        <tr><td>Accent principal</td><td>Orange (#F97316) — boutons CTA, badges, icônes actives</td></tr>
+        <tr><td>Couleur secondaire</td><td>Bleu nuit (#1E3A5F) — titres, sous-titres</td></tr>
+        <tr><td>Texte courant</td><td>Gris foncé (#374151)</td></tr>
+        <tr><td>Lignes tableau (pair)</td><td>Blanc (#FFFFFF)</td></tr>
+        <tr><td>Lignes tableau (impair)</td><td>Gris très clair (#F3F4F6)</td></tr>
+        <tr><td>Bandeau dossier</td><td>Fond bleu nuit, statut en badge couleur selon état</td></tr>
+        <tr><td>Police</td><td>Calibri ou Inter — sans serif, lisible</td></tr>
+        <tr><td>Badges statut</td><td>Couleurs normalisées par état (vert / orange / rouge / gris / violet)</td></tr>
+        <tr><td>Navigation latérale</td><td>Fond sombre, icônes blanches, élément actif en orange</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- 16 -->
+  <section class="dc-sec" id="s16">
+    <div class="dc-sec__head"><span class="n">16</span><h2>Technologie</h2></div>
+    <div class="dc-tab-wrap"><table class="dc-tab">
+      <thead><tr><th>Couche</th><th>Technologie retenue</th></tr></thead>
+      <tbody>
+        <tr><td>Frontend</td><td>React / Next.js</td></tr>
+        <tr><td>Backend</td><td>Node.js</td></tr>
+        <tr><td>Base de données</td><td>PostgreSQL</td></tr>
+        <tr><td>Emails entrants / sortants</td><td>Intégration IMAP / SMTP (boîte DOUALOG)</td></tr>
+        <tr><td>Génération documents</td><td>Librairie docx (Node.js)</td></tr>
+        <tr><td>Authentification</td><td>JWT, accès rôle par rôle (Azure AD / MFA différé)</td></tr>
+        <tr><td>Hébergement</td><td>À définir — environnement cloud</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- 17 -->
+  <section class="dc-sec" id="s17">
+    <div class="dc-sec__head"><span class="n">17</span><h2>Résultat attendu</h2></div>
+    <p class="dc-text">DOUALOG Control Tower doit permettre de gérer l'intégralité du cycle opérationnel :</p>
+    <div class="dc-flow"><span>Email entrant</span><i>→</i><span>Création dossier DLG</span><i>→</i><span>Douane</span><i>→</i><span>Transport</span><i>→</i><span>Facturation</span><i>→</i><span>Clôture</span></div>
+    <p class="dc-text">avec visibilité en temps réel pour :</p>
+    <ul class="dc-list">
+      <li>DOUALOG (opérateurs, déclarants, managers, direction).</li>
+      <li>Le client (suivi par email, tracking, documents).</li>
+      <li>Le transporteur (suivi par email, dépôt documents).</li>
+    </ul>
+    <p class="dc-text" style="margin-top:var(--sp-3)">autour d'un numéro unique de dossier DLG, référence centrale de toutes les opérations.</p>
+  </section>
+
+  <footer class="dc-foot">
+    <span><b style="color:var(--text-strong)">DOUALOG</b> — Douane &amp; Logistique · Cahier des charges fonctionnel v1.0 · Connecter • Sécuriser • Livrer</span>
+    <img src="assets/img/logo.png" alt="DOUALOG">
+  </footer>
+</main>
+</body>
+</html>

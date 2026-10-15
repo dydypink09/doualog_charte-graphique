@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rôles et droits — DOUALOG</title>
+<meta name="description" content="Qui voit et fait quoi dans DOUALOG Control Tower V1 : les six profils de l'équipe, le client et le transporteur.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/components.css">
+<link rel="stylesheet" href="assets/document.css">
+<script src="assets/icons.js"></script>
+</head>
+<body>
+<!-- Sources : cahier des charges §02 (profils), tableau « Droits par rôle » des maquettes (E14 Paramètres),
+     QUESTIONS-ONCLE.md §1. Les cases « À décider » sont les points encore ouverts. -->
+
+<header class="dc-top">
+  <div class="dc-in">
+    <div class="dc-bar">
+      <a href="index.html"><img src="assets/img/logo-blanc-menu.png" alt="DOUALOG — portail du projet"></a>
+      <nav aria-label="Documents du projet">
+        <a href="index.html">Portail</a><a href="cahier-des-charges.html">Cahier des charges</a><a href="charte.html">Charte</a><a href="roadmap_doualog.html">Roadmap</a><a href="livrables_doualog.html">Livrables</a><a href="perimetre-v1.html">Périmètre V1</a><a href="roles-droits.html" aria-current="page">Rôles et droits</a>
+      </nav>
+    </div>
+    <div class="dc-head">
+      <p class="dc-kicker">Document à valider · version 1.0 · octobre 2026</p>
+      <h1>Qui voit et fait quoi dans DOUALOG</h1>
+      <p>Six profils pour l'équipe, chacun avec son compte. Le client et le transporteur n'ont pas de compte dans la V1 : ils agissent depuis leurs emails. Les cases orange sont les décisions qui restent à prendre.</p>
+      <div class="dc-head__actions">
+        <a class="c-btn c-btn--primary" href="documents/DOUALOG_Roles-et-droits_v1.0.pdf" download><svg class="c-icon" aria-hidden="true"><use href="#i-download"></use></svg>Télécharger en PDF</a>
+        <span class="dc-head__meta" data-meta="roles">PDF · 4 pages · 0,5 Mo</span>
+        <a class="c-btn c-btn--on-dark" href="perimetre-v1.html"><svg class="c-icon" aria-hidden="true"><use href="#i-check"></use></svg>Périmètre de la V1</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="dc-in dc-main">
+
+  <!-- ══ 01 — Profils ══ -->
+  <section class="dc-sec">
+    <div class="dc-sec__head"><span class="n">01</span><h2>Les profils de l'équipe</h2></div>
+    <p class="dc-intro">Repris du cahier des charges (§02). Chaque personne a un compte personnel ; son profil est attribué par le manager. Le menu reste le même pour tous : ce que le profil ne peut pas ouvrir apparaît grisé.</p>
+    <div class="dc-grid dc-grid--3">
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-controle"></use></svg>Déclarant douane</h3><p>Traite ses dossiers de bout en bout côté douane : déclarations, contrôles, BAE, BAS, documents, échanges avec le client.</p></div>
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-dossiers"></use></svg>Opérateur transit</h3><p>Suit l'ensemble des dossiers au quotidien : informations, documents, emails, clients et mandats ; consulte le transport.</p></div>
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-transport"></use></svg>Service transport</h3><p>Crée les ordres de transport, envoie les offres, gère l'annuaire des transporteurs et suit les livraisons.</p></div>
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-facture"></use></svg>Service facturation</h3><p>Génère, envoie et suit les factures à partir du BAS, enregistre les paiements.</p></div>
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-dashboard"></use></svg>Manager</h3><p>Fait tout ce que fait l'équipe, attribue les dossiers aux déclarants, suit les indicateurs, gère les utilisateurs et les paramètres.</p></div>
+      <div class="dc-card dc-profile"><h3><svg class="c-icon" aria-hidden="true"><use href="#i-eye"></use></svg>Direction</h3><p>Voit tout, en consultation seulement : dossiers, transport, facturation, rapports.</p></div>
+    </div>
+  </section>
+
+  <!-- ══ 02 — Tableau ══ -->
+  <section class="dc-sec">
+    <div class="dc-sec__head"><span class="n">02</span><h2>Les droits, action par action</h2></div>
+    <div class="dc-legend">
+      <span class="dc-cell dc-cell--m">Modifie</span><span>peut saisir et valider</span>
+      <span class="dc-cell dc-cell--v">Consulte</span><span>voit sans modifier</span>
+      <span class="dc-cell dc-cell--p">Son profil</span>
+      <span class="dc-cell dc-cell--q">À décider</span>
+      <span class="dc-cell dc-cell--n">—</span><span>pas d'accès</span>
+    </div>
+    <div class="dc-table-wrap">
+      <table class="dc-table" id="droits">
+        <thead><tr><th>Ce que l'on peut faire</th><th>Déclarant</th><th>Opérateur</th><th>Transport</th><th>Facturation</th><th>Manager</th><th>Direction</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="dc-note">Proposition faite dans les maquettes (écran Paramètres) à partir du cahier des charges. Elle sera appliquée telle quelle dans la V1 une fois validée.</p>
+  </section>
+
+  <!-- ══ 03 — Externes ══ -->
+  <section class="dc-sec">
+    <div class="dc-sec__head"><span class="n">03</span><h2>Le client et le transporteur</h2></div>
+    <p class="dc-intro">Dans la V1, <b>ni compte, ni mot de passe, ni portail</b>. Ils reçoivent des emails ; chaque lien ouvre une page qui ne concerne qu'<b>un seul</b> dossier ou <b>un seul</b> ordre de transport, pour une durée limitée. L'équipe peut désactiver un lien à tout moment.</p>
+    <div class="dc-grid">
+      <div class="dc-card dc-profile dc-profile--ext">
+        <h3><svg class="c-icon" aria-hidden="true"><use href="#i-user"></use></svg>Client<span class="c-badge c-badge--neutral">Sans compte</span></h3>
+        <p>Il reçoit par email : l'accusé de réception avec son numéro DLG, la liste des documents manquants, les demandes de la douane, la demande de mandat, sa facture.</p>
+        <ul>
+          <li>Suit l'avancement de son dossier depuis le lien de l'email.</li>
+          <li>Télécharge les documents de ce dossier.</li>
+          <li>Envoie ses documents et ses instructions, confirmés par un code reçu par email.</li>
+          <li>Retrouve un dossier sur la page de suivi avec son N° DLG et son BL / LTA : seul l'avancement y est affiché, sans document, montant ni nom.</li>
+          <li>Ne voit jamais les autres dossiers, ni ceux des autres clients.</li>
+        </ul>
+      </div>
+      <div class="dc-card dc-profile dc-profile--ext">
+        <h3><svg class="c-icon" aria-hidden="true"><use href="#i-transport"></use></svg>Transporteur<span class="c-badge c-badge--neutral">Sans compte</span></h3>
+        <p>Il reçoit par email les offres de transport que le service transport lui adresse.</p>
+        <ul>
+          <li>Accepte ou refuse l'offre d'un clic dans l'email ; la première acceptation attribue le transport.</li>
+          <li>Indique le camion et le chauffeur, puis le chargement, le départ et la livraison, depuis le lien de son ordre de transport.</li>
+          <li>Dépose le bon de livraison signé, la lettre de voiture et les photos.</li>
+          <li>Ne voit que l'ordre de transport qui lui est attribué : ni la facture, ni les autres dossiers du client.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="dc-note">Plus tard, avec le portail : un compte pour le client et pour le transporteur, et un espace qui regroupe tous leurs dossiers ou ordres de transport. Voir le <a href="perimetre-v1.html">périmètre de la V1</a>.</p>
+  </section>
+
+  <!-- ══ 04 — Questions ══ -->
+  <section class="dc-sec">
+    <div class="dc-sec__head"><span class="n">04</span><h2>À trancher ensemble</h2></div>
+    <ol class="dc-questions">
+      <li><div><b>Un déclarant voit-il tous les dossiers, ou seulement les siens ?</b><p>Aujourd'hui, tout le monde voit tous les dossiers ; le filtre « Mes dossiers » montre les siens.</p><div class="dc-answer"></div></div></li>
+      <li><div><b>Qui peut valider un BAE ou un BAS ?</b><p>Proposition : le déclarant et le manager.</p><div class="dc-answer"></div></div></li>
+      <li><div><b>Qui peut émettre une facture ?</b><p>Proposition : le service facturation et le manager.</p><div class="dc-answer"></div></div></li>
+      <li><div><b>Qui attribue un dossier à un déclarant ?</b><p>Proposition : le manager, à l'arrivée du dossier ; il peut le confier à un autre déclarant ensuite.</p><div class="dc-answer"></div></div></li>
+      <li><div><b>Qui peut désactiver le lien d'un client ou d'un transporteur ?</b><p>Par exemple quand un email a été envoyé à la mauvaise personne.</p><div class="dc-answer"></div></div></li>
+      <li><div><b>La Direction peut-elle modifier les paramètres, ou seulement les consulter ?</b><p>Le cahier des charges lui donne un accès en consultation.</p><div class="dc-answer"></div></div></li>
+    </ol>
+  </section>
+
+  <section class="dc-sec">
+    <div class="dc-accord">
+      <div>
+        <h3>Bon pour accord</h3>
+        <p>Une fois validé, ce tableau devient la règle appliquée dans la V1 : chaque compte n'a accès qu'à ce qui est prévu pour son profil.</p>
+      </div>
+      <div class="dc-accord__sign">
+        <div><span>Nom</span><i></i></div><div><span>Date</span><i></i></div><div><span>Signature</span><i class="tall"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="dc-foot">
+    <span><b style="color:var(--text-strong)">DOUALOG</b> — Douane &amp; Logistique · Rôles et droits · version 1.0</span>
+    <img src="assets/img/logo.png" alt="DOUALOG">
+  </footer>
+</main>
+
+<script>
+(function () {
+  /* M = modifie · V = consulte · P = son profil · Q = à décider · — = pas d'accès
+     Colonnes : Déclarant, Opérateur, Transport, Facturation, Manager, Direction (maquettes, écran Paramètres) */
+  var DROITS = [
+    ['Voir la liste de tous les dossiers', 'Q', 'V', 'V', 'V', 'V', 'V'],
+    ['Informations du dossier', 'M', 'M', 'V', 'V', 'M', 'V', 'importateur, BL, conteneur, ETA…'],
+    ['Déclaration, contrôles, BAE et BAS', 'M', 'V', 'V', 'V', 'M', 'V'],
+    ['Documents des dossiers', 'M', 'M', 'V', 'V', 'M', 'V'],
+    ['Emails et messagerie', 'M', 'M', 'M', 'M', 'M', 'V'],
+    ['Ordres de transport et transporteurs', '—', 'V', 'M', '—', 'M', 'V'],
+    ['Facturation et paiements', '—', '—', '—', 'M', 'M', 'V'],
+    ['Clients et mandats', 'M', 'M', 'V', 'V', 'M', 'V'],
+    ['Attribuer un dossier à un déclarant', '—', '—', '—', '—', 'M', '—'],
+    ['Désactiver le lien d\'un client ou d\'un transporteur', 'Q', 'Q', 'Q', 'Q', 'M', '—'],
+    ['Rapports et indicateurs', '—', '—', '—', '—', 'V', 'V'],
+    ['Paramètres, utilisateurs et profils', 'P', 'P', 'P', 'P', 'M', 'Q', 'les autres profils : seulement leur profil']
+  ];
+  var lib = { M: ['m', 'Modifie'], V: ['v', 'Consulte'], P: ['p', 'Son profil'], Q: ['q', 'À décider'], '—': ['n', '—'] };
+  document.querySelector('#droits tbody').innerHTML = DROITS.map(function (l) {
+    return '<tr><td>' + l[0] + (l[7] ? '<span>' + l[7] + '</span>' : '') + '</td>' + l.slice(1, 7).map(function (v) {
+      return '<td><span class="dc-cell dc-cell--' + lib[v][0] + '">' + lib[v][1] + '</span></td>';
+    }).join('') + '</tr>';
+  }).join('');
+})();
+</script>
+</body>
+</html>
